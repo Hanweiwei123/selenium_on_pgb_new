@@ -1,0 +1,23 @@
+
+TC_007: Register -> upgrade plan (Free -> Paid)
++ <data>/base_env.rb base_url = http://loc.build.phonegap.com
++ <data>/base_env.rb browser = firefox
++ <action> initialize NewAppPage -- begin
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action> initialize NewAppPage -- end
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       dil45216+test_paid_003@adobetest.com
++ <action> Sign In with Adobe ID --- end
++ <action> New app with a zip file --- begin 
+------style---> border: 1px solid rgb(255, 16, 16); <-------------
++ <action> new_app_btn_display? YES
++ <action> private_app_no? NO
++ <action> New app with a zip file --- end 
+------style---> border: 1px solid rgb(255, 16, 16); display: none; <-------------
++ <action> new_app_btn_display? NO
++ after @driver.switch_to.default_content
+  IT_001: page does direct to 'http://creative.adobe.com' page, when select the 'Creative Cloud Membership'
+
+Finished in 2 minutes 25.8 seconds
+1 example, 0 failures

@@ -1,0 +1,24 @@
+
+TC_012: 'Account details' page
++ <data>/base_env.rb browser = firefox
++ <action><edit_account_page> initialize EditAccountPage -- begin
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action><edit_account_page> initialize EditAccountPage -- end
+  Link/Unlink Github account
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       dil45216+test_free_007@adobetest.com
++ <action> Sign In with Adobe ID --- end
+    IT_001: should link to 'http://www.adobe.com/account.html' page
+    IT_002: should link Github account successfully
+    IT_003: should link to 'https://github.com/settings/applications' page
+--------Connect a GitHub ID---------------
+    IT_004: should unlink the Github account successfully
+  Authentication Tokens
+    IT_005: should be 'no token' at first
+    IT_006: should be a different token after creating one
+    IT_007: should be a different from the last one after reseting
+    IT_008: should be 'no token' after deleting it
+
+Finished in 1 minute 45.12 seconds
+8 examples, 0 failures

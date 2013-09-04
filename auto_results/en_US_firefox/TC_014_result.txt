@@ -1,0 +1,16 @@
+
+TC_014: Edit 'private code hosting' at Edit account page
++ <data>/base_env.rb base_url = http://loc.build.phonegap.com
++ <data>/base_env.rb browser = firefox
++ <action><edit_account_page> initialize EditAccountPage -- begin
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action><edit_account_page> initialize EditAccountPage -- end
+  Private code hosting
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       dil45216+test_free_001@adobetest.com
++ <action> Sign In with Adobe ID --- end
+    IT_001: should change the username and ssh_key successfully
+
+Finished in 1 minute 15.19 seconds
+1 example, 0 failures

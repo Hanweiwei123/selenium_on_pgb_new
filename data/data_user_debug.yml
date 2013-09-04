@@ -1,0 +1,55 @@
+:global_str: "!>[~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉ҝҾӲӼͲϟϺ͵ͺͼ;΄Όήϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼ中国漢語日本ひらがなカタカナ한국어조선말"
+
+:en_US: &id001 
+    :adobe_id_free_001:
+        :id: "dil45216+test_free_001@adobetest.com"
+        :password: "password"
+    :adobe_id_free_002:
+        :id: "dil45216+test_free_002@adobetest.com"
+        :password: "password"
+    :adobe_id_free_connected_github:
+        :id: "dil45216+test_free_005@adobetest.com"
+        :password: "password"
+    :email_that_login_both: 
+        :id: "pgbtesting.005@gmail.com"
+        :password: "pgbtesting001"
+    :adobe_id_free_final_step: 
+        :id: "dil45216+test_free_finalstep@adobetest.com"
+        :password: "abcd1234"
+    :github_id_only:
+        :id: "dil45216+test_free_003@adobetest.com"
+        :password: "abcd1234"
+    :github_id_disconnected_github:
+        :id: "pgbtesting.005@gmail.com"
+        :password: "pgbtesting001"
+    :adobe_id_for_upgrade_purpose_support_area: 
+        :id: "dil45216+test_paid_003@adobetest.com"
+        :password: "password"
+    :adobe_id_for_upgrade_purpose_unsupport_area: 
+        :id: "dil45216+test_paid_001@adobetest.com"
+        :password: "password"
+    :adobe_id_paid_001:
+        :id: "dil45216+test_paid_004@adobetest.com"
+        :password: "abcd1234"
+    :ccm_acnt_001:
+        :id: "dil40562+stagedeannual@adobetest.com"
+        :password: "password"
+    :ccm_acnt_002: 
+        :id: "dil40562+teamfra1128@adobetest.com"
+        :password: "password"
+    :ccm_acnt_003:
+        :id: "dil40562+teamfrenuonly1128@adobetest.com"
+        :password: "password"
+    :invalid_user: 
+        :id: "ſЊџЛяѨ҉ҝҾ@adobe.com"
+        :password: "ÇÐäÿ×÷Ċ"
+    :invalid_email_format: 
+        :id: "ĊęĮĿōŘťſЊ"
+        :password: "ÇÐäÿ×÷Ċ"
+    :invalid_email_format_blank: 
+        :id: ""
+        :password: "ÇÐäÿ×÷Ċ"		
+:fr_FR: *id001
+
+:ja_JP: *id001
+

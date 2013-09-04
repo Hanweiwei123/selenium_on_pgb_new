@@ -1,0 +1,48 @@
+
+TC_003: Register -> create an Adobe ID with provided email
++ <data>/base_env.rb base_url = http://loc.build.phonegap.com
++ <data>/base_env.rb browser = firefox
++ <action> RegisterPage#initialize 
++ <action>/RegisterPage#make_sure_plans_page
++ <action>/RegisterPage#choose_your_plan :free_plan
++ <action>/RegisterPage#choose_how_to_sign_in :register_adobeid
++ <action> enter_register_information --- begin
++ <action> enter_register_information --- end
+  IT_001: Got an error message with invalid Adobe ID (Email Address)
++ <action> enter_register_information --- begin
++ <action> enter_register_information --- end
+  IT_002: Got an error message with unmatched password
++ <action> enter_register_information --- begin
++ <action> enter_register_information --- end
+  IT_003: Got an error message with invalid First Name
++ <action> enter_register_information --- begin
++ <action> enter_register_information --- end
+  IT_004: Got an error message with invalid Last Name
++ <action> enter_register_information --- begin
++ <action> enter_register_information --- end
+  IT_005: Got an error message without a country selected
++ <action> enter_register_information --- begin
++ <action> enter_register_information --- end
++ <action>/RegisterPage#have_read_and_agree 
++ <lib><webdriver_helper> OS: Mac OSX
++ <lib><webdriver_helper> OS: Mac OSX
++ <lib><webdriver_helper> save screenshots to ./auto_results/en_US_firefox/screenshots/TC_003_IT_6.png
+  IT_006: page direct to '/apps' page after successfully new Adobe ID was created with valid appropriate email and password (FAILED - 1)
+
+Failures:
+
+  1) TC_003: Register -> create an Adobe ID with provided email IT_006: page direct to '/apps' page after successfully new Adobe ID was created with valid appropriate email and password
+     Failure/Error: @driver.current_url.should eql @base_url + $data[:url][:sign_in_successfully]
+       
+       expected: "http://loc.build.phonegap.com/apps"
+            got: "http://loc.build.phonegap.com/people/redirect?redirect=%2Fapps"
+       
+       (compared using eql?)
+     # ./testcase/TC_003_register_create_adobe_id_spec.rb:110:in `block (2 levels) in <top (required)>'
+
+Finished in 1 minute 57.68 seconds
+6 examples, 1 failure
+
+Failed examples:
+
+rspec ./testcase/TC_003_register_create_adobe_id_spec.rb:100 # TC_003: Register -> create an Adobe ID with provided email IT_006: page direct to '/apps' page after successfully new Adobe ID was created with valid appropriate email and password

@@ -1,0 +1,38 @@
+
+TC_005: Register an free plan account with Github ID
++ <data>/base_env.rb browser = firefox
++ <lib><webdriver_helper> OS: Mac OSX
++ <lib><webdriver_helper> OS: Mac OSX
++ <lib><webdriver_helper> save screenshots to ./auto_results/en_US_firefox/screenshots/TC_005_IT_1.png
+  IT_001: direct to '/apps' page when sign in successfully with github id(which is connected to pgb), (FAILED - 1)
++ <data>/base_env.rb browser = firefox
+  IT_002: Got an error message('Existing Registration Found') when use account that can log in both.
++ <data>/base_env.rb browser = firefox
+  IT_003: Got an error message when proceed without selecting a country
++ <data>/base_env.rb browser = firefox
+  IT_004: Got an error message when proceed without agree to the terms of service
++ <data>/base_env.rb browser = firefox
+  IT_005: page direct to '/apps' after sign in successfully with valid appropriate account .
+
+An error occurred in an after(:all) hook.
+  NoMethodError: undefined method `find_element' for nil:NilClass
+  occurred at /Users/scott/Desktop/selenium_on_pgb_new/util/dialog_locator/header_footer_locator.rb:6:in `block in <module:HeaderFooterLocator>'
+
+
+Failures:
+
+  1) TC_005: Register an free plan account with Github ID IT_001: direct to '/apps' page when sign in successfully with github id(which is connected to pgb), 
+     Failure/Error: @driver.current_url.should eql @base_url + $data[:url][:sign_in_successfully]
+       
+       expected: "https://buildstage.phonegap.com/apps"
+            got: "https://buildstage.phonegap.com/people/link"
+       
+       (compared using eql?)
+     # ./testcase/TC_005_register_free_plan_with_github_id_spec.rb:61:in `block (2 levels) in <top (required)>'
+
+Finished in 5 minutes 35 seconds
+5 examples, 1 failure
+
+Failed examples:
+
+rspec ./testcase/TC_005_register_free_plan_with_github_id_spec.rb:56 # TC_005: Register an free plan account with Github ID IT_001: direct to '/apps' page when sign in successfully with github id(which is connected to pgb), 

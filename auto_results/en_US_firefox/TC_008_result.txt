@@ -1,0 +1,38 @@
+
+TC_008: Sign in
++ <data>/base_env.rb base_url = http://loc.build.phonegap.com
++ <data>/base_env.rb browser = firefox
+  --- with GitHub ID
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action> sign_in_with_Github_ID --- begin
++ <action> with id: dil45216+test_free_003@adobetest.com
++ <action> sign_in_with_Github_ID --- end
+    IT_001: Sign in successfully when use valid appropriate account
+  --- with Adobe ID
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       dil45216+test_free_001@adobetest.com
++ <action> Sign In with Adobe ID --- end
+    IT_002: Sign in successfully when use valid appropriate account
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       ſЊџЛяѨ҉ҝҾ@adobe.com
++ <action> Sign In with Adobe ID --- end
+    IT_003: Got an error message when use invalid email or password
+  --- I forgot my password
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action> forget_password --- begin
++ <action> forget_password --- end
+    IT_004: Got an tip message about instruments when use valid email address
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action> forget_password --- begin
++ <action> forget_password --- end
+    IT_005: Got an error message when use invalid email address
+
+Finished in 2 minutes 34.6 seconds
+5 examples, 0 failures

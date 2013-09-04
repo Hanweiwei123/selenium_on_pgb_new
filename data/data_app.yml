@@ -1,0 +1,21 @@
+:new_app: 
+    :by_zip:  ../assets/application/anotherあ你äōҾӲ.zip
+    :by_zip_demo: .\/anotherあ你äōҾӲ.zip
+    :by_html: ../assets/application/index.html
+    :by_repo: "https://github.com/YanShuai-Dilato/phonegap-start.git"
+:expected_app_by_zip: 
+    :title: "PG Build App"
+    :description: "no description"
+    :version: "n_a"
+    :source: ".zip package"
+:expected_app_by_repo:
+    :title: "Hi there, Im the title"
+    :description: "Im the description."
+    :version: "99.99"
+    :source: "https://github.com/YanShuai-Dilato/phonegap-start.git"
+:app_detail:
+    :title: "!>[~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉ҝҾӲӼͲϟϺ͵ͺͼ;΄Όήϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你"
+    :desc: Description~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉
+    :icon: ../assets/application/亜印gっをげwにwpw声wんw儀栄wペイ儀絵印rgるう.jpg
+    :package: pkgéè儀絵印んずぐ
+    :version: 99.9儀絵印ん

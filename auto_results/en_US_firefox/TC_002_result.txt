@@ -1,0 +1,39 @@
+
+TC_002: New apps with paid account
++ <data>/base_env.rb base_url = http://loc.build.phonegap.com
++ <data>/base_env.rb browser = firefox
++ <action> initialize NewAppPage -- begin
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action> initialize NewAppPage -- end
++ <action> New app with a zip file --- begin 
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       dil45216+test_paid_004@adobetest.com
++ <action> Sign In with Adobe ID --- end
+------style---> display: none; border: 1px solid rgb(255, 16, 16); <-------------
++ <action> new_app_btn_display? NO
++ <action> private_app_no? YES
++ <lib><webdriver_helper> OS: Mac OSX
++ <action> New app with a zip file --- end 
++ <action> existing_app_num: 1
++app_count_after: 1
++first_app_id_after: 5031
+  IT_001: the number of apps did not equal to 0 after creating an private app by uploading a .zip file
++ <action> existing_app_num: 1
++app_count_before: 1
++first_app_id_before: 5031
++ <action> New app with a zip file --- begin 
+------style---> border: 1px solid rgb(255, 16, 16); <-------------
++ <action> new_app_btn_display? YES
++ <action> private_app_no? YES
++ <lib><webdriver_helper> OS: Mac OSX
++ <action> New app with a zip file --- end 
++ <action> existing_app_num: 2
++app_count_after: 2
++first_app_id_after: 5032
+  IT_002: the number of apps did not stay the same after creating the second private app
+{"success":"app 5031 deleted"}
+{"success":"app 5032 deleted"}
+
+Finished in 2 minutes 28 seconds
+2 examples, 0 failures

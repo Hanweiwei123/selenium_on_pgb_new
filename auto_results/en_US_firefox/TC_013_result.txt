@@ -1,0 +1,31 @@
+
+TC_013: User sign in/out and account delete
++ <data>/base_env.rb base_url = http://loc.build.phonegap.com
++ <data>/base_env.rb browser = firefox
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
+  User sign in/out
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       dil45216+test_free_001@adobetest.com
++ <action> Sign In with Adobe ID --- end
+    IT_001: should sign-in successfully
+    IT_002: should sign out successfully
+  Danger Zone
++ <action><edit_account_page> initialize EditAccountPage -- begin
++ <action> initialize SignInPage --- begin
++ <action> initialize SignInPage --- end
++ <action><edit_account_page> initialize EditAccountPage -- end
++ <action> Sign In with Adobe ID --- begin
++ <action>     id:       dil45216+test_free_001@adobetest.com
++ <action> Sign In with Adobe ID --- end
++ after executing script
++ user account dil45216+test_free_001@adobetest.com deleted
+    IT_003: should match to localized 'account-delete-notice'
+
+An error occurred in an after(:all) hook.
+  RuntimeError: Sorry we do have create_your_account_page page
+  occurred at /Users/scott/Desktop/selenium_on_pgb_new/util/webdriver_helper.rb:155:in `go_to_page'
+
+
+Finished in 1 minute 9.53 seconds
+3 examples, 0 failures
