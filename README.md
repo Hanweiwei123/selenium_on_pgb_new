@@ -138,21 +138,20 @@ https://www.dropbox.com/s/fd9cvodechaj26l/selenium_Logical_view_Draft.png
 ### Test cases 
 
 
-    TC_001_new_app_free_account_rspec.rb
-    TC_002_new_app_paid_account_rspec.rb
-    TC_003_register_create_adobe_id_rspec.rb
-    TC_004_register_free_plan_with_adobe_id_rspec.rb
-    TC_005_register_free_plan_with_github_id_rspec.rb
-    TC_006_register_paid_ccm_rspec.rb
-    TC_007_register_upgrade_plan_rspec.rb
-    TC_008_sign_in_rspec.rb
-    TC_009_signing_key_add_unlock_delete_rspec.rb
-    TC_010_signing_key_add_and_build_rspec.rb
-    TC_011_plugins_before_sign_in_rspec.rb    
-    TC_012_plugins_after_sign_in_rspec.rb
-    TC_013_account_detail_rspec.rb
-    TC_014_account_sign_delete_rspec.rb
-    TC_015_account_edit_private_code_hosting_rspec.rb
+    TC_002_new_app_paid_account_spec.rb
+    TC_003_register_create_adobe_id_spec.rb
+    TC_004_register_free_plan_with_adobe_id_spec.rb
+    TC_005_register_free_plan_with_github_id_spec.rb
+    TC_006_register_paid_ccm_spec.rb
+    TC_007_register_upgrade_plan_spec.rb
+    TC_008_sign_in_spec.rb
+    TC_009_signing_key_add_unlock_delete_spec.rb
+    TC_010_plugins_before_sign_in_spec.rb
+    TC_011_plugins_after_sign_in_spec.rb
+    TC_012_account_detail_spec.rb
+    TC_013_account_sign_delete_spec.rb
+    TC_014_account_edit_private_code_hosting_spec.rb
+
 
 
 
