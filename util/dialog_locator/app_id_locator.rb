@@ -17,5 +17,6 @@ module AppIdLocator
   def settings(arg)
     @driver.find_element(:xpath => $data[:xpath][:app_settings_page][arg])
   end
+
 end
 
