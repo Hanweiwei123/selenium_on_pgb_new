@@ -89,13 +89,11 @@ class NewAppPage
 
         sleep 5
         if new_app_btn_display?
-            new_app_locator(:new_app_btn).click
-            sleep 2
-            new_app_locator(:private_repo_tab).click
-            sleep 2
+            new_app_locator(:new_app_btn).click;  sleep 2
         end
-        
-        sleep 3
+
+        new_app_locator(:private_repo_tab).click;  sleep 2
+
         if private_app_no?
             puts "+ <action> New app with a zip file --- end "
             return false
@@ -107,7 +105,7 @@ class NewAppPage
         os = win_or_mac
         if os == 'mac' 
             # new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../../assets/application/anotherあ你äōҾӲ.zip",__FILE__))
-            new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../../assets/application/index.html",__FILE__))
+            new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/index.html",__FILE__))
         elsif os == 'win'
             # new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\www.zip"
             new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\index.html"
