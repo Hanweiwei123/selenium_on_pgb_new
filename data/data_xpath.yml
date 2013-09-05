@@ -115,12 +115,12 @@
 :app_id_page:
     :title: //*[@id="app-detail"]/section[1]/h1
     :description: //*[@id="app-detail"]/section[1]/div
-    :update_code_btn: //*[@id="app-detail"]/section[1]/footer/span[1]/a
-    :rebuild_all_btn: //*[@id="app-detail"]/section[1]/footer/a[1]
+    :update_code_btn: //*[@id="app-detail"]/section/footer/span/a
+    :rebuild_all_btn: //*[@id="app-detail"]/section/footer/a
     :debug_btn: //*[@id="debug-server-bad"]
-    :hydration_btn: //*[@id="app-detail"]/section[1]/footer/a[2]
-    :install_btn: //*[@id="app-detail"]/section[1]/section/a[2]
-    :share_btn: //*[@id="app-detail"]/section[1]/section/a[1]
+    :hydration_btn: //*[@id="app-detail"]/section/footer/a[2]
+    :install_btn: //*[@id="app-detail"]/section/section/a[2]
+    :share_btn: //*[@id="app-detail"]/section/section/a[1]
     :install:
         :android_download_btn: //*[@id="install"]/div/div[1]/a
         :webos_download_btn: //*[@id="install"]/div/div[2]/a
@@ -223,9 +223,23 @@
     :first_collaborator_confirm: /html/body/section/div/article/div[2]/div[2]/div/ul/li/form/button[2]
 :app_settings_page:
     :tab: //*[@id="app-detail-controls"]/nav/a[3]
-    :basic_:
-    :config_:
-    :danger_zone_:
+    :basic_title: //*[@id='app-settings']/div/form/header/h1
+    :basic_source_code_browse_btn: //*[@id='app-settings']/div/form/fieldset/dl/dd/input
+    :basic_source_code_upload_btn: //*[@id='app-settings']/div/form/fieldset/dl/dd/button
+    :basic_settings_enable_debugging: //*[@id="debugging"]
+    :basic_settings_enable_hydration: //*[@id="app_hydrates"]
+    :basic_settigns_only_approved_colla: //*[@id="app_private"]
+    :basic_save_btn: //*[@id='app-settings']/div/form/footer/input
+    :config_title: //*[@id='app-settings']/div/form[2]/header/h1
+    :config_app_icon_file: //*[@id="app_icon_file"]
+    :config_app_title: //*[@id="app_title"]
+    :config_app_package: //*[@id="app_package"]
+    :config_app_version: //*[@id="app_version"]
+    :config_app_phonegap_version: //*[@id="app_phonegap_version"]
+    :config_app_desc: //*[@id="app_desc"]
+    :config_save_btn: //*[@id='app-settings']/div/form[2]/footer/input
+    :danger_zone_title: //*[@id='app-settings']/div/section/form/header/h1
+    :danger_zone_delete_app_btn: //*[@id="delete-app"]
 :edit_account_page:
     :acntdetails:
         :account_details_tab: //*[@id="people-edit-controls"]/nav/a[1]
