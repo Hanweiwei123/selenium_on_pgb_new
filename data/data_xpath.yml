@@ -108,7 +108,7 @@
     :upgrade_now_link: //*[@id="new-app"]/form/div[2]/p/a
     :close_link: //*[@id='new-app']/form/div[1]/a[3]
     :ready_to_build_btn: /html/body/section/div/div/section[3]/article/footer/a
-    :clickable_app_title: /html/body/section/div/div/section[4]/article/section/a/h1
+    :clickable_app_title: //*[@id='apps-list']/article/section/a/h1
     :rebuild_all_btn: //*[@id="app-detail"]/section/footer/a
     :collaborators_tab: /html/body/section/div/article/div[2]/section/nav/a[2]
     :settings_tab: /html/body/section/div/article/div[2]/section/nav/a[3]
