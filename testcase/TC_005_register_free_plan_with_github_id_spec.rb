@@ -73,6 +73,12 @@ describe "TC_005: Register an free plan account with Github ID" do
         fill_in register_locator(:github_login_username_input), :with => $data[:user][$lang][:adobe_id_free_final_step][:id]
         fill_in register_locator(:github_login_password_input), :with => $data[:user][$lang][:adobe_id_free_final_step][:password]
         register_locator(:github_login_submit_btn).click; sleep 5
+        @current_url = @driver.current_url
+        puts "+<current_url> is #{@current_url}"
+        if(@current_url.include? "https://github.com/login/oauth/")
+          register_locator(:github_allow_access_btn).click
+          sleep 3
+        end
         register_locator(:github_accept_the_adobe_terms).click
         register_locator(:github_complete_my_registration).click; sleep 3
         register_locator(:github_warning_message).text.should eql $data[:str][$lang][:PGB_alert_you_must_select_a_country]
