@@ -63,7 +63,7 @@ describe "TC_013: User sign in/out and account delete" do
 
 
     after(:all) do  # recover the deleted account
-      go_to_page :create_your_account_page
+      go_to_page :free_plan
       register_locator(:adobe_id_btn).click
       @driver.switch_to.frame(0)
       fill_in register_locator(:adobe_id_frame_adobe_id_input),:with => $data[:user][$lang][:adobe_id_free_001][:id]
