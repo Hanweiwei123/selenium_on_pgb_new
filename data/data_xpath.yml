@@ -63,6 +63,7 @@
     :github_login_username_input: //*[@id="login"]/form/div[3]/input[1]
     :github_login_password_input: //*[@id="login"]/form/div[3]/input[2]
     :github_login_submit_btn: //*[@id="login"]/form/div[3]/input[4]
+    :github_allow_access_btn: //button[@class="button primary"]
     :github_select_a_country: //*[@id="country"]
     :github_accept_the_adobe_terms: //*[@id="accept_terms"]
     :github_complete_my_registration: //*[@id="github-registration-completion"]/footer/input
