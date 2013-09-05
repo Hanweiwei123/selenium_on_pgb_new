@@ -151,6 +151,12 @@ https://www.dropbox.com/s/fd9cvodechaj26l/selenium_Logical_view_Draft.png
     TC_012_account_detail_spec.rb
     TC_013_account_sign_delete_spec.rb
     TC_014_account_edit_private_code_hosting_spec.rb
+    TC_015_app_id_builds_spec.rb
+    TC_016_app_id_collaborators_spec.rb
+    TC_017_app_id_settings_spec.rb
+    TC_018_app_id_download_spec.rb
+    TC_019_app_id_abuse_spec.rb
+
 
 
 
