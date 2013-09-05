@@ -24,17 +24,6 @@ describe "TC_005: Register an free plan account with Github ID" do
         @base_url = "https://buildstage.phonegap.com"
     end
 
-    after(:all) do 
-        begin
-            go_to_page_edit_account
-            @driver.execute_script("document.getElementById('delete-account').style['display'] = 'block'")
-            @driver.find_element(:xpath => "//*[@id='delete-account']/section/fieldset/a").click  
-            @driver.switch_to.alert.accept
-        ensure
-            
-        end
-    end
-
     before(:each) do 
         @driver = driver
 		@driver.manage.window.maximize
@@ -111,6 +100,14 @@ describe "TC_005: Register an free plan account with Github ID" do
         register_locator(:github_accept_the_adobe_terms).click
         register_locator(:github_complete_my_registration).click; sleep 10
         @driver.current_url.should eql @base_url + $data[:url][:sign_in_successfully]
+        
+        #delete the account
+        puts "+<delete account>delete account is begin"
+        go_to_page_edit_account
+        @driver.execute_script("document.getElementById('delete-account').style['display'] = 'block'")
+        @driver.find_element(:xpath => "//*[@id='delete-account']/section/fieldset/a").click
+        @driver.switch_to.alert.accept
+        puts "+<delete account>delete account is end"
     end
 
 end
