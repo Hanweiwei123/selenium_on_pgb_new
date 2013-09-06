@@ -25,9 +25,6 @@ GEM
       websocket (~> 1.0.4)
     websocket (1.0.7)
 
-PLATFORMS
-  x86-mingw32
-
 DEPENDENCIES
   rest-client
   rspec
