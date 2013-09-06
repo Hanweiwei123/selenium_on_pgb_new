@@ -79,7 +79,7 @@ describe "TC_016: App Details #Collaborators" do
 
       # change_element_type_by_name :name => "email", :to_type => "text"
       # puts "+ <> after 'change_element_type_by_name'"
-      @app_collaborators_page.add_a_collaborator(@invalid_email,'tester')
+      @app_collaborators_page.add_a_collaborator(@invalid_email, $data[:str][$lang][:role_tester])
       
       @driver.current_url.should =~ /.*collaborators/
 
@@ -89,7 +89,7 @@ describe "TC_016: App Details #Collaborators" do
 
     it "IT_002: should be one role_tester in the list" do
       sleep 5
-      @app_collaborators_page.add_a_collaborator(@valid_email, 'tester')
+      @app_collaborators_page.add_a_collaborator(@valid_email, $data[:str][$lang][:role_tester])
       sleep 3
       @driver.current_url.should =~ /.*collaborators/
 
