@@ -10,6 +10,11 @@ module WebdriverHelper
         locator.clear
         locator.send_keys(with)
     end
+    
+    def let_it_checked(element)
+        raise "This element is not of checkbox type" unless element.attribute('type').to_s == 'checkbox' # type="checkbox"
+        element.click if "" == element.attribute('checked').to_s
+    end
 
     # highlight-element suggested by https://gist.github.com/marciomazza/3086536
     def highlight_and_return field
