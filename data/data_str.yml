@@ -64,6 +64,9 @@
     :builds_options: "options"
     :builds_no_key: "No key selected" 
     :builds_new_key: "add a key ..."
+    :app_id_settings_basic_title: "Basic"
+    :app_id_settings_configuration_title: "Configuration"
+    :app_id_settings_danger_zone_title: "Danger Zone"
 :fr_FR:
     :not_found_in_database: "Adresse électronique ou mot de passe incorrects."
     :PGB_email_not_found: "1 erreur : Email introuvable"
@@ -130,6 +133,9 @@
     :builds_options: "options"
     :builds_no_key: "Aucune clé sélectionnée"
     :builds_new_key: "ajouter une clé..."
+    :app_id_settings_basic_title: "De base"
+    :app_id_settings_configuration_title: "Configuration"
+    :app_id_settings_danger_zone_title: "Zone dangereuse"
 :ja_JP:
     :not_found_in_database: "電子メールアドレスまたはパスワードが無効です。"
     :PGB_email_not_found: "1 件のエラー :電子メールが見つかりません"
@@ -196,4 +202,7 @@
     :builds_options: "オプション"
     :builds_no_key: "キーの選択なし"
     :builds_new_key: "キーを追加..."
+    :app_id_settings_basic_title: "基本"
+    :app_id_settings_configuration_title: "設定"
+    :app_id_settings_danger_zone_title: "注意を要する操作"
     :no_meaning_just_placeholder: "xxx"
