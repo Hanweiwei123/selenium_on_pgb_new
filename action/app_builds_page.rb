@@ -31,8 +31,8 @@ class AppBuildsPage
     def ios_add_signing_key
         ios_signing_key_title_input.send_keys "abc" + @data_signing_key[:ios][:name_valid]
         if @os == "win" 
-            ios_signing_key_choose_cert_btn.send_keys("C:\\signing_key\\ios\\LichuanIQEKey.p12")
-            ios_signing_key_choose_prov_btn.send_keys("C:\\signing_key\\ios\\Lichuanlu.mobileprovision")
+            ios_signing_key_choose_cert_btn.send_keys("C:\\assets\\signing_key\\ios\\LichuanIQEKey.p12")
+            ios_signing_key_choose_prov_btn.send_keys("C:\\assets\\signing_key\\ios\\Lichuanlu.mobileprovision")
         else
             ios_signing_key_choose_cert_btn.send_keys File.expand_path(@data_signing_key[:ios][:valid][:cert],__FILE__)
             ios_signing_key_choose_prov_btn.send_keys File.expand_path(@data_signing_key[:ios][:valid][:profile],__FILE__)
@@ -84,7 +84,7 @@ class AppBuildsPage
         android_signing_key_title_input.send_keys "abc" + @data_signing_key[:android][:name_valid]
         android_signing_key_alias.send_keys @data_signing_key[:android][:name_valid]
         if @os == "win" 
-            android_signing_key_choose_keystore_btn.send_keys("C:\\signing_key\\android\\android-dilato.keystore")
+            android_signing_key_choose_keystore_btn.send_keys("C:\\assets\\signing_key\\android\\android-dilato.keystore")
         else
             android_signing_key_choose_keystore_btn.send_keys File.expand_path(@data_signing_key[:android][:valid][:keystore],__FILE__)
         end
@@ -133,8 +133,8 @@ class AppBuildsPage
     def blackberry_add_signing_key
         blackberry_signing_key_title_input.send_keys "abc" + @data_signing_key[:blackberry][:name_valid]
         if @os == "win" 
-            blackberry_signing_key_choose_csk_btn.send_keys("C:\\signing_key\\blackberry\\barsigner.csk")
-            blackberry_signing_key_choose_db_btn.send_keys("C:\\signing_key\\blackberry\\barsigner.db")
+            blackberry_signing_key_choose_csk_btn.send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.csk")
+            blackberry_signing_key_choose_db_btn.send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.db")
         else
             blackberry_signing_key_choose_csk_btn.send_keys File.expand_path(@data_signing_key[:blackberry][:valid][:csk],__FILE__)
             blackberry_signing_key_choose_db_btn.send_keys File.expand_path(@data_signing_key[:blackberry][:valid][:db],__FILE__)
