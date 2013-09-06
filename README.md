@@ -17,9 +17,8 @@ The project automates the I18N testing on PhonegapBuild website, using RSpec, wi
 
 2, Install RSpec, Selenium-WebDriver, and rake packages with gem
 
-    $ gem install rspec
-    $ gem install selenium-webdriver
-    $ gem install rest-client
+    $ gem install bundle
+    $ bundle
     
 3, Install Chromedirver if you will use chrome broswer
 
