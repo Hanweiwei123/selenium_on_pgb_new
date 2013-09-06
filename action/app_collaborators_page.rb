@@ -33,9 +33,9 @@ class AppCollaboratorsPage
   def add_a_collaborator(email, role)
     collaborators(:email_address_input).clear
     collaborators(:email_address_input).send_keys email
-    if ['test', 'tester', 'reader'].include?(role.downcase)
+    if role==$data[:str][$lang][:role_tester]
       collaborators(:role_reader_radio_btn).click
-    elsif ['writer', 'dev','developer'].include?(role.downcase)
+    elsif role==$data[:str][$lang][:role_developer]
       collaborators(:role_writer_radio_btn).click
     else
       puts "please check the role of collaborator ."
@@ -46,9 +46,9 @@ class AppCollaboratorsPage
   def edit_change_role(email, role)
     #                             //ul/li[h3[contains(text(),"phonegap_plugin@126.com")]/small[contains(text(),"Testeur")]]/div/a
     @driver.find_element(:xpath => "//ul/li[h3[contains(text(),'#{email}')]/small[contains(text(),'#{role}')]]/div/a").click
-    if ['test', 'tester', 'reader'].include?(role.downcase)
+    if role==$data[:str][$lang][:role_tester]
       @driver.find_element(:xpath => "//ul/li[h3[contains(text(),'#{email}')]/small[contains(text(),'#{role}')]]/form/label[2]/input").click
-    elsif ['writer', 'dev','developer'].include?(role.downcase)
+    elsif role==$data[:str][$lang][:role_developer]
       @driver.find_element(:xpath => "//ul/li[h3[contains(text(),'#{email}')]/small[contains(text(),'#{role}')]]/form/label/input").click
     else
       puts "please check the role of collaborator ."
