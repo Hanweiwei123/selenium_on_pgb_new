@@ -51,7 +51,7 @@ describe "TC_017: App Details #Collaborators" do
     #it "should create an app successfully" do
     before(:all) do
       # @driver.navigate.refresh;  sleep 10
-      new_app_locator(:ready_to_build_btn).click;  sleep 5
+      new_app_locator(:ready_to_build_btn).click;  
       @driver.navigate.refresh;  sleep 10
       @driver.get @driver.current_url + "\/#{@app_id}\/builds"
       sleep 5
@@ -63,7 +63,14 @@ describe "TC_017: App Details #Collaborators" do
       sleep 10
     end
 
-    it "IT_001: Those checkboxes should work well " do 
+    it "IT_001: the h1 title should be localized" do 
+
+      settings(:tab).click; sleep 5
+      settings(:basic_title).text.should eql $data[:str][$lang][:app_id_settings_basic_title]
+    end
+
+    it "IT_002: Those checkboxes should work well " do 
+
       settings(:tab).click; sleep 5
       let_it_checked settings(:basic_settings_enable_debugging)
       let_it_checked settings(:basic_settings_enable_hydration)
@@ -88,7 +95,13 @@ describe "TC_017: App Details #Collaborators" do
       settings(:tab).click
     end
 
-    it "IT_002: those input box should work well" do 
+    it "IT_003: the title should be localized" do 
+
+      settings(:config_title).text.to_s.should eql $data[:str][$lang][:app_id_settings_configuration_title]
+    end
+
+    it "IT_004: those input box should work well" do 
+
       fill_in settings(:config_app_title), :with => $data[:app][:app_detail][:title]
       fill_in settings(:config_app_package), :with => $data[:app][:app_detail][:package]
       fill_in settings(:config_app_version), :with => $data[:app][:app_detail][:version]
@@ -114,6 +127,26 @@ describe "TC_017: App Details #Collaborators" do
         end
       end
       settings(:config_app_desc).attribute('value').should eql $data[:app][:app_detail][:desc]
+    end
+
+  end
+
+  context "---  App ID -> Settings(Danger Zone)  ---" do 
+    before do  
+      @driver.navigate.refresh;  sleep 5
+      settings(:tab).click
+    end
+
+    it "IT_005: the title should be localized" do 
+
+      settings(:danger_zone_title).text.to_s.should eql $data[:str][$lang][:app_id_settings_danger_zone_title]
+    end
+
+    it "IT_006: should delete the app successfully" do 
+
+      settings(:danger_zone_delete_app_btn).click 
+      @driver.switch_to.alert.accept;  sleep 10
+      @driver.current_url.should =~ /.*apps$/ 
     end
 
   end
