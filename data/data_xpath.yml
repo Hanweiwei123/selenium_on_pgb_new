@@ -122,15 +122,13 @@
     :hydration_btn: //*[@id="app-detail"]/section[1]/footer/a[2]
     :install_btn: //*[@id="app-detail"]/section[1]/section/a[2]
     :share_btn: //*[@id="app-detail"]/section[1]/section/a[1]
-    :install:
-        :android_download_btn: //*[@id="install"]/div/div[1]/a
-        :webos_download_btn: //*[@id="install"]/div/div[2]/a
-        :symbian_download_btn: //*[@id="install"]/div/div[3]/a
-        :winphone_download_btn: //*[@id="install"]/div/div[4]/a
-        :hydration_download_btn: //*[@id="install"]/div/div[5]/a
-        :blackberry_download_btn: 
-    :share:
-        report_abuse_link: //*[@id="app-header"]/a[2]
+    :install_android_download_btn: //*[@id="install"]/div/div[1]/a
+    :install_webos_download_btn: //*[@id="install"]/div/div[2]/a
+    :install_symbian_download_btn: //*[@id="install"]/div/div[3]/a
+    :install_winphone_download_btn: //*[@id="install"]/div/div[4]/a
+    :install_hydration_download_btn: //*[@id="install"]/div/div[5]/a
+    :install_blackberry_download_btn:
+    :share_report_abuse_link: //*[@id="app-header"]/a[2]
 :app_builds_page:
     :app_id_label: //*[@id="app-builds"]/div[1]/dl[1]/dt
     :app_id_value: //*[@id="app-builds"]/div[1]/dl[1]/dd
