@@ -68,7 +68,6 @@ describe "TC_012: 'Account details' page" do
       ea_account_details(:unlink_github_id_btn).click
       @driver.switch_to.alert.accept
       sleep 10
-      puts "--------"+ea_account_details(:connect_a_github_id_btn).text+"---------------"
       ea_account_details(:connect_a_github_id_btn).text.should eql $data[:str][$lang][:edit_account_connect_a_github_id]
     end
   end
@@ -78,6 +77,7 @@ describe "TC_012: 'Account details' page" do
 
     it "IT_005: should be 'no token' at first" do 
 
+      sleep 3
       @current_token = ea_account_details(:token_text).attribute('value')
       @current_token.should eql $data[:str][$lang][:ad_no_token]
     end
