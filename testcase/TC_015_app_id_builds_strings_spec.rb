@@ -92,6 +92,7 @@ describe "TC_015: App Details #Builds" do
         puts "Exception: "
         puts ex.backtrace
         puts caller[0]
+        1.should_not eql 1
       end
     end
 
@@ -116,6 +117,7 @@ describe "TC_015: App Details #Builds" do
         puts "Exception: "
         puts ex.backtrace
         puts caller[0]
+        1.should_not eql 1
       end
     end
 
@@ -136,6 +138,7 @@ describe "TC_015: App Details #Builds" do
         puts "Exception: "
         puts ex.backtrace
         puts caller[0]
+        1.should_not eql 1
       end
     end
 
@@ -159,6 +162,7 @@ describe "TC_015: App Details #Builds" do
         puts "Exception: "
         puts ex.backtrace
         puts caller[0]
+        1.should_not eql 1
       end
     end
 
@@ -178,6 +182,7 @@ describe "TC_015: App Details #Builds" do
         puts "Exception: "
         puts ex.backtrace
         puts caller[0]
+        1.should_not eql 1
       end
     end
 
@@ -197,6 +202,7 @@ describe "TC_015: App Details #Builds" do
         puts "Exception: "
         puts ex.backtrace
         puts caller[0]
+        1.should_not eql 1
       end
     end
 
