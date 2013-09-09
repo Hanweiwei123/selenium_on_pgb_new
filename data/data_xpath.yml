@@ -149,7 +149,8 @@
     :ios_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[1]
     :ios_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[2]
     :ios_rebuild:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/span/a
-    :ios_msg:       //*[@id="ios_msg"]/a
+    :ios_msg:       //*[@id="ios_msg"]
+    :ios_msg_link:  //*[@id="ios_msg"]/a
     :ios_dropdown_select: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div/div/select
     :ios_title_input: //*[@id="key_title"]
     :ios_choose_cert_btn: //*[@id="key_cert_file"]
