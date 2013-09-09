@@ -30,7 +30,10 @@ describe "TC_015: App Details #Builds" do
                                    :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
     @new_app_page.new_app_with_zip;  sleep 15
     @app_id = @new_app_page.first_app_id
-    
+    new_app_locator(:ready_to_build_btn).click;  sleep 10
+    @driver.get "#{@base_url}\/apps\/#{@app_id}\/builds"
+    @current_url = @driver.current_url
+    puts "+<current_url> is #{@current_url}"; sleep 10
   end
 
   after(:all) do 
@@ -50,12 +53,7 @@ describe "TC_015: App Details #Builds" do
 
   context "Check strings of 'Builds' tab" do 
 
-    before do 
-      new_app_locator(:ready_to_build_btn).click;  sleep 10
-      @driver.get "#{@base_url}\/apps\/#{@app_id}\/builds" 
-      @current_url = @driver.current_url
-      puts "+<current_url> is #{@current_url}"
-      sleep 10
+    before(:each) do
       builds(:tab).click; sleep 5
     end
 
@@ -68,134 +66,140 @@ describe "TC_015: App Details #Builds" do
       builds(:source_label).text.should eql   $data[:str][$lang][:builds_source_label]
     end
 
-    it "IT_002: should match to localized strings: >> iOS <<" do 
-
-      begin 
-        timeout(60) {
-          while @data_str[$lang][:builds_action_pending] == builds(:ios_action).text do 
+    it "IT_002: should match to localized strings: >> iOS <<" do
+      begin
+        timeout(120) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
             @driver.navigate.refresh
             sleep 5
-            puts "+ action: " + builds(:ios_action).text 
+            puts "+ action: " + builds(:android_action).text
           end
           break
         }
-        puts "+ iOS action: " + builds(:ios_action).text
-        puts "+ iOS message: " + builds(:ios_msg).text
-        builds(:ios_rebuild).text.should  eql @data_str[$lang][:builds_rebuild]
-        builds(:ios_label).text.should    eql @data_str[$lang][:builds_label]
-        builds(:ios_options).attribute('label').should  eql @data_str[$lang][:builds_options]
-        builds(:ios_no_key).text.should   eql @data_str[$lang][:builds_no_key]
-        builds(:ios_new_key).text.should  eql @data_str[$lang][:builds_new_key]
+        text=builds(:ios_action).text
+        puts "+ iOS action: " + text
+        if (text ==$data[:str][$lang][:builds_action_error])
+          builds(:ios_action).click
+          puts "+ iOS message: " + builds(:ios_msg).text
+        end
+        builds(:ios_rebuild).text.should  eql $data[:str][$lang][:builds_rebuild]
+        builds(:ios_label).text.should    eql $data[:str][$lang][:builds_label]
+        builds(:ios_options).attribute('label').should  eql $data[:str][$lang][:builds_options]
+        builds(:ios_no_key).text.should   eql $data[:str][$lang][:builds_no_key]
+        builds(:ios_new_key).text.should  eql $data[:str][$lang][:builds_new_key]
+        puts "+ <result> IT_002:PASS"
       rescue Exception => ex
         puts "Exception: "
-        puts "\tline: #{__LINE__} : "
-        puts "\t" + ex 
+        puts ex.backtrace
+        puts caller[0]
       end
     end
 
     it "IT_003: should match to localized strings: >> Android <<" do 
 
       begin
-        timeout(60) {
-          while @data_str[$lang][:builds_action_pending] == builds(:android_action).text do 
+        timeout(120) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do 
             @driver.navigate.refresh
             sleep 5
             puts "+ action: " + builds(:android_action).text
           end
           break
         } 
-        builds(:android_rebuild).text.should  eql @data_str[$lang][:builds_rebuild]
-        builds(:android_label).text.should    eql @data_str[$lang][:builds_label]
-        builds(:android_options).attribute('label').should  eql @data_str[$lang][:builds_options]
-        builds(:android_no_key).text.should   eql @data_str[$lang][:builds_no_key]
-        builds(:android_new_key).text.should  eql @data_str[$lang][:builds_new_key]
-      rescue Exception => ex 
+        builds(:android_rebuild).text.should  eql $data[:str][$lang][:builds_rebuild]
+        builds(:android_label).text.should    eql $data[:str][$lang][:builds_label]
+        builds(:android_options).attribute('label').should  eql $data[:str][$lang][:builds_options]
+        builds(:android_no_key).text.should   eql $data[:str][$lang][:builds_no_key]
+        builds(:android_new_key).text.should  eql $data[:str][$lang][:builds_new_key]
+        puts "+ <result> IT_003:PASS"
+      rescue Exception => ex
         puts "Exception: "
-        puts "\tline: #{__LINE__} : "
-        puts "\t" + ex 
+        puts ex.backtrace
+        puts caller[0]
       end
     end
 
     it "IT_004: should match to localized strings: >> WinPhone <<" do 
 
       begin 
-        timeout(60) {
-          while @data_str[$lang][:builds_action_pending] == builds(:winphone_action).text do 
+        timeout(120) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:winphone_action).text do 
             @driver.navigate.refresh
             sleep 5
             puts "+ action: " + builds(:winphone_action).text
           end
           break
         }
-        builds(:winphone_rebuild).text.should eql @data_str[$lang][:builds_rebuild]
+        builds(:winphone_rebuild).text.should eql $data[:str][$lang][:builds_rebuild]
+        puts "+ <result> IT_004:PASS"
       rescue Exception => ex 
         puts "Exception: "
-        puts "\tline: #{__LINE__} : "
-        puts "\t" + ex 
+        puts ex.backtrace
+        puts caller[0]
       end
     end
 
     it "IT_005: should match to localized strings: >> BlackBerry <<" do 
 
       begin 
-        timeout(60) {
-          while @data_str[$lang][:builds_action_pending] == builds(:blackberry_action).text do 
+        timeout(120) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do 
             sleep 5
             puts "+ action: " + builds(:blackberry_action).text
           end
           break
         }
-        builds(:blackberry_rebuild).text.should  eql @data_str[$lang][:builds_rebuild]
-        builds(:blackberry_label).text.should    eql @data_str[$lang][:builds_label]
-        builds(:blackberry_options).attribute('label').should  eql @data_str[$lang][:builds_options]
-        builds(:blackberry_no_key).text.should   eql @data_str[$lang][:builds_no_key]
-        builds(:blackberry_new_key).text.should  eql @data_str[$lang][:builds_new_key]
-      rescue Exception => ex 
+        builds(:blackberry_rebuild).text.should  eql $data[:str][$lang][:builds_rebuild]
+        builds(:blackberry_label).text.should    eql $data[:str][$lang][:builds_label]
+        builds(:blackberry_options).attribute('label').should  eql $data[:str][$lang][:builds_options]
+        builds(:blackberry_no_key).text.should   eql $data[:str][$lang][:builds_no_key]
+        builds(:blackberry_new_key).text.should  eql $data[:str][$lang][:builds_new_key]
+        puts "+ <result> IT_005:PASS"
+      rescue Exception => ex
         puts "Exception: "
-        puts "\tline: #{__LINE__} : "
-        puts "\t" + ex 
+        puts ex.backtrace
+        puts caller[0]
       end
     end
 
     it "IT_006: should match to localized strings: >> WebOS <<" do 
 
       begin
-        timeout(60) {
-          while @data_str[$lang][:builds_action_pending] == builds(:webos_action).text do 
+        timeout(120) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:webos_action).text do 
             sleep 5
             puts "+ action: " + builds(:webos_action).text
           end
           break
         } 
-        builds(:webos_rebuild).text.should eql @data_str[$lang][:builds_rebuild]
-      rescue Exception => ex 
+        builds(:webos_rebuild).text.should eql $data[:str][$lang][:builds_rebuild]
+        puts "+ <result> IT_006:PASS"
+      rescue Exception => ex
         puts "Exception: "
-        puts "\tline: #{__LINE__} : "
-        puts "\t" + ex 
+        puts ex.backtrace
+        puts caller[0]
       end
     end
 
     it "IT_007: should match to localized strings: >> Symbian <<" do 
 
       begin 
-        timeout(60) {
-          while @data_str[$lang][:builds_action_pending] == builds(:symbian_action).text do 
+        timeout(120) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:symbian_action).text do 
             sleep 5
             puts "+ action: " + builds(:symbian_action).text
           end  
           break
         }
-        builds(:symbian_rebuild).text.should eql @data_str[$lang][:builds_rebuild]
-      rescue Exception => ex 
+        builds(:symbian_rebuild).text.should eql $data[:str][$lang][:builds_rebuild]
+        puts "+ <result> IT_007:PASS"
+      rescue Exception => ex
         puts "Exception: "
-        puts "\tline: #{__LINE__} : "
-        puts "\t" + ex 
+        puts ex.backtrace
+        puts caller[0]
       end
     end
+
   end
-
-  # context "" do 
-
-  # end
 
 end
