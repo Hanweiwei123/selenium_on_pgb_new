@@ -156,7 +156,7 @@ class NewAppPage
         end
     end
 
-    def paste_a_git_repo(repo_address)
+    def paste_an_invaild_git_repo(repo_address)
         make_sure_apps_page unless @driver.current_url =~ /.*apps.*/
         if new_app_btn_display?
             new_app_locator(:new_app_btn).click
