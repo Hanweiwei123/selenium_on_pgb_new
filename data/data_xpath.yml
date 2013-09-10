@@ -103,6 +103,8 @@
     :opensource_repo_tab: //*[@id='new-app']/form/div[1]/a[1]
     :private_repo_tab: //*[@id='new-app']/form/div[1]/a[2]
     :paste_git_repo_input: //*[@id='new-app']/form/div[2]/div[1]/div/input
+    :paste_git_repo_dropdown: //*[@id='new-app']/form/div[2]/div/div/span[@class='ui-select']
+    :paste_git_repo_dropdown_list: //*[@id='new-app']/form/div[2]/div[1]/div/ul/li
     :not_a_valid_github_url: /html/body/section/div/div/div/form/div[2]/div/div/span
     :upload_a_zip_btn: //*[@id='app_archive']
     :connect_your_github_account_link: //*[@id="new-app"]/form/div[2]/a
@@ -113,6 +115,9 @@
     :rebuild_all_btn: //*[@id="app-detail"]/section/footer/a
     :collaborators_tab: /html/body/section/div/article/div[2]/section/nav/a[2]
     :settings_tab: /html/body/section/div/article/div[2]/section/nav/a[3]
+    :delete_app_btn: //*[@id='apps-list']/article[1]/footer/form/a
+    :delete_app_yes: //*[@id='apps-list']/article[1]/footer/form/aside/footer/button[2]
+    :delete_app_no: //*[@id='apps-list']/article[1]/footer/form/aside/footer/button[1]
 :app_id_page:
     :title: //*[@id="app-detail"]/section[1]/h1
     :description: //*[@id="app-detail"]/section[1]/div
