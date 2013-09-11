@@ -50,7 +50,7 @@ describe "TC_017: App Details #Collaborators" do
   context "--- App ID -> Settings(Basic) ---" do
     #it "should create an app successfully" do
     before(:all) do
-      # @driver.navigate.refresh; sleep 10
+      @driver.navigate.refresh; sleep 10
       new_app_locator(:ready_to_build_btn).click;
       @driver.navigate.refresh; sleep 10
       @driver.get @driver.current_url + "\/#{@app_id}\/builds"
@@ -61,17 +61,16 @@ describe "TC_017: App Details #Collaborators" do
 
       @driver.current_url.should =~ /\S+\d\/builds/
       sleep 10
+      settings(:tab).click; sleep 5
     end
 
     it "IT_001: the h1 title should be localized" do
-
-      settings(:tab).click; sleep 5
+      
       settings(:basic_title).text.should eql $data[:str][$lang][:app_id_settings_basic_title]
     end
 
     it "IT_002: Those checkboxes should work well " do
 
-      settings(:tab).click; sleep 5
       let_it_checked settings(:basic_settings_enable_debugging)
       let_it_checked settings(:basic_settings_enable_hydration)
       let_it_checked settings(:basic_settigns_only_approved_colla)
@@ -90,7 +89,7 @@ describe "TC_017: App Details #Collaborators" do
   end
 
   context "--- App ID -> Settings(Configuration) ---" do
-    before do
+    before(:all) do
       @driver.navigate.refresh; sleep 5
       settings(:tab).click
     end
@@ -132,7 +131,7 @@ describe "TC_017: App Details #Collaborators" do
   end
 
   context "--- App ID -> Settings(Danger Zone) ---" do
-    before do
+    before(:all) do
       @driver.navigate.refresh; sleep 5
       settings(:tab).click
     end
