@@ -104,8 +104,13 @@ class NewAppPage
 
         os = win_or_mac
         if os == 'mac' 
-            # new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../../assets/application/anotherあ你äōҾӲ.zip",__FILE__))
-            new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/index.html",__FILE__))
+            if type.upcase=="ZIP"
+              new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/anotherあ你äōҾӲ.zip",__FILE__))
+            elsif type.upcase=="HTML"
+              new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/index.html",__FILE__))
+            else
+              railse "Not supported file."
+            end
         elsif os == 'win'
             if type.upcase=="ZIP"
               new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\www.zip"
