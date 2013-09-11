@@ -15,13 +15,14 @@ module ConfigParam
     def driver()     
         browser = ENV['PGBBROWSER'].to_sym
         if browser == :chrome
-            #profile = Selenium::WebDriver::Chrome::Profile.new
-            #profile['intl.accept_languages'] = $lang.to_s
+            profile = Selenium::WebDriver::Chrome::Profile.new
+            profile["download.default_directory"] = "../"
             puts "+ <data>/base_env.rb browser = chrome"
-            Selenium::WebDriver.for :chrome 
+            Selenium::WebDriver.for :chrome, :profile => profile
         elsif browser == :firefox
             profile = Selenium::WebDriver::Firefox::Profile.new
             profile['intl.accept_languages'] = $lang.to_s
+            # profile['browser.download.dir'] = @download_dir
             puts "+ <data>/base_env.rb browser = firefox"
             Selenium::WebDriver.for :firefox , :profile => profile
         else
@@ -47,6 +48,7 @@ module ConfigParam
       $data[:url] = YAML::load(File.read(File.expand_path("../../data/data_url.yml",__FILE__)))
       $data[:signing_key] = YAML::load(File.read(File.expand_path("../../data/data_signing_key.yml",__FILE__)))
       $data[:plugin] = YAML::load(File.read(File.expand_path("../../data/data_plugin.yml",__FILE__)))
+      $data[:platforms] = ['ios', 'android', 'winphone', 'blackberry', 'webos', 'symbian']
     end 
 
     def create_folder_unless_exist(folder_name)

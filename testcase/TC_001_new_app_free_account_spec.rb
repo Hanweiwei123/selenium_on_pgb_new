@@ -61,7 +61,7 @@ describe "TC_001: New app(s) with free account" do
             puts "+ <TC_001> before all inside --- end"
         end
 
-        it "IT_001: verify the placeholder of 'paste .git repo' exists" do 
+        it "IT_001: verify the placeholder of 'paste .git repo' be localized" do 
             puts "IT_" + @order_of_it.to_s
             if @new_app_page.new_app_btn_display? 
                 new_app_locator(:new_app_btn).click

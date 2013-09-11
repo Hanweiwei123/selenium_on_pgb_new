@@ -5,7 +5,7 @@
         :id: "dil45216+test_free_001@adobetest.com"
         :password: "password"
     :adobe_id_free_002:
-        :id: "dil45216+test_free_007@adobetest.com" 
+        :id: "phonegap_plugin@126.com" # "dil45216+test_free_007@adobetest.com" 
         :password: "abcd1234"
     :adobe_id_free_connected_github:
         :id: "dil45216+test_free_005@adobetest.com"

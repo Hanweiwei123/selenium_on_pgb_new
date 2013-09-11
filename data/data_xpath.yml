@@ -103,7 +103,7 @@
     :private_repo_tab: //*[@id='new-app']/form/div[1]/a[2]
     :paste_git_repo_input: //*[@id='new-app']/form/div[2]/div[1]/div/input
     :not_a_valid_github_url: /html/body/section/div/div/div/form/div[2]/div/div/span
-    :upload_a_zip_btn: //*[@id='app_archive']
+    :upload_a_zip_btn: //*[@id="app_archive"]
     :connect_your_github_account_link: //*[@id="new-app"]/form/div[2]/a
     :upgrade_now_link: //*[@id="new-app"]/form/div[2]/p/a
     :close_link: //*[@id='new-app']/form/div[1]/a[3]

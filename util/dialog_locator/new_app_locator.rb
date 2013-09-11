@@ -6,7 +6,7 @@ module NewAppLocator
     include WebdriverHelper
 
     def new_app_locator(arg)
-        highlight_and_return @driver.find_element(:xpath => $data[:xpath][:new_app_page][arg])
+        @driver.find_element(:xpath => $data[:xpath][:new_app_page][arg])
     end
 
 end
