@@ -20,7 +20,7 @@ module ConfigParam
             profile['download.prompt_for_download'] = false
             profile['download.default_directory'] = "#{Dir.home}/Downloads/"
             puts "+ <data>/base_env.rb browser = chrome"
-            Selenium::WebDriver.for :chrome, :profile => profile
+            Selenium::WebDriver.for :chrome  # :profile => profile
         elsif browser == :firefox
             profile = Selenium::WebDriver::Firefox::Profile.new
             profile['intl.accept_languages'] = $lang.to_s
