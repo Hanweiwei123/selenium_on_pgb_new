@@ -3,6 +3,7 @@
 require 'timeout'
 require 'rubygems'
 require 'rspec'
+require "rautomation"
 
 require_relative "../action/new_app_page"
 require_relative "../action/app_collaborators_page"
@@ -55,7 +56,7 @@ describe "TC_018: App Id #Downloads" do
 
   context "---  App ID -> Install(Download)  ---" do
     #it "should create an app successfully" do
-    before do
+    before(:all) do
       # @driver.navigate.refresh;  sleep 10
       new_app_locator(:ready_to_build_btn).click;  sleep 10
       # @driver.navigate.refresh;  sleep 5
@@ -105,6 +106,14 @@ describe "TC_018: App Id #Downloads" do
 
       if @available_downloads.include?("ios")
         install_btn('ios').click;  sleep 10
+
+        if @driver == :firefox
+          win = RAutomation::Window.new :title => /Opening/
+          win.activate
+          sleep 1
+          win.send_keys :enter 
+        end
+
         Dir["#{@download_dir}/*.ipa"].count.should > 0
         system("rm #{@download_dir}/*.ipa")
       else 
@@ -117,6 +126,14 @@ describe "TC_018: App Id #Downloads" do
 
       if @available_downloads.include?('android')
         install_btn('android').click;  sleep 10
+
+        if @driver == :firefox
+          win = RAutomation::Window.new :title => /Opening/
+          win.activate
+          sleep 1
+          win.send_keys :enter 
+        end
+
         Dir["#{@download_dir}/*.apk"].count.should > 0
         system("rm #{@download_dir}/*.apk")
       else 
@@ -129,6 +146,14 @@ describe "TC_018: App Id #Downloads" do
 
       if @available_downloads.include?('blackberry') 
         install_btn('blackberry').click;  sleep 10
+
+        if @driver == :firefox
+          win = RAutomation::Window.new :title => /Opening/
+          win.activate
+          sleep 1
+          win.send_keys :enter 
+        end
+
         Dir["#{@download_dir}/*.jad"].count.should > 0
         system("rm #{@download_dir}/*.jad")
       else
@@ -141,6 +166,14 @@ describe "TC_018: App Id #Downloads" do
       
       if @available_downloads.include?('winphone')
         install_btn('winphone').click;  sleep 10
+
+        if @driver == :firefox
+          win = RAutomation::Window.new :title => /Opening/
+          win.activate
+          sleep 1
+          win.send_keys :enter 
+        end
+
         Dir["#{@download_dir}/*.xap"].count.should > 0
         system("rm #{@download_dir}/*.xap")
       else 
@@ -153,6 +186,14 @@ describe "TC_018: App Id #Downloads" do
 
       if @available_downloads.include?('webos')
         install_btn('webos').click;  sleep 10
+
+        if @driver == :firefox
+          win = RAutomation::Window.new :title => /Opening/
+          win.activate
+          sleep 1
+          win.send_keys :enter 
+        end
+
         Dir["#{@download_dir}/*.ipk"].count.should > 0
         system("rm #{@download_dir}/*.ipk")
       else 
@@ -165,6 +206,14 @@ describe "TC_018: App Id #Downloads" do
 
       if @available_downloads.include?('symbian')
         install_btn('symbian').click;  sleep 10
+
+        if @driver == :firefox
+          win = RAutomation::Window.new :title => /Opening/
+          win.activate
+          sleep 1
+          win.send_keys :enter 
+        end
+
         Dir["#{@download_dir}/*.wgz"].count.should > 0
         system("rm #{@download_dir}/*.wgz")
       else 
