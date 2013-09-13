@@ -27,6 +27,7 @@ describe "TC_018: App Id #Downloads" do
     @available_downloads = []
     @unavailable_downloads = []
     @pending_buildings = []
+    @download_dir = Dir.home + "/Downloads"
     @driver.manage.window.maximize
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
 
@@ -40,7 +41,8 @@ describe "TC_018: App Id #Downloads" do
   end
 
   after(:all) do
-      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
+      # webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
+      webhelper_delete_all_apps "shuai.yan@dilatoit.com", "yanshuai110"
       @driver.quit
   end
 
@@ -93,20 +95,83 @@ describe "TC_018: App Id #Downloads" do
 
     end
 
-    it "IT_001: Should download the >>Winphone<< app successfully" do 
+    it "The page should direct to 'install' page" do 
+
       app_brief(:install_btn).click; sleep 5
       @driver.current_url.should =~ /.*install$/
-      install_btn('winphone').click
-      
-      sleep 10
-
-      download_dir = Dir.home + "/Downloads"
-
-      Dir["#{download_dir}/*.xap"].count.should > 0
-
-      "abc".should eql "abc"
     end
 
+    it "IT_001: should download the >>iOS<< app successfully" do 
+
+      if @available_downloads.include?("ios")
+        install_btn('ios').click;  sleep 10
+        Dir["#{@download_dir}/*.ipa"].count.should > 0
+        system("rm #{@download_dir}/*.ipa")
+      else 
+        puts "iOS app was not available" 
+        1.should_not eql 1
+      end
+    end
+
+    it "ITC_002: should download the >>Android<< app successfully " do 
+
+      if @available_downloads.include?('android')
+        install_btn('android').click;  sleep 10
+        Dir["#{@download_dir}/*.apk"].count.should > 0
+        system("rm #{@download_dir}/*.apk")
+      else 
+        puts "Android app was not available" 
+        1.should_not eql 1
+      end
+    end
+
+    it "ITC_003: should download the >>BlackBerry<< app successfully" do 
+
+      if @available_downloads.include?('blackberry') 
+        install_btn('blackberry').click;  sleep 10
+        Dir["#{@download_dir}/*.jad"].count.should > 0
+        system("rm #{@download_dir}/*.jad")
+      else
+        puts "BlackBerry app was not available" 
+        1.should_not eql 1
+      end
+    end
+
+    it "IT_004: Should download the >>Winphone<< app successfully" do 
+      
+      if @available_downloads.include?('winphone')
+        install_btn('winphone').click;  sleep 10
+        Dir["#{@download_dir}/*.xap"].count.should > 0
+        system("rm #{@download_dir}/*.xap")
+      else 
+        puts "WinPhone app was not available" 
+        1.should_not eql 1
+      end
+    end
+
+    it "IT_005: should download the >>WebOS<< app successfully" do 
+
+      if @available_downloads.include?('webos')
+        install_btn('webos').click;  sleep 10
+        Dir["#{@download_dir}/*.ipk"].count.should > 0
+        system("rm #{@download_dir}/*.ipk")
+      else 
+        puts "WebOS app was not available" 
+        1.should_not eql 1
+      end
+    end
+
+    it "IT_006: should download the >>Symbian<< app successfully " do 
+
+      if @available_downloads.include?('symbian')
+        install_btn('symbian').click;  sleep 10
+        Dir["#{@download_dir}/*.wgz"].count.should > 0
+        system("rm #{@download_dir}/*.wgz")
+      else 
+        puts "Symbian app was not available" 
+        1.should_not eql 1
+      end
+    end
 
   end
 
