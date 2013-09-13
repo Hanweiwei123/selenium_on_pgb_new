@@ -118,6 +118,35 @@
     :delete_app_btn: //*[@id='apps-list']/article[1]/footer/form/a
     :delete_app_yes: //*[@id='apps-list']/article[1]/footer/form/aside/footer/button[2]
     :delete_app_no: //*[@id='apps-list']/article[1]/footer/form/aside/footer/button[1]
+    :public_page_btn: //*[@id='apps-list']/article[1]/section[@class='actions']/a
+:app_abuse_page:
+    :report_abuse_link: //header[@id='app-header']/a[2]
+    :report_abuse_form: //form[@id='abuse-form']
+    :report_abuse_title: //form[@id='abuse-form']/header/h1
+    :email_address_label: //form[@id='abuse-form']/fieldset/dl/dt/label
+    :email_address_input: //form[@id='abuse-form']/fieldset/dl/dd/input
+    :name_label: //form[@id='abuse-form']/fieldset/dl[2]/dt/label
+    :name_input: //form[@id='abuse-form']/fieldset/dl[2]/dd/input
+    :why_label: //form[@id='abuse-form']/fieldset/dl[3]/dt/label
+    :why_Defamation_label: //form[@id='abuse-form']/fieldset/dl[3]/dd[1]/label
+    :why_Defamation_input: //form[@id='abuse-form']/fieldset/dl[3]/dd[1]/label/input
+    :why_SEC_label: //form[@id='abuse-form']/fieldset/dl[3]/dd[2]/label
+    :why_SEC_input: //form[@id='abuse-form']/fieldset/dl[3]/dd[2]/label/input
+    :why_TI_label: //form[@id='abuse-form']/fieldset/dl[3]/dd[3]/label
+    :why_TI_input: //form[@id='abuse-form']/fieldset/dl[3]/dd[3]/label/input
+    :why_OC_label: //form[@id='abuse-form']/fieldset/dl[3]/dd[4]/label
+    :why_OC_input: //form[@id='abuse-form']/fieldset/dl[3]/dd[4]/label/input
+    :why_RHC_label: //form[@id='abuse-form']/fieldset/dl[3]/dd[5]/label
+    :why_RHC_input: //form[@id='abuse-form']/fieldset/dl[3]/dd[5]/label/input
+    :why_Other_label: //form[@id='abuse-form']/fieldset/dl[3]/dd[6]/label
+    :why_Other_input: //form[@id='abuse-form']/fieldset/dl[3]/dd[6]/label/input
+    :description_label: //form[@id='abuse-form']/fieldset/dl[4]/dt/label
+    :description_input: //form[@id='abuse-form']/fieldset/dl[4]/dd/textarea
+    :copyright_violation_label: //form[@id='abuse-form']/fieldset/p
+    :copyright_violation_link: //form[@id='abuse-form']/fieldset/p/a
+    :cancel_btn: //form[@id='abuse-form']/footer/button[1]
+    :report_btn: //form[@id='abuse-form']/footer/button[2]
+    :report_success_label: //aside[@id='notifications-detail']/div/section
 :app_id_page:
     :title: //*[@id="app-detail"]/section[1]/h1
     :description: //*[@id="app-detail"]/section[1]/div
