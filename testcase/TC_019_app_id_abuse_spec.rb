@@ -131,13 +131,18 @@ describe "TC_019: App Id #Abuse " do
 
     it "IT_015: check report button"do
       puts "+<check> email_address_default_value is " + abuse(:email_address_input).attribute("value")
-      abuse(:email_address_input).attribute("value").should eql $data[:user][$lang][:adobe_id_free_003][:id]
+      abuse(:email_address_input).attribute("value").should eql $data[:user][$lang][:adobe_id_free_003_build][:id]
       abuse(:email_address_input).clear
-      abuse(:email_address_input).send_keys($data[:user][$lang][:adobe_id_free_003][:id])
+      abuse(:email_address_input).send_keys($data[:user][$lang][:adobe_id_free_003_build][:id])
       abuse(:name_input).clear
       abuse(:name_input).send_keys "name"
       abuse(:why_Defamation_input).click;
       abuse(:why_SEC_input).click;
+      abuse(:why_TI_input).click;
+      abuse(:why_OC_input).click;
+      abuse(:why_RHC_input).click;
+      abuse(:why_Other_input).click;
+      abuse(:why_Defamation_input).click;
       abuse(:description_input).clear
       abuse(:description_input).send_keys "description"
       abuse(:report_btn).click; sleep 5
