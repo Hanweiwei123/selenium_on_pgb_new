@@ -2,14 +2,6 @@ Testing_on_Phonegap_Build
 ===============
 The project automates the I18N testing on PhonegapBuild website, using RSpec, with Selenium::Webdriver
 
-### Requirement:
-
-- git
-- ruby
-- rspec
-- selenium-webdriver 
-- rake
-- rest-client
 
 ### Setup
 
