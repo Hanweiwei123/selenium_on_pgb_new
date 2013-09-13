@@ -15,10 +15,12 @@ module ConfigParam
     def driver()     
         browser = ENV['PGBBROWSER'].to_sym
         if browser == :chrome
-            #profile = Selenium::WebDriver::Chrome::Profile.new
-            #profile['intl.accept_languages'] = $lang.to_s
+            profile = Selenium::WebDriver::Chrome::Profile.new
+            profile['intl.accept_languages'] = $lang.to_s
+            profile['download.prompt_for_download'] = false
+            profile['download.default_directory'] = "#{Dir.home}/Downloads/"
             puts "+ <data>/base_env.rb browser = chrome"
-            Selenium::WebDriver.for :chrome 
+            Selenium::WebDriver.for :chrome, :profile => profile
         elsif browser == :firefox
             profile = Selenium::WebDriver::Firefox::Profile.new
             profile['intl.accept_languages'] = $lang.to_s
