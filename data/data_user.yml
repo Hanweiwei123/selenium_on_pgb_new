@@ -8,8 +8,8 @@
         :id: "dil45216+test_free_007@adobetest.com" 
         :password: "abcd1234"
     :adobe_id_free_003_build:
-            :id: "xiaogoukandamen@126.com"
-            :password: "565483520"
+        :id: "xiaogoukandamen@126.com"
+        :password: "565483520"
     :adobe_id_free_connected_github:
         :id: "dil45216+test_free_005@adobetest.com"
         :password: "password"
