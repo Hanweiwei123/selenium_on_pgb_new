@@ -136,7 +136,7 @@ https://www.dropbox.com/s/fd9cvodechaj26l/selenium_Logical_view_Draft.png
 
 ### Test cases 
 
-
+    TC_001_new_app_free_account_spec.rb
     TC_002_new_app_paid_account_spec.rb
     TC_003_register_create_adobe_id_spec.rb
     TC_004_register_free_plan_with_adobe_id_spec.rb
