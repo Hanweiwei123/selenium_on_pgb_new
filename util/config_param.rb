@@ -7,7 +7,7 @@ require 'selenium-webdriver'
 module ConfigParam
     
     def base_url
-        base_url = "http://loc.build.phonegap.com" 
+        base_url = "https://build.phonegap.com" # "http://loc.build.phonegap.com" 
         puts "+ <data>/base_env.rb base_url = #{base_url}"
         return base_url
     end
@@ -22,6 +22,9 @@ module ConfigParam
         elsif browser == :firefox
             profile = Selenium::WebDriver::Firefox::Profile.new
             profile['intl.accept_languages'] = $lang.to_s
+            profile['browser.download.folderList'] = 2
+            profile['browser.download.dir'] = "#{Dir.home}/Downloads/"
+            profile['browser.helperApps.neverAsk.saveToDisk'] = 'application/xap'
             puts "+ <data>/base_env.rb browser = firefox"
             Selenium::WebDriver.for :firefox , :profile => profile
         else
@@ -47,6 +50,7 @@ module ConfigParam
       $data[:url] = YAML::load(File.read(File.expand_path("../../data/data_url.yml",__FILE__)))
       $data[:signing_key] = YAML::load(File.read(File.expand_path("../../data/data_signing_key.yml",__FILE__)))
       $data[:plugin] = YAML::load(File.read(File.expand_path("../../data/data_plugin.yml",__FILE__)))
+      $data[:platform] = ['ios', 'android', 'blackberry', 'winphone', 'webos', 'symbian']
     end 
 
     def create_folder_unless_exist(folder_name)
