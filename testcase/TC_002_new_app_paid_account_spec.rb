@@ -72,7 +72,7 @@ describe "TC_002: New apps with paid account" do
         puts "+app_count_after: #{@app_count_after}"
         puts "+first_app_id_after: #{@first_app_id_after}"
         
-        @first_app_id_after.should eql @first_app_id_before+1
+        @app_count_after.should eql @app_count_before + 1
     end    
 
 end
