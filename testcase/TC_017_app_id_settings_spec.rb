@@ -115,17 +115,17 @@ describe "TC_017: App Details #Collaborators" do
 
       @driver.navigate.refresh; sleep 5
       settings(:tab).click
-
-      settings(:config_app_title).attribute('value').should eql $data[:app][:app_detail][:title]
+      
       settings(:config_app_package).attribute('value').should eql $data[:app][:app_detail][:package]
       settings(:config_app_version).attribute('value').should eql $data[:app][:app_detail][:version]
       settings(:config_app_phonegap_version).find_elements(:tag_name => "option").each do |opt|
         if opt.attribute('value').to_s == "2.7.0"
-          opt.attribute('checked').to_s.should be "true"
+          expect(opt.attribute('checked').to_s).to eq("true")
           break
         end
       end
       settings(:config_app_desc).attribute('value').should eql $data[:app][:app_detail][:desc]
+      settings(:config_app_title).attribute('value').should eql $data[:app][:app_detail][:title]
     end
 
   end
