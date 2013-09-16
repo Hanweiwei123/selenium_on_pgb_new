@@ -82,8 +82,8 @@ describe "TC_017: App Details #Collaborators" do
       "true".should eql settings(:basic_settings_enable_debugging).attribute('checked').to_s
       "true".should eql settings(:basic_settings_enable_hydration).attribute('checked').to_s
       "true".should eql settings(:basic_settigns_only_approved_colla).attribute('checked').to_s
-      "".should_not eql id(:debug_btn)
-      "".should_not eql id(:hydration_btn)
+      nil.should_not eql app_brief(:debug_btn)
+      nil.should_not eql app_brief(:hydration_btn)
     end
 
   end
