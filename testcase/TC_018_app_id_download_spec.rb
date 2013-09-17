@@ -107,13 +107,14 @@ describe "TC_018: App Id #Downloads" do
       if @available_downloads.include?("ios")
         install_btn('ios').click;  sleep 10
 
-        if @driver == :firefox
-          win = RAutomation::Window.new :title => /Opening/
-          win.activate
-          sleep 1
-          win.send_keys :enter 
+        win = RAutomation::Window.new(:title => /Opening/i)
+        if win.exist? 
+          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
+        else 
+          puts "Can not catch the dialog!!!"
         end
 
+        sleep 10
         Dir["#{@download_dir}/*.ipa"].count.should > 0
         system("rm #{@download_dir}/*.ipa")
       else 
@@ -127,13 +128,15 @@ describe "TC_018: App Id #Downloads" do
       if @available_downloads.include?('android')
         install_btn('android').click;  sleep 10
 
-        if @driver == :firefox
-          win = RAutomation::Window.new :title => /Opening/
-          win.activate
-          sleep 1
-          win.send_keys :enter 
+        
+        win = RAutomation::Window.new(:title => /Opening/i)
+        if win.exist? 
+          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
+        else 
+          puts "Can not catch the dialog!!!"
         end
 
+        sleep 10
         Dir["#{@download_dir}/*.apk"].count.should > 0
         system("rm #{@download_dir}/*.apk")
       else 
@@ -147,13 +150,15 @@ describe "TC_018: App Id #Downloads" do
       if @available_downloads.include?('blackberry') 
         install_btn('blackberry').click;  sleep 10
 
-        if @driver == :firefox
-          win = RAutomation::Window.new :title => /Opening/
-          win.activate
-          sleep 1
-          win.send_keys :enter 
+        
+        win = RAutomation::Window.new(:title => /Opening/i)
+        if win.exist? 
+          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
+        else 
+          puts "Can not catch the dialog!!!"
         end
 
+        sleep 10
         Dir["#{@download_dir}/*.jad"].count.should > 0
         system("rm #{@download_dir}/*.jad")
       else
@@ -167,13 +172,14 @@ describe "TC_018: App Id #Downloads" do
       if @available_downloads.include?('winphone')
         install_btn('winphone').click;  sleep 10
 
-        if @driver == :firefox
-          win = RAutomation::Window.new :title => /Opening/
-          win.activate
-          sleep 1
-          win.send_keys :enter 
+        win = RAutomation::Window.new(:title => /Opening/i)
+        if win.exist? 
+          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
+        else 
+          puts "Can not catch the dialog!!!"
         end
 
+        sleep 10
         Dir["#{@download_dir}/*.xap"].count.should > 0
         system("rm #{@download_dir}/*.xap")
       else 
@@ -187,13 +193,15 @@ describe "TC_018: App Id #Downloads" do
       if @available_downloads.include?('webos')
         install_btn('webos').click;  sleep 10
 
-        if @driver == :firefox
-          win = RAutomation::Window.new :title => /Opening/
-          win.activate
-          sleep 1
-          win.send_keys :enter 
+        win = RAutomation::Window.new(:title => /Opening/i)
+        if win.exist? 
+          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
+        else 
+          puts "Can not catch the dialog!!!"
         end
 
+
+        sleep 10
         Dir["#{@download_dir}/*.ipk"].count.should > 0
         system("rm #{@download_dir}/*.ipk")
       else 
@@ -207,13 +215,14 @@ describe "TC_018: App Id #Downloads" do
       if @available_downloads.include?('symbian')
         install_btn('symbian').click;  sleep 10
 
-        if @driver == :firefox
-          win = RAutomation::Window.new :title => /Opening/
-          win.activate
-          sleep 1
-          win.send_keys :enter 
+        win = RAutomation::Window.new(:title => /Opening/i)
+        if win.exist? 
+          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
+        else 
+          puts "Can not catch the dialog!!!"
         end
 
+        sleep 10
         Dir["#{@download_dir}/*.wgz"].count.should > 0
         system("rm #{@download_dir}/*.wgz")
       else 
