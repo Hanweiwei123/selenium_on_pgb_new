@@ -27,7 +27,7 @@
     :apps_signing_key_locked: "locked"
     :apps_signing_key_unlocked: "unlocked"
     :error_msg_occurred_on_server: "Oh geez. Your build failed.Sorry, but a problem occurred on the build server"
-    :error_msg_ios_build_without_signing_key: "You must provide a signing key, first."
+    :error_msg_ios_build_without_signing_key: "You must provide a signing key, first. Find our how to fix this."
     :error_msg_ios_build_with_locked_signing_key: "Error - Your IOS signing key is locked. You can fix this"
     :error_msg_android_build_with_locked_signing_key: "Error - Your Android signing key is locked. You can fix this"
     :error_msg_blackberry_build_with_locked_signing_key: "Error - Your Blackberry signing key is locked. You can fix this"
