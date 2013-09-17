@@ -100,7 +100,7 @@ class NewAppPage
         end
 
         #excute javascript to show the element in order to magic uploading file
-        @driver.execute_script("arguments[0].style.visibility = 'visible'; arguments[0].style.width = '1px';arguments[0].style.height = '1px';arguments[0].style.opacity = 1",new_app_locator(:upload_a_zip_btn))
+        #@driver.execute_script("arguments[0].style.visibility = 'visible'; arguments[0].style.width = '1px';arguments[0].style.height = '1px';arguments[0].style.opacity = 1",new_app_locator(:upload_a_zip_btn))
 
         os = win_or_mac
         if os == 'mac' 
