@@ -356,8 +356,8 @@ class EditAccountPage
     end
 
     def make_sure_ea_page
-        @sign_in_page.make_sure_sign_in
-        go_to_page_edit_account # unless @driver.current_url.include?('edit')
+        (@sign_in_page.make_sure_sign_in;
+        go_to_page_edit_account;)unless @driver.current_url.include?('edit')
     end
 
     def delete_my_account(id, password)
