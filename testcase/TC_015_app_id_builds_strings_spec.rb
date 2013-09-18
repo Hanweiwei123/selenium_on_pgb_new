@@ -287,19 +287,19 @@ describe "TC_015: App Details #Builds" do
     it "IT_011: iOS error message should be localized" do 
 
       builds(:ios_action).click; sleep 5 
-      builds(:ios_msg).text.should eql ""
+      builds(:ios_msg).text.should eql $data[:str][$lang][:error_msg_ios_build_with_locked_signing_key]
     end
 
     it "IT_012: Android error message should be localized" do 
 
       builds(:android_action).click; sleep 5
-      builds(:android_msg).text.should eql ""
+      builds(:android_msg).text.should eql $data[:str][$lang][:error_msg_android_build_with_locked_signing_key]
     end
 
     it "IT_013: BlackBerry error message should be localized" do 
 
       builds(:blackberry_action).click; sleep 5
-      builds(:blackberry_msg).text.should eql ""
+      builds(:blackberry_msg).text.should eql $data[:str][$lang][:error_msg_blackberry_build_with_locked_signing_key]
     end
   end
 
