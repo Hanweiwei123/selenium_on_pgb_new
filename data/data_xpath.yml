@@ -360,11 +360,11 @@
     :header_notifications: //*[@id="notifications-detail"]/div/section
     :link_here_header_notifications: //*[@id="notifications-detail"]/div/section/a
     :title: //*[@id="page-content"]/div/h1
-    :tab_all_supported_plugins: //*[@id="plugin-edit-controls"]/nav/a[1]
-    :tab_your_plugins: //*[@id="plugin-edit-controls"]/nav/a[2]
+    :tab_all_supported_plugins: //*[@id="plugin-edit-controls"]/nav/a[@class="all selected"]
+    :tab_your_plugins: //*[@id="plugin-edit-controls"]/nav/a[@class="your"]
     :link_sign_in_tab_your_plugins: //*[@id="plugin-your"]/fieldset/a
     :you_have_no_plugins: //*[@id="plugin-your"]/fieldset/p
-    :tab_submit_plugin: //*[@id="plugin-edit-controls"]/nav/a[3]
+    :tab_submit_plugin: //*[@id="plugin-edit-controls"]/nav/a[@class="add"]
     :link_sign_in_tab_submit_plugin: //*[@id="plugin-your"]/fieldset/a
     :please_sign_in_your: //*[@id="plugin-your"]/fieldset
     :please_sign_in_add: //*[@id="plugin-add"]/fieldset
