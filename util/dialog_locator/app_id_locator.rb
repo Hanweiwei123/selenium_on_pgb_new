@@ -46,8 +46,8 @@ module AppIdLocator
       builds(:ios_title_input).send_keys title
 
       if ( win_or_mac == "win" )
-        builds(:ios_choose_cert_btn).send_keys("C:\\signing_key\\ios\\LichuanIQEKey.p12")
-        builds(:ios_choose_prov_btn).send_keys("C:\\signing_key\\ios\\Lichuanlu.mobileprovision")
+        builds(:ios_choose_cert_btn).send_keys("C:\\assets\\signing_key\\ios\\LichuanIQEKey.p12")
+        builds(:ios_choose_prov_btn).send_keys("C:\\assets\\signing_key\\ios\\Lichuanlu.mobileprovision")
       else
         builds(:ios_choose_cert_btn).send_keys(File.expand_path($data[:signing_key][:ios][:valid][:cert],__FILE__))
         builds(:ios_choose_prov_btn).send_keys(File.expand_path($data[:signing_key][:ios][:valid][:profile],__FILE__))
@@ -62,7 +62,7 @@ module AppIdLocator
       builds(:android_title_input).send_keys title
       builds(:android_alias).send_keys title
       if ( win_or_mac == "win" )
-        builds(:android_choose_keystore_btn).send_keys("C:\\signing_key\\android\\android-dilato.keystore")
+        builds(:android_choose_keystore_btn).send_keys("C:\\assets\\signing_key\\android\\android-dilato.keystore")
       else
         builds(:android_choose_keystore_btn).send_keys(File.expand_path($data[:signing_key][:android][:valid][:keystore],__FILE__))            
       end
@@ -76,8 +76,8 @@ module AppIdLocator
       builds(:blackberry_title_input).send_keys title
 
       if(win_or_mac == "win")
-        builds(:blackberry_choose_csk_btn).send_keys("C:\\signing_key\\blackberry\\barsigner.csk")
-        builds(:blackberry_choose_db_btn).send_keys("C:\\signing_key\\blackberry\\barsigner.db")
+        builds(:blackberry_choose_csk_btn).send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.csk")
+        builds(:blackberry_choose_db_btn).send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.db")
       else
         builds(:blackberry_choose_csk_btn).send_keys File.expand_path($data[:signing_key][:blackberry][:valid][:csk],__FILE__)
         builds(:blackberry_choose_db_btn).send_keys File.expand_path($data[:signing_key][:blackberry][:valid][:db],__FILE__)
