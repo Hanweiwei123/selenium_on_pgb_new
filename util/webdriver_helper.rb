@@ -172,6 +172,18 @@ module WebdriverHelper
         end
         url.to_s + path + "?locale=" + $lang.to_s
     end 
+    
+    def is_element_present (page,ele)
+      begin
+        @driver.manage.timeouts.implicit_wait = 8
+        @driver.find_element(:xpath => $data[:xpath][page][ele])
+        @driver.manage.timeouts.implicit_wait = 30
+        return  true
+      rescue Exception => ex
+        puts "Exception: Unable to locate element"
+        return  false
+      end
+    end
 
     # To count the each test case's 'it' block order.
     # Ultimately it is used to name the screenshot when failure happens 
