@@ -145,20 +145,31 @@ describe "TC_001: New app(s) with free account" do
 
       app_count_before = @new_app_page.number_of_existing_apps
       first_app_id_before = @new_app_page.first_app_id
-      puts "+ app_count_before: #{app_count_before}"
-      puts "+ first_app_id_before: #{first_app_id_before}"
+      puts "+ first_app_id_before is : #{first_app_id_before}"
 
+      # delete the first_app_id_after
       new_app_locator(:delete_app_btn).click
+      new_app_locator(:delete_app_msg).text.should eql $data[:str][$lang][:delete_app_msg]
       new_app_locator(:delete_app_no).click
       new_app_locator(:delete_app_btn).click
       new_app_locator(:delete_app_yes).click
-
-      @driver.navigate.refresh
-      sleep 10
+      sleep 3
       app_count_after = @new_app_page.number_of_existing_apps
-      puts "+ app_count_after: #{app_count_after}"
+      first_app_id_after = @new_app_page.first_app_id
+      puts "+ first_app_id_after is : #{first_app_id_after}"
+      app_count_after.should eql app_count_before - 1
+      first_app_id_after.should_not eql first_app_id_before
 
-      app_count_after.should eql app_count_before-1
+      # delete the first_app_id_before
+      @driver.navigate.refresh; sleep 3
+      new_app_locator(:delete_app_btn).click
+      new_app_locator(:delete_app_msg).text.should eql $data[:str][$lang][:delete_app_msg]
+      new_app_locator(:delete_app_no).click
+      new_app_locator(:delete_app_btn).click
+      new_app_locator(:delete_app_yes).click
+      sleep 3
+      app_count_after = @new_app_page.number_of_existing_apps
+      app_count_after.should eql app_count_before - 2
     end
 
   end
