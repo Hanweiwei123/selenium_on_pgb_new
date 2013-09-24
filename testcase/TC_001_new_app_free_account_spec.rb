@@ -129,7 +129,7 @@ describe "TC_001: New app(s) with free account" do
 
       return_value = @new_app_page.new_app_with_zip
 
-      if (!return_value)
+      if (return_value)
         app_count_after = @new_app_page.number_of_existing_apps
         first_app_id_after = @new_app_page.first_app_id
         puts "+ app_count_after: #{app_count_after}"
