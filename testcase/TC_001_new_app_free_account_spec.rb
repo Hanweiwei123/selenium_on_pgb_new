@@ -31,8 +31,8 @@ describe "TC_001: New app(s) with free account" do
   # to make sure it be a clean run the next time.
   after(:all) do
     puts "+ <TC_001> after all outer --- begin"
-      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
-      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_connected_github][:id], $data[:user][$lang][:adobe_id_free_connected_github][:password]
+    webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
+    webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_connected_github][:id], $data[:user][$lang][:adobe_id_free_connected_github][:password]
     puts "+ <TC_001> after all outer --- end"
   end
 
@@ -50,6 +50,7 @@ describe "TC_001: New app(s) with free account" do
       puts "+ <TC_001> context 1 before all inside --- begin"
       @driver = driver
       @driver.manage.window.maximize
+      @driver.manage.timeouts.implicit_wait = 30
       @new_app_page = NewAppPage.new(
           :driver => @driver,
           :base_url => @base_url,
@@ -112,7 +113,7 @@ describe "TC_001: New app(s) with free account" do
       puts "+ app_count_after: #{app_count_after}"
       puts "+ first_app_id_after: #{first_app_id_after}"
 
-      app_count_after.should eql app_count_before+1
+      app_count_after.should eql app_count_before + 1
       first_app_id_after.should_not eql first_app_id_before
     end
 
