@@ -110,15 +110,16 @@
     :connect_your_github_account_link: //*[@id="new-app"]/form/div[2]/a
     :upgrade_now_link: //*[@id="new-app"]/form/div[2]/p/a
     :close_link: //*[@id='new-app']/form/div[1]/a[3]
-    :ready_to_build_btn: /html/body/section/div/div/section[3]/article/footer/a
+    :ready_to_build_btn: //section[@id='apps-list']/article[1]/footer/a
     :clickable_app_title: //*[@id='apps-list']/article/section/a/h1
     :rebuild_all_btn: //*[@id="app-detail"]/section/footer/a
     :collaborators_tab: /html/body/section/div/article/div[2]/section/nav/a[2]
     :settings_tab: /html/body/section/div/article/div[2]/section/nav/a[3]
-    :delete_app_btn: //*[@id='apps-list']/article[1]/footer/form/a
-    :delete_app_yes: //*[@id='apps-list']/article[1]/footer/form/aside/footer/button[2]
-    :delete_app_no: //*[@id='apps-list']/article[1]/footer/form/aside/footer/button[1]
-    :public_page_btn: //*[@id='apps-list']/article[1]/section[@class='actions']/a
+    :delete_app_btn: //section[@id='apps-list']/article[1]/footer/form/a
+    :delete_app_msg: //section[@id='apps-list']/article[1]/footer/form/aside/fieldset/p
+    :delete_app_yes: //section[@id='apps-list']/article[1]/footer/form/aside/footer/button[2]
+    :delete_app_no: //section[@id='apps-list']/article[1]/footer/form/aside/footer/button[1]
+    :public_page_btn: //section[@id='apps-list']/article[1]/section[@class='actions']/a
 :app_abuse_page:
     :report_abuse_link: //header[@id='app-header']/a[2]
     :report_abuse_form: //form[@id='abuse-form']
