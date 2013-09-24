@@ -43,7 +43,9 @@ class NewAppPage
     # In order to compare it with new-created app's ID to verify if new app was created successfully. 
     def first_app_id
         make_sure_apps_page unless @driver.current_url =~ /.*apps.*/
-        new_app_locator(:first_app_id).text
+        if is_element_present(:new_app_page,:first_app_id)
+           new_app_locator(:first_app_id).text
+        end
     end
     
     # On the default page after signing in
@@ -105,7 +107,7 @@ class NewAppPage
         os = win_or_mac
         if os == 'mac' 
             if type.upcase=="ZIP"
-              new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/anotherあ你äōҾӲ.zip",__FILE__))
+              new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/anotherあ你äōҾӲ.zip",__FILE__))
             elsif type.upcase=="HTML"
               new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/index.html",__FILE__))
             else
