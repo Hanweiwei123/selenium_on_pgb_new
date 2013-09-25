@@ -21,7 +21,8 @@ describe "TC_015: App Details #Builds" do
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_015_IT_"
-    @base_url = base_url
+    #@base_url = base_url
+    @base_url = "https://build.phonegap.com"
     @driver = driver
     @download_dir = Dir.home + "/Downloads"
     @driver.manage.window.maximize
@@ -42,6 +43,7 @@ describe "TC_015: App Details #Builds" do
   after(:all) do 
     begin 
       # webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
+      #webhelper_delete_all_signing_keys $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
       webhelper_delete_all_apps "shuai.yan@dilatoit.com", "yanshuai110"
       webhelper_delete_all_signing_keys "shuai.yan@dilatoit.com", "yanshuai110"
     ensure
