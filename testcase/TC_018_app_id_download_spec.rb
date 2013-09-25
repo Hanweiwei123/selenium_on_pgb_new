@@ -23,8 +23,8 @@ describe "TC_018: App Id #Downloads" do
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_018_IT_"
-    @base_url = base_url
-    #@base_url = "https://build.phonegap.com"
+    #@base_url = base_url
+    @base_url = "https://build.phonegap.com"
     @driver = driver
     @available_downloads = []
     @unavailable_downloads = []
@@ -35,17 +35,17 @@ describe "TC_018: App Id #Downloads" do
 
     @new_app_page = NewAppPage.new :driver => @driver,
                                    :base_url =>@base_url ,
-                                   #:user => {:id => $data[:user][$lang][:adobe_id_free_003_build][:id], :password => $data[:user][$lang][:adobe_id_free_003_build][:password] }
+                                   :user => {:id => $data[:user][$lang][:adobe_id_free_003_build][:id], :password => $data[:user][$lang][:adobe_id_free_003_build][:password] }
                                    #:user => {:id => "shuai.yan@dilatoit.com", :password => "yanshuai110"}
-                                   :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
+                                   #:user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
     @new_app_page.new_app_with_zip
     sleep 15
     @app_id = @new_app_page.first_app_id; 
   end
 
   after(:all) do
-      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
-      #webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_003_build][:id], $data[:user][$lang][:adobe_id_free_003_build][:password]
+      #webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
+      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_003_build][:id], $data[:user][$lang][:adobe_id_free_003_build][:password]
       #webhelper_delete_all_apps "shuai.yan@dilatoit.com", "yanshuai110"
       @driver.quit
   end
