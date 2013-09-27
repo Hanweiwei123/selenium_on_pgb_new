@@ -260,8 +260,8 @@ class EditAccountPage
         ea_signing_keys(:blackberry_add_key_btn).click
         ea_signing_keys(:blackberry_title_input).send_keys $data[:signing_key][:blackberry][:name_valid]
         if(os == "win")
-            ea_signing_keys(:blackberry_choose_csk_btn).send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.csk")
-            ea_signing_keys(:blackberry_choose_db_btn).send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.db")
+            ea_signing_keys(:blackberry_choose_csk_btn).send_keys("C:\\assets\\signing_key\\blackberry\\sigtool.csk")
+            ea_signing_keys(:blackberry_choose_db_btn).send_keys("C:\\assets\\signing_key\\blackberry\\sigtool.db")
         else
             ea_signing_keys(:blackberry_choose_csk_btn).send_keys File.expand_path($data[:signing_key][:blackberry][:valid][:csk],__FILE__)
             ea_signing_keys(:blackberry_choose_db_btn).send_keys File.expand_path($data[:signing_key][:blackberry][:valid][:db],__FILE__)
