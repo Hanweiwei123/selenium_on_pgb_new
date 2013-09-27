@@ -14,8 +14,9 @@
 :android: 
     :name_valid: "xxx_VALID_ANDROID_KEY_xxx"
     :name_invalid: "xxx_INVALID_ANDROID_KEY_xxx"
-    :cert_password: "d!lat0"
-    :keystore_password: "d!lat0"
+    :Ailas: "android.keystore"
+    :cert_password: "1234abcd"
+    :keystore_password: "1234abcd"
     :valid:
         :keystore: ../../assets/signing_key/android/android-dilato.keystore
     :invalid:
@@ -23,10 +24,10 @@
 :blackberry: 
     :name_valid: "xxx_VALID_BLACKBERRY_KEY_xxx"
     :name_invalid: "xxx_INVALID_BLACKBERRY_KEY_xxx"
-    :key_password: "dilat0"
+    :key_password: "1234abcd"
     :valid:
-        :db: ../../assets/signing_key/blackberry/barsigner.db
-        :csk: ../../assets/signing_key/blackberry/barsigner.csk
+        :db: ../../assets/signing_key/blackberry/sigtool.db
+        :csk: ../../assets/signing_key/blackberry/sigtool.csk
     :invalid:
         :db: 
         :csk: 
