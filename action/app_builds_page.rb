@@ -28,34 +28,78 @@ class AppBuildsPage
     end
     
 # --- iOS
-    def ios_add_signing_key
-        ios_signing_key_title_input.send_keys "abc" + @data_signing_key[:ios][:name_valid]
-        if @os == "win" 
-            ios_signing_key_choose_cert_btn.send_keys("C:\\assets\\signing_key\\ios\\LichuanIQEKey.p12")
-            ios_signing_key_choose_prov_btn.send_keys("C:\\assets\\signing_key\\ios\\Lichuanlu.mobileprovision")
+    def ios_add_signing_key valideOne_or_invalidOne = "valid"
+        type = valideOne_or_invalidOne.upcase
+        if(type == "VALID")
+          title = $data[:signing_key][:ios][:name_valid]
         else
-            ios_signing_key_choose_cert_btn.send_keys File.expand_path(@data_signing_key[:ios][:valid][:cert],__FILE__)
-            ios_signing_key_choose_prov_btn.send_keys File.expand_path(@data_signing_key[:ios][:valid][:profile],__FILE__)
+          title = $data[:signing_key][:ios][:name_invalid]
         end
-        ios_signing_key_submit_btn.click
-    end
-
-    def ios_get_status_of_the_signing_key
-        return ios_signing_key_status.text
+        os = win_or_mac
+        browser = ENV['PGBBROWSER'].to_sym
+        if browser == :firefox
+          builds(:ios_options_firefox).click; sleep 2
+        else
+          builds(:ios_options).click; sleep 2
+        end
+        builds(:ios_new_key).click; sleep 2
+        if is_element_present(:app_builds_page,:ios_title_input)
+          builds(:ios_title_input).clear
+          builds(:ios_title_input).send_keys title
+          if ( os == "win" )
+            builds(:ios_choose_cert_btn).send_keys("C:\\assets\\signing_key\\ios\\LichuanIQEKey.p12")
+            builds(:ios_choose_prov_btn).send_keys("C:\\assets\\signing_key\\ios\\Lichuanlu.mobileprovision")
+          else
+            builds(:ios_choose_cert_btn).send_keys(File.expand_path($data[:signing_key][:ios][:valid][:cert],__FILE__))
+            builds(:ios_choose_prov_btn).send_keys(File.expand_path($data[:signing_key][:ios][:valid][:profile],__FILE__))
+          end
+          sleep 2
+          if is_element_present(:app_builds_page,:ios_submit_btn)
+            builds(:ios_submit_btn).click
+          end
+          sleep 5
+        end
     end
 
     def ios_get_error_msg_of_the_signing_key
-        Selenium::WebDriver::Wait.new(:timeout => 120).until { ios_signing_key_error_btn }
-        ios_signing_key_error_btn.click
-        txt = ios_signing_key_error_msg.text
-        return txt
+        timeout(120) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:ios_action).text do
+            @driver.navigate.refresh
+            sleep 5
+            puts "+ action: " + builds(:ios_action).text
+          end
+        }
+        if builds(:ios_action).text == $data[:str][$lang][:builds_action_error]
+          builds(:ios_action).click; sleep 5
+          if is_element_present(:app_builds_page,:ios_msg)
+            sleep 2
+            return builds(:ios_msg).text
+          end
+        else
+          puts "+ action: " + builds(:ios_action).text
+          return "false"
+        end
     end
 
-    def to_unlock_ios_signing_key
-        Selenium::WebDriver::Wait.new(:timeout => 120).until { ios_signing_key_status }
-        ios_signing_key_status.click
-        ios_signing_key_unlock_password_input.send_keys @data_signing_key[:android][:key_password]
-        ios_signing_key_unlock_submit_btn.click
+    def to_unlock_ios_signing_key valideOne_or_invalidOne = "valid"
+        type = valideOne_or_invalidOne.upcase
+        if(type == "VALID")
+          key_password = $data[:signing_key][:ios][:cert_password]
+        else
+          key_password = "INVALID"
+        end
+        timeout(60) {
+          while $data[:str][$lang][:builds_action_pending] == builds(:ios_action).text do
+            @driver.navigate.refresh
+            sleep 5
+            puts "+ action: " + builds(:ios_action).text
+          end
+        }
+        if is_element_present(:app_builds_page,:ios_status)
+          builds(:ios_status).click; sleep 5
+          builds(:ios_unlock_cert_pwd_input).send_keys key_password
+          builds(:ios_unlock_submit_btn).click; sleep 5
+        end
     end
 
     def ios_get_signing_key_name_of_id(id)
@@ -80,33 +124,81 @@ class AppBuildsPage
 # --- /iOS
 
 # --- Android
-    def android_add_signing_key
-        android_signing_key_title_input.send_keys "abc" + @data_signing_key[:android][:name_valid]
-        android_signing_key_alias.send_keys @data_signing_key[:android][:name_valid]
-        if @os == "win" 
-            android_signing_key_choose_keystore_btn.send_keys("C:\\assets\\signing_key\\android\\android-dilato.keystore")
+    def android_add_signing_key valideOne_or_invalidOne = "valid"
+      type = valideOne_or_invalidOne.upcase
+      if(type == "VALID")
+        title = $data[:signing_key][:android][:name_valid]
+      else
+        title = $data[:signing_key][:android][:name_invalid]
+      end
+      os = win_or_mac
+      browser = ENV['PGBBROWSER'].to_sym
+      if browser == :firefox
+        builds(:android_options_firefox).click; sleep 2
+      else
+        builds(:android_options).click; sleep 2
+      end
+      builds(:android_new_key).click; sleep 2
+      if is_element_present(:app_builds_page,:android_title_input)
+        builds(:android_title_input).clear
+        builds(:android_title_input).send_keys title
+        builds(:android_alias).clear
+        builds(:android_alias).send_keys $data[:signing_key][:android][:Ailas]
+        if ( os == "win" )
+          builds(:android_choose_keystore_btn).send_keys("C:\\assets\\signing_key\\android\\android-dilato.keystore")
         else
-            android_signing_key_choose_keystore_btn.send_keys File.expand_path(@data_signing_key[:android][:valid][:keystore],__FILE__)
+          builds(:android_choose_keystore_btn).send_keys(File.expand_path($data[:signing_key][:android][:valid][:keystore],__FILE__))
         end
-        android_signing_key_submit_btn.click
-    end
-
-    def android_get_status_of_the_signing_key
-        return android_signing_key_status.text
+        sleep 2
+        if is_element_present(:app_builds_page,:android_submit_btn)
+          builds(:android_submit_btn).click
+        end
+        sleep 5
+      end
     end
 
     def android_get_error_msg_of_the_signing_key
-        Selenium::WebDriver::Wait.new(:timeout => 120).until { android_signing_key_error_btn }
-        android_signing_key_error_btn.click
-        txt = android_signing_key_error_msg.text
-        return txt
+      timeout(120) {
+        while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
+          @driver.navigate.refresh
+          sleep 5
+          puts "+ action: " + builds(:android_action).text
+        end
+      }
+      if builds(:android_action).text == $data[:str][$lang][:builds_action_error]
+        builds(:android_action).click; sleep 5
+        if is_element_present(:app_builds_page,:android_msg)
+          sleep 2
+          return builds(:android_msg).text
+        end
+      else
+        puts "+ action: " + builds(:android_action).text
+        return "false"
+      end
     end
 
-    def to_unlock_android_signing_key
-        Selenium::WebDriver::Wait.new(:timeout => 120).until { android_signing_key_status }
-        android_signing_key_status.click
-        android_signing_key_unlock_password_input.send_keys @data_signing_key[:android][:key_password]
-        android_signing_key_unlock_submit_btn.click
+    def to_unlock_android_signing_key valideOne_or_invalidOne = "valid"
+      type = valideOne_or_invalidOne.upcase
+      if(type == "VALID")
+        cert_password = $data[:signing_key][:android][:cert_password]
+        keystore_password = $data[:signing_key][:android][:keystore_password]
+      else
+        cert_password = "INVALID"
+        keystore_password  = "INVALID"
+      end
+      timeout(60) {
+        while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
+          @driver.navigate.refresh
+          sleep 5
+          puts "+ action: " + builds(:android_action).text
+        end
+      }
+      if is_element_present(:app_builds_page,:android_status)
+        builds(:android_status).click; sleep 5
+        builds(:android_unlock_cert_pwd_input).send_keys cert_password
+        builds(:android_unlock_keystore_pwd_input).send_keys keystore_password
+        builds(:android_unlock_submit_btn).click
+      end
     end
 
     def android_get_signing_key_name_of(id)
@@ -130,35 +222,78 @@ class AppBuildsPage
 # --- /Android
 
 # --- BlackBerry
-    def blackberry_add_signing_key
-        blackberry_signing_key_title_input.send_keys "abc" + @data_signing_key[:blackberry][:name_valid]
-        if @os == "win" 
-            blackberry_signing_key_choose_csk_btn.send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.csk")
-            blackberry_signing_key_choose_db_btn.send_keys("C:\\assets\\signing_key\\blackberry\\barsigner.db")
+    def blackberry_add_signing_key valideOne_or_invalidOne = "valid"
+      type = valideOne_or_invalidOne.upcase
+      if(type == "VALID")
+        title = $data[:signing_key][:blackberry][:name_valid]
+      else
+        title = $data[:signing_key][:blackberry][:name_invalid]
+      end
+      os = win_or_mac
+      browser = ENV['PGBBROWSER'].to_sym
+      if browser == :firefox
+        builds(:blackberry_options_firefox).click; sleep 2
+      else
+        builds(:blackberry_options).click; sleep 2
+      end
+      builds(:blackberry_new_key).click; sleep 2
+      if is_element_present(:app_builds_page,:blackberry_title_input)
+        builds(:blackberry_title_input).clear
+        builds(:blackberry_title_input).send_keys title
+        if(os == "win")
+          builds(:blackberry_choose_csk_btn).send_keys("C:\\assets\\signing_key\\blackberry\\sigtool.csk")
+          builds(:blackberry_choose_db_btn).send_keys("C:\\assets\\signing_key\\blackberry\\sigtool.db")
         else
-            blackberry_signing_key_choose_csk_btn.send_keys File.expand_path(@data_signing_key[:blackberry][:valid][:csk],__FILE__)
-            blackberry_signing_key_choose_db_btn.send_keys File.expand_path(@data_signing_key[:blackberry][:valid][:db],__FILE__)
+          builds(:blackberry_choose_csk_btn).send_keys File.expand_path($data[:signing_key][:blackberry][:valid][:csk],__FILE__)
+          builds(:blackberry_choose_db_btn).send_keys File.expand_path($data[:signing_key][:blackberry][:valid][:db],__FILE__)
         end
-        blackberry_signing_key_submit_btn.click
-    end
-
-    def blackberry_get_status_of_the_signing_key
-        return blackberry_signing_key_status.text
+        sleep 2
+        if is_element_present(:app_builds_page,:blackberry_submit_btn)
+          builds(:blackberry_submit_btn).click
+        end
+        sleep 5
+      end
     end
 
     def blackberry_get_error_msg_of_the_signing_key
-        Selenium::WebDriver::Wait.new(:timeout => 120).until { blackberry_signing_key_error_btn }
-        blackberry_signing_key_error_btn.click
-        txt = blackberry_signing_key_error_msg.text
-        puts "+ <action><app_builds_page> the blackberry error message: #{txt}"
-        return txt
+      timeout(120) {
+        while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do
+          @driver.navigate.refresh
+          sleep 5
+          puts "+ action: " + builds(:blackberry_action).text
+        end
+      }
+      if builds(:blackberry_action).text == $data[:str][$lang][:builds_action_error]
+        builds(:blackberry_action).click; sleep 5
+        if is_element_present(:app_builds_page,:blackberry_msg)
+          sleep 2
+          return builds(:blackberry_msg).text
+        end
+      else
+        puts "+ action: " + builds(:blackberry_action).text
+        return "false"
+      end
     end
 
-    def to_unlock_blackberry_signing_key
-        Selenium::WebDriver::Wait.new(:timeout => 120).until { blackberry_signing_key_status }
-        blackberry_signing_key_status.click
-        blackberry_signing_key_unlock_password_input.send_keys @data_signing_key[:blackberry][:key_password]
-        balckberry_signing_key_unlock_submit_btn.click
+    def to_unlock_blackberry_signing_key valideOne_or_invalidOne = "valid"
+      type = valideOne_or_invalidOne.upcase
+      if(type == "VALID")
+        key_password = $data[:signing_key][:blackberry][:key_password]
+      else
+        key_password = "INVALID8"
+      end
+      timeout(60) {
+        while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do
+          @driver.navigate.refresh
+          sleep 5
+          puts "+ action: " + builds(:blackberry_action).text
+        end
+      }
+      if is_element_present(:app_builds_page,:blackberry_status)
+        builds(:blackberry_status).click; sleep 5
+        builds(:blackberry_unlock_password_input).send_keys key_password
+        builds(:balckberry_unlock_submit_btn).click
+      end
     end
 
     def blackberry_get_signing_key_name_of id 
