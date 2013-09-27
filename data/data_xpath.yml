@@ -180,7 +180,8 @@
     :tab: //*[@id="app-detail-controls"]/nav/a[1]
     :ios_label:     //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/div
     :ios_action:    //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/a
-    :ios_options:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup
+    :ios_options_firefox:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup
+    :ios_options:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select
     :ios_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[1]
     :ios_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[2]
     :ios_rebuild:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/span/a
@@ -195,11 +196,13 @@
     :ios_status: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/div[2]
     :ios_error_btn: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/a
     :ios_unlock_cert_pwd_input: //*[@id="key_password"]
-    :ios_unlock_cancel_btn: /html/body/div[2]/form/footer/button[1]
-    :ios_unlock_submit_btn: /html/body/div[2]/form/footer/button[2]
+    :ios_unlock_set_pwd_default_input: //form[@class='key_unlock']/fieldset/label/input
+    :ios_unlock_cancel_btn: //form[@class='key_unlock']/footer/button[1]
+    :ios_unlock_submit_btn: //form[@class='key_unlock']/footer/button[2]
     :android_label:     //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/div
     :android_action:    //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/a
-    :android_options:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup
+    :android_options_firefox:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup
+    :android_options:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select
     :android_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup/option[1]
     :android_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup/option[2]
     :android_rebuild:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/span/a
@@ -214,8 +217,8 @@
     :android_error_btn: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/a
     :android_unlock_cert_pwd_input: //*[@id="key_key_pw"]
     :android_unlock_keystore_pwd_input: //*[@id="key_keystore_pw"]
-    :android_unlock_cancel_btn: /html/body/div/form/footer/button[1]
-    :android_unlock_submit_btn: /html/body/div/form/footer/button[2]
+    :android_unlock_cancel_btn: //form[@class='key_unlock']/footer/button[1]
+    :android_unlock_submit_btn: //form[@class='key_unlock']/footer/button[2]
     :winphone_action:   //*[@id="app-builds"]/div[2]/div[2]/article[1]/div[1]/a
     :winphone_rebuild:  //*[@id="app-builds"]/div[2]/div[2]/article[1]/div[1]/span/a
     :winphone_msg:  //*[@id="winphone_msg"]
@@ -227,7 +230,8 @@
     :symbian_msg:   //*[@id="symbian_msg"]
     :blackberry_label:      //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/div
     :blackberry_action:     //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/a
-    :blackberry_options:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup
+    :blackberry_options_firefox:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup
+    :blackberry_options:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select
     :blackberry_no_key:     //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup/option[1]
     :blackberry_new_key:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup/option[2]
     :blackberry_rebuild:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/span/a
@@ -241,8 +245,8 @@
     :blackberry_status: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/div[2]
     :blackberry_error_btn: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/a
     :blackberry_unlock_password_input: //*[@id="key_password"]
-    :blackberry_unlock_cancel_btn: /html/body/div/form/footer/button[1]
-    :balckberry_unlock_submit_btn: /html/body/div/form/footer/button[2]
+    :blackberry_unlock_cancel_btn: //form[@class='key_unlock']/footer/button[1]
+    :balckberry_unlock_submit_btn: //form[@class='key_unlock']/footer/button[2]
 :app_collaborators_page:
     :tab: //*[@id="app-detail-controls"]/nav/a[2]
     :add_collaborator_btn: //*[@id="app-collaborators"]/div/a
