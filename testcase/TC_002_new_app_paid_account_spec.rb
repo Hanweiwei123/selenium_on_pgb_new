@@ -43,7 +43,8 @@ describe "TC_002: New apps with paid account" do
         end
     end
 
-    it "IT_001: the number of apps did not equal to 0 after creating an private app by uploading a .zip file" do 
+    it "IT_001: the number of apps did not equal to 0 after creating an private app by uploading a .zip file" do
+        puts "IT_" + @order_of_it.to_s
         @new_app_page.new_app_with_zip
         sleep 5
         app_count_after = @new_app_page.number_of_existing_apps
@@ -51,7 +52,8 @@ describe "TC_002: New apps with paid account" do
         app_count_after.should_not eql 0
     end
 
-    it "IT_002: the number of apps did not stay the same after creating the second private app"  do 
+    it "IT_002: the number of apps did not stay the same after creating the second private app"  do
+        puts "IT_" + @order_of_it.to_s
         sleep 2
         app_count_before = @new_app_page.number_of_existing_apps
         first_app_id_before = @new_app_page.first_app_id
@@ -63,6 +65,52 @@ describe "TC_002: New apps with paid account" do
 
         app_count_after.should eql app_count_before + 1
         first_app_id_after.should_not eql first_app_id_before
-    end    
+    end  
+    
+     it "IT_003: the number of apps was not the same as before, after delete one app" do
+        puts "IT_" + @order_of_it.to_s
+  
+        app_count_before = @new_app_page.number_of_existing_apps
+        first_app_id_before = @new_app_page.first_app_id
+  
+        # delete the first_app_id_after
+        new_app_locator(:delete_app_btn).click
+        new_app_locator(:delete_app_msg).text.should eql $data[:str][$lang][:delete_app_msg]
+        new_app_locator(:delete_app_no).click
+        new_app_locator(:delete_app_btn).click
+        new_app_locator(:delete_app_yes).click
+        sleep 3
+        app_count_after = @new_app_page.number_of_existing_apps
+        first_app_id_after = @new_app_page.first_app_id
+        app_count_after.should eql app_count_before - 1
+        first_app_id_after.should_not eql first_app_id_before
+  
+        # delete the first_app_id_before
+        @driver.navigate.refresh; sleep 3
+        new_app_locator(:delete_app_btn).click
+        new_app_locator(:delete_app_msg).text.should eql $data[:str][$lang][:delete_app_msg]
+        new_app_locator(:delete_app_no).click
+        new_app_locator(:delete_app_btn).click
+        new_app_locator(:delete_app_yes).click
+        sleep 3
+        app_count_after = @new_app_page.number_of_existing_apps
+        app_count_after.should eql app_count_before - 2
+    end
+    
+    it "IT_004: if the number of apps is greater than 24, check the message localized" do
+      puts "IT_" + @order_of_it.to_s
+      sleep 5
+      for i in 1..25 do
+        puts "+<the order> is #{i}"
+        @new_app_page.new_app_with_zip
+        sleep 5
+        #new_app_locator(:ready_to_build_btn).click
+        #sleep 5
+        @new_app_page.number_of_existing_apps
+        @new_app_page.first_app_id
+      end
+      #puts new_app_locator(:app_num_msg).text
+      new_app_locator(:app_num_msg).text.should eql $data[:str][$lang][:create_app_mun_error_msg]
+    end
 
 end
