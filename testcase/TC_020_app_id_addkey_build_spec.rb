@@ -21,7 +21,7 @@ describe "TC_015: App Details #Builds" do
   before(:all) do
     init
     @order_of_it = WebdriverHelper::Counter.new
-    @name_screenshot = "TC_015_IT_"
+    @name_screenshot = "TC_020_IT_"
     #@base_url = base_url
     @base_url = "https://build.phonegap.com"
     @driver = driver
