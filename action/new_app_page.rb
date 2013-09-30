@@ -44,7 +44,9 @@ class NewAppPage
     def first_app_id
         make_sure_apps_page unless @driver.current_url =~ /.*apps.*/
         if is_element_present(:new_app_page,:first_app_id)
-           new_app_locator(:first_app_id).text
+           first_app_id=new_app_locator(:first_app_id).text
+           puts "+ <action> first_app_id: #{first_app_id}"
+           return first_app_id
         end
     end
     
