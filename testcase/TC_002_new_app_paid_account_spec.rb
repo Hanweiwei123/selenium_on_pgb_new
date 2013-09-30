@@ -45,15 +45,10 @@ describe "TC_002: New apps with paid account" do
 
     it "IT_001: the number of apps did not equal to 0 after creating an private app by uploading a .zip file" do 
         @new_app_page.new_app_with_zip
-
-        sleep 5 
-            
-        @app_count_after = @new_app_page.number_of_existing_apps
-        @first_app_id_after = @new_app_page.first_app_id
-        puts "+app_count_after: #{@app_count_after}"
-        puts "+first_app_id_after: #{@first_app_id_after}"
- 
-        @app_count_after.should_not eql 0
+        sleep 5
+        app_count_after = @new_app_page.number_of_existing_apps
+        @new_app_page.first_app_id
+        app_count_after.should_not eql 0
     end
 
     it "IT_002: the number of apps did not stay the same after creating the second private app"  do 
