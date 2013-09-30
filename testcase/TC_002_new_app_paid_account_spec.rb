@@ -52,22 +52,17 @@ describe "TC_002: New apps with paid account" do
     end
 
     it "IT_002: the number of apps did not stay the same after creating the second private app"  do 
-        sleep 5
-        @app_count_before = @new_app_page.number_of_existing_apps
-        @first_app_id_before = @new_app_page.first_app_id
-        puts "+app_count_before: #{@app_count_before}"
-        puts "+first_app_id_before: #{@first_app_id_before}"
+        sleep 2
+        app_count_before = @new_app_page.number_of_existing_apps
+        first_app_id_before = @new_app_page.first_app_id
 
-        @return_value = @new_app_page.new_app_with_zip  
-        
-        sleep 5 
+        @new_app_page.new_app_with_zip; sleep 5
 
-        @app_count_after = @new_app_page.number_of_existing_apps
-        @first_app_id_after = @new_app_page.first_app_id
-        puts "+app_count_after: #{@app_count_after}"
-        puts "+first_app_id_after: #{@first_app_id_after}"
-        
-        @app_count_after.should eql @app_count_before + 1
+        app_count_after = @new_app_page.number_of_existing_apps
+        first_app_id_after = @new_app_page.first_app_id
+
+        app_count_after.should eql app_count_before + 1
+        first_app_id_after.should_not eql first_app_id_before
     end    
 
 end
