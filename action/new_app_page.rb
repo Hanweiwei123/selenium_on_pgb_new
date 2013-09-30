@@ -88,6 +88,7 @@ class NewAppPage
     # Steps are: 
     #       "private" tab -> "Upload a .zip file" 
     def new_app_with_zip (type="html")
+        puts "+<type> is #{type.upcase}"
         puts "+ <action> New app with a zip file --- begin "
         make_sure_apps_page unless @driver.current_url =~ /.*apps.*/
 
@@ -112,6 +113,10 @@ class NewAppPage
               new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/anotherあ你äōҾӲ.zip",__FILE__))
             elsif type.upcase=="HTML"
               new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/index.html",__FILE__))
+            elsif type.upcase=="INVALID_FILETYPE"
+              new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/invalidfile/LichuanIQEKey.p12",__FILE__))
+            elsif type.upcase=="INVALID_LARGE_FILE"
+              new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/invalidfile/index.html",__FILE__))
             else
               railse "Not supported file."
             end
@@ -120,6 +125,10 @@ class NewAppPage
               new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\www.zip"
             elsif type.upcase=="HTML"
               new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\index.html"
+            elsif type.upcase=="INVALID_FILETYPE"
+              new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\invalidfile\\LichuanIQEKey.p12"
+            elsif type.upcase=="INVALID_LARGE_FILE"
+              new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\invalidfile\\index.html"
             else
               railse "Not supported file."
             end
