@@ -97,7 +97,8 @@
     :BillingAddressOne: //*[@id='BillingAddressOne']
     :BillingAddressTwo: //*[@id='BillingAddressTwo']
     :BillingPhone: //*[@id='BillingPhone']
-:new_app_page: 
+:new_app_page:
+    :app_num_msg : //section[@id='page-content']/div/div/section
     :first_app_id: //*[@id='apps-list']/article/section[@class='app-details']/div/dl/dd
     :new_app_btn: //*[@id='new-app-btn']
     :opensource_repo_tab: //*[@id='new-app']/form/div[1]/a[1]
@@ -108,6 +109,7 @@
     :not_a_valid_github_url: /html/body/section/div/div/div/form/div[2]/div/div/span
     :upload_a_zip_btn: //*[@id='app_archive']
     :connect_your_github_account_link: //*[@id="new-app"]/form/div[2]/a
+    :new_app_num_msg: //*[@id="new-app"]/form/div[2]/p
     :upgrade_now_link: //*[@id="new-app"]/form/div[2]/p/a
     :close_link: //*[@id='new-app']/form/div[1]/a[3]
     :ready_to_build_btn: //section[@id='apps-list']/article[1]/footer/a
@@ -120,6 +122,10 @@
     :delete_app_yes: //section[@id='apps-list']/article[1]/footer/form/aside/footer/button[2]
     :delete_app_no: //section[@id='apps-list']/article[1]/footer/form/aside/footer/button[1]
     :public_page_btn: //section[@id='apps-list']/article[1]/section[@class='actions']/a
+    :enable_debug_checkbox: //section[@id='apps-list']/article/footer/label/input
+    :enable_hyd_checkbox: //section[@id='apps-list']/article/footer/label[2]/input
+    :debug_label: //section[@id='apps-list']/article/footer/span[2]/a
+    :hyd_label: //section[@id='apps-list']/article/footer/a[2]
 :app_abuse_page:
     :report_abuse_link: //header[@id='app-header']/a[2]
     :report_abuse_form: //form[@id='abuse-form']
@@ -149,11 +155,16 @@
     :report_btn: //form[@id='abuse-form']/footer/button[2]
     :report_success_label: //aside[@id='notifications-detail']/div/section
 :app_id_page:
+    :error_alert_msg: //aside[@id='notifications-detail']/div/section[@class='alert']
     :title: //*[@id="app-detail"]/section[1]/h1
     :description: //*[@id="app-detail"]/section[1]/div
     :update_code_btn: //*[@id="app-detail"]/section[1]/footer/span[1]/a
+    :update_code_browser_btn: //fieldset/dl/dd/input[@name='app[archive]']
+    :update_code_note_msg: //fieldset/dl/dd[2]
+    :update_code_cancel_btn: //form[fieldset[dl[dd[input[@name="app[archive]"]]]]]/footer/button
+    :update_code_upload_btn: //form[fieldset[dl[dd[input[@name="app[archive]"]]]]]/footer/button[2]
     :rebuild_all_btn: //*[@id="app-detail"]/section[1]/footer/a[1]
-    :debug_btn: //*[@id="debug-server-bad"]
+    :debug_btn: //article[@id="app-detail"]/section[1]/footer/span[2]/a
     :hydration_btn: //*[@id="app-detail"]/section[1]/footer/a[2]
     :install_btn: //*[@id="app-detail"]/section[1]/section/a[2]
     :share_btn: //*[@id="app-detail"]/section[1]/section/a[1]
@@ -248,7 +259,7 @@
     :blackberry_unlock_cancel_btn: //form[@class='key_unlock']/footer/button[1]
     :balckberry_unlock_submit_btn: //form[@class='key_unlock']/footer/button[2]
 :app_collaborators_page:
-    :tab: //*[@id="app-detail-controls"]/nav/a[2]
+    :tab: //section[@id="app-detail-controls"]/nav/a[@class="icon collaborators"]
     :add_collaborator_btn: //*[@id="app-collaborators"]/div/a
     :email_address_input: //*[@id="add-collaborator"]/fieldset/dl[1]/dd/input
     :role_reader_radio_btn: //*[@id="role_reader"]
@@ -261,12 +272,12 @@
     :first_collaborator_delete: /html/body/section/div/article/div[2]/div[2]/div/ul/li/div/a[2]
     :first_collaborator_confirm: /html/body/section/div/article/div[2]/div[2]/div/ul/li/form/button[2]
 :app_settings_page:
-    :tab: //*[@id="app-detail-controls"]/nav/a[3]
+    :tab: //section[@id="app-detail-controls"]/nav/a[@class="icon settings"]
     :basic_title: //*[@id='app-settings']/div/form/header/h1
-    :basic_source_code_browse_btn: //*[@id='app-settings']/div/form/fieldset/dl/dd/input
-    :basic_source_code_upload_btn: //*[@id='app-settings']/div/form/fieldset/dl/dd/button
-    :basic_settings_enable_debugging: //*[@id="debugging"]
-    :basic_settings_enable_hydration: //*[@id="app_hydrates"]
+    :basic_source_code_browse_btn: //div[@id='app-settings']/div/form/fieldset/dl/dd/input
+    :basic_source_code_upload_btn: //div[@id='app-settings']/div/form/fieldset/dl/dd/button
+    :basic_settings_enable_debugging: //input[@id="debugging"]
+    :basic_settings_enable_hydration: //input[@id="app_hydrates"]
     :basic_settigns_only_approved_colla: //*[@id="app_private"]
     :basic_save_btn: //*[@id='app-settings']/div/form/footer/input
     :config_title: //*[@id='app-settings']/div/form[2]/header/h1
@@ -365,11 +376,12 @@
     :header_notifications: //*[@id="notifications-detail"]/div/section
     :link_here_header_notifications: //*[@id="notifications-detail"]/div/section/a
     :title: //*[@id="page-content"]/div/h1
-    :tab_all_supported_plugins: //*[@id="plugin-edit-controls"]/nav/a[@class="all selected"]
-    :tab_your_plugins: //*[@id="plugin-edit-controls"]/nav/a[@class="your"]
+    :tab_all_supported_plugins: //section[@id="plugin-edit-controls"]/nav/a[1]
+    :tab_PGB_supported_plugins: //section[@id="plugin-edit-controls"]/nav/a[@class="core"]
+    :tab_your_plugins: //section[@id="plugin-edit-controls"]/nav/a[@class="your"]
     :link_sign_in_tab_your_plugins: //*[@id="plugin-your"]/fieldset/a
     :you_have_no_plugins: //*[@id="plugin-your"]/fieldset/p
-    :tab_submit_plugin: //*[@id="plugin-edit-controls"]/nav/a[@class="add"]
+    :tab_submit_plugin: //section[@id="plugin-edit-controls"]/nav/a[@class="add"]
     :link_sign_in_tab_submit_plugin: //*[@id="plugin-your"]/fieldset/a
     :please_sign_in_your: //*[@id="plugin-your"]/fieldset
     :please_sign_in_add: //*[@id="plugin-add"]/fieldset
