@@ -97,7 +97,7 @@ describe "TC_002: New apps with paid account" do
         app_count_after.should eql app_count_before - 2
     end
     
-    it "IT_004: if the number of apps is greater than 24, check the message localized" do
+    it "IT_004: if the number of apps is greater than 25, check the message localized" do
       puts "IT_" + @order_of_it.to_s
       sleep 5
       for i in 1..25 do
