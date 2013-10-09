@@ -118,7 +118,7 @@ class NewAppPage
             elsif type.upcase=="INVALID_LARGE_FILE"
               new_app_locator(:upload_a_zip_btn).send_keys (File.expand_path("../assets/application/invalidfile/index.html",__FILE__))
             else
-              railse "Not supported file."
+              raise "Not supported file."
             end
         elsif os == 'win'
             if type.upcase=="ZIP"
@@ -130,10 +130,10 @@ class NewAppPage
             elsif type.upcase=="INVALID_LARGE_FILE"
               new_app_locator(:upload_a_zip_btn).send_keys "C:\\assets\\application\\invalidfile\\index.html"
             else
-              railse "Not supported file."
+              raise "Not supported file."
             end
         else 
-            railse "Not supported Operating System."
+            raise "Not supported Operating System."
         end
 
         sleep 10
