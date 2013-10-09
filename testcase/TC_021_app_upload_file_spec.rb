@@ -147,6 +147,42 @@ describe 'My behaviour' do
       #app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
     end
 
+    it "IT_009: should delete the app successfully" do
+
+      settings(:danger_zone_delete_app_btn).click
+      @driver.switch_to.alert.accept; sleep 20
+      @driver.navigate.refresh; sleep 5
+      @driver.current_url.should =~ /.*apps$/
+    end
+
+  end
+
+  context "private zip app head part upload update code" do
+
+    before (:all) do
+      @new_app_page.new_app_with_zip("zip");  sleep 10
+      @app_id=@new_app_page.first_app_id
+      new_app_locator(:ready_to_build_btn).click
+      sleep 10
+      @driver.get @driver.current_url + "\/#{@app_id}\/builds" ;sleep 5
+      @current_url = @driver.current_url
+      puts "+<current_url> is #{@current_url}";
+    end
+
+    it "IT_010:check code has been updated" do
+      app_brief(:update_code_btn).click
+      os = win_or_mac
+      if os == 'mac'
+        app_brief(:update_code_browser_btn).send_keys (File.expand_path("../assets/application/testzip.zip",__FILE__))
+      elsif os == 'win'
+        app_brief(:update_code_browser_btn).send_keys("C:\\assets\\application\\testzip.zip")
+      else
+        raise "Not supported Operating System."
+      end
+      app_brief(:update_code_upload_btn).click;sleep 10
+      app_brief(:title).text.should include "test"
+    end
+
   end
 
 end
