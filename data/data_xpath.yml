@@ -156,6 +156,7 @@
     :report_success_label: //aside[@id='notifications-detail']/div/section
 :app_id_page:
     :error_alert_msg: //aside[@id='notifications-detail']/div/section[@class='alert']
+    :notice_alert_msg: //aside[@id='notifications-detail']/div/section[@class='notice']
     :title: //*[@id="app-detail"]/section[1]/h1
     :description: //*[@id="app-detail"]/section[1]/div
     :update_code_btn: //*[@id="app-detail"]/section[1]/footer/span[1]/a
@@ -274,6 +275,8 @@
 :app_settings_page:
     :tab: //section[@id="app-detail-controls"]/nav/a[@class="icon settings"]
     :basic_title: //*[@id='app-settings']/div/form/header/h1
+    :basic_repo_url_input: //div[@id='app-settings']/div/form/fieldset/dl/dd/input
+    :basic_pull_btn: //div[@id='app-settings']/div/form/fieldset/dl/dd/a
     :basic_source_code_browse_btn: //div[@id='app-settings']/div/form/fieldset/dl/dd/input
     :basic_source_code_upload_btn: //div[@id='app-settings']/div/form/fieldset/dl/dd/button
     :basic_settings_enable_debugging: //input[@id="debugging"]
@@ -281,6 +284,7 @@
     :basic_settigns_only_approved_colla: //*[@id="app_private"]
     :basic_save_btn: //*[@id='app-settings']/div/form/footer/input
     :config_title: //*[@id='app-settings']/div/form[2]/header/h1
+    :config_app_icon_img: //dl[dd[input[@id="app_icon_file"]]]/dd[1]/img
     :config_app_icon_file: //*[@id="app_icon_file"]
     :config_app_title: //*[@id="app_title"]
     :config_app_package: //*[@id="app_package"]
