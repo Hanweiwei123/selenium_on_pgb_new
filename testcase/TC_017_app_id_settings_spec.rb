@@ -30,7 +30,8 @@ describe "TC_017: App Details #Collaborators" do
     @new_app_page = NewAppPage.new :driver => @driver,
                                    :base_url =>@base_url ,
                                    :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password => $data[:user][$lang][:adobe_id_free_002][:password] }
-    @new_app_page.new_app_with_zip
+    #@new_app_page.new_app_with_zip
+    @new_app_page.new_public_app_with_repo
     # sleep 15
     @app_id = @new_app_page.first_app_id;
   end
@@ -67,6 +68,12 @@ describe "TC_017: App Details #Collaborators" do
     it "IT_001: the h1 title should be localized" do
       
       settings(:basic_title).text.should eql $data[:str][$lang][:app_id_settings_basic_title]
+    end
+    
+    it "IT_002:Pull a git repo should work well " do
+      settings(:basic_repo_url_input).attribute('value').should eql $data[:app][:new_app][:by_repo]
+      settings(:basic_pull_btn).click
+      app_brief(:notice_alert_msg).text.should eql $data[:str][$lang][:app_id_update_notice]
     end
 
     it "IT_002: Those checkboxes should work well " do
