@@ -76,8 +76,9 @@ describe "TC_017: App Details #Collaborators" do
       app_brief(:notice_alert_msg).text.should eql $data[:str][$lang][:app_id_update_notice]
     end
 
-    it "IT_002: Those checkboxes should work well " do
+    it "IT_003: Those checkboxes should work well " do
 
+      settings(:tab).click
       let_it_checked settings(:basic_settings_enable_debugging)
       let_it_checked settings(:basic_settings_enable_hydration)
       let_it_checked settings(:basic_settigns_only_approved_colla)
@@ -101,13 +102,21 @@ describe "TC_017: App Details #Collaborators" do
       settings(:tab).click
     end
 
-    it "IT_003: the title should be localized" do
+    it "IT_004: the title should be localized" do
 
       settings(:config_title).text.to_s.should eql $data[:str][$lang][:app_id_settings_configuration_title]
     end
 
-    it "IT_004: those input box should work well" do
+    it "IT_005: those input box should work well" do
 
+      os = win_or_mac
+      if os == 'mac'
+        settings(:config_app_icon_file).send_keys (File.expand_path("../assets/application/icon.jpg",__FILE__))
+      elsif os == 'win'
+        settings(:config_app_icon_file).send_keys "C:\\assets\\application\\icon.jpg"
+      else
+        raise "Not supported Operating System."
+      end
       fill_in settings(:config_app_title), :with => $data[:app][:app_detail][:title]
       fill_in settings(:config_app_package), :with => $data[:app][:app_detail][:package]
       fill_in settings(:config_app_version), :with => $data[:app][:app_detail][:version]
@@ -122,7 +131,7 @@ describe "TC_017: App Details #Collaborators" do
 
       @driver.navigate.refresh; sleep 5
       settings(:tab).click
-      
+      settings(:config_app_icon_img).attribute('src').should include $data[:app][:app_detail][:img]
       settings(:config_app_package).attribute('value').should eql $data[:app][:app_detail][:package]
       settings(:config_app_version).attribute('value').should eql $data[:app][:app_detail][:version]
       settings(:config_app_phonegap_version).find_elements(:tag_name => "option").each do |opt|
@@ -143,12 +152,12 @@ describe "TC_017: App Details #Collaborators" do
       settings(:tab).click
     end
 
-    it "IT_005: the title should be localized" do
+    it "IT_006: the title should be localized" do
 
       settings(:danger_zone_title).text.to_s.should eql $data[:str][$lang][:app_id_settings_danger_zone_title]
     end
 
-    it "IT_006: should delete the app successfully" do
+    it "IT_007: should delete the app successfully" do
 
       settings(:danger_zone_delete_app_btn).click
       @driver.switch_to.alert.accept; sleep 10
