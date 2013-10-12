@@ -21,6 +21,7 @@ describe "TC_002: New apps with paid account" do
         @name_screenshot = "TC_002_IT_"
         @base_url = base_url
         @driver = driver
+        @driver.manage.timeouts.implicit_wait = 30
         @new_app_page = NewAppPage.new(
                     :driver => @driver, 
                     :base_url => @base_url,
@@ -97,7 +98,7 @@ describe "TC_002: New apps with paid account" do
     it "IT_004: if the number of apps is greater than 25, check the message localized" do
       puts "IT_" + @order_of_it.to_s
       sleep 5
-      for i in 1..25 do
+      for i in 1..26 do
         puts "+<the order> is #{i}"
         @new_app_page.new_app_with_zip
         sleep 5
