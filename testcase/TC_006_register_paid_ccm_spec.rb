@@ -31,8 +31,8 @@ describe "TC_006: Register paid CCM account" do
     before(:each) do
         @driver = driver
         @driver.manage.window.maximize
-
-        @driver.get path_format_locale("/plans/paid"); sleep 5
+        @driver.manage.timeouts.implicit_wait = 30
+        @driver.get path_format_locale("/plans/paid",@base_url); sleep 5
         @driver.switch_to.frame(0)
         puts "+ after driver.switch_to.frame(0)..."
     end
