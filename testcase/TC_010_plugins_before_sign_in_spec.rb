@@ -84,7 +84,7 @@ describe "TC_010: plugins_before_sign_in" do
   #
       it "IT_007: should match to correct url '/people/sign_in'" do
   #        plugin_dialog_get(:link_sign_in_tab_your_plugins).attribute('href').should eql "#{base_url}/people/sign_in"
-           plugin_locator(:link_sign_in_tab_your_plugins).attribute('href').should eql "#{base_url}/people/sign_in"
+           plugin_locator(:link_sign_in_tab_your_plugins).attribute('href').should eql "#{@base_url}/people/sign_in"
       end
   #
       it "IT_008: should match to the localized 'Please sign in to submit or view your plugins.' at 'Submit Plugin' tab " do
@@ -97,7 +97,7 @@ describe "TC_010: plugins_before_sign_in" do
   #
       it "IT_009: should match to correct url '/people/sign_in'" do
   #        plugin_dialog_get(:link_sign_in_tab_submit_plugin).attribute('href').should eql "#{base_url}/people/sign_in"
-           plugin_locator(:link_sign_in_tab_submit_plugin).attribute('href').should eql "#{base_url}/people/sign_in"
+           plugin_locator(:link_sign_in_tab_submit_plugin).attribute('href').should eql "#{@base_url}/people/sign_in"
       end
 
 end
