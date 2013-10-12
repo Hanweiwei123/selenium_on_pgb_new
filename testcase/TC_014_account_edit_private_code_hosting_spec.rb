@@ -58,8 +58,8 @@ describe "TC_014: Edit 'private code hosting' at Edit account page" do
       ea_private_ch(:person_ssh_key_text).send_keys(user_ssh_key)
       ea_private_ch(:save_btn).click
       sleep 5
-
-      @driver.current_url.should =~ /http:\/\/loc.build.phonegap.com\/apps/
+      @driver.navigate.refresh ; sleep 5
+      @driver.current_url.should eql @base_url+ $data[:url][:sign_in_successfully]
 
       @edit_account_page.make_sure_private_codehosting_tab
       
