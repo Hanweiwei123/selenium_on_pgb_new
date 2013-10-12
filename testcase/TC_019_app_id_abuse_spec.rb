@@ -24,6 +24,7 @@ describe "TC_019: App Id #Abuse " do
     @base_url = "https://build.phonegap.com"
     @driver = driver
     @driver.manage.window.maximize
+    @driver.manage.timeouts.implicit_wait = 30
 
     @new_app_page = NewAppPage.new(
         :driver => @driver,
