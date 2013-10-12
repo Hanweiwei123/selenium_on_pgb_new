@@ -63,7 +63,7 @@ describe "TC_017: App Details #Collaborators" do
 
       @driver.current_url.should =~ /\S+\d\/builds/
       sleep 10
-      settings(:tab).click; sleep 5
+      settings(:tab).click unless @driver.current_url =~ /.*settings.*/; sleep 5
     end
 
     it "IT_001: the h1 title should be localized" do
@@ -79,14 +79,14 @@ describe "TC_017: App Details #Collaborators" do
 
     it "IT_003: Those checkboxes should work well " do
 
-      settings(:tab).click
+      settings(:tab).click unless @driver.current_url =~ /.*settings.*/;
       let_it_checked settings(:basic_settings_enable_debugging)
       let_it_checked settings(:basic_settings_enable_hydration)
       let_it_checked settings(:basic_settigns_only_approved_colla)
       settings(:basic_save_btn).click; sleep 5
 
       @driver.navigate.refresh; sleep 5
-      settings(:tab).click
+      settings(:tab).click unless @driver.current_url =~ /.*settings.*/;
 
       "true".should eql settings(:basic_settings_enable_debugging).attribute('checked').to_s
       "true".should eql settings(:basic_settings_enable_hydration).attribute('checked').to_s
@@ -98,10 +98,6 @@ describe "TC_017: App Details #Collaborators" do
   end
 
   context "--- App ID -> Settings(Configuration) ---" do
-    before(:all) do
-      @driver.navigate.refresh; sleep 5
-      settings(:tab).click
-    end
 
     it "IT_004: the title should be localized" do
 
@@ -131,7 +127,7 @@ describe "TC_017: App Details #Collaborators" do
       settings(:config_save_btn).click
 
       @driver.navigate.refresh; sleep 5
-      settings(:tab).click
+      settings(:tab).click unless @driver.current_url =~ /.*settings.*/;
       settings(:config_app_icon_img).attribute('src').should include $data[:app][:app_detail][:img]
       settings(:config_app_package).attribute('value').should eql $data[:app][:app_detail][:package]
       settings(:config_app_version).attribute('value').should eql $data[:app][:app_detail][:version]
@@ -148,10 +144,6 @@ describe "TC_017: App Details #Collaborators" do
   end
 
   context "--- App ID -> Settings(Danger Zone) ---" do
-    before(:all) do
-      @driver.navigate.refresh; sleep 5
-      settings(:tab).click
-    end
 
     it "IT_006: the title should be localized" do
 
