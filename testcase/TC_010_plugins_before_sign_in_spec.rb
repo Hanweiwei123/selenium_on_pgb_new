@@ -26,9 +26,11 @@ describe "TC_010: plugins_before_sign_in" do
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_010_IT_"
-    @base_url = base_url
+    #@base_url = base_url
+    @base_url = "https://buildstage.phonegap.com"
     @driver =driver
     @driver.manage.window.maximize
+    @driver.manage.timeouts.implicit_wait = 30
     @driver.get path_format_locale("",@base_url)
     header_get(:main_nav_link_plugins).click
   end
@@ -50,10 +52,14 @@ describe "TC_010: plugins_before_sign_in" do
            @plugin_title.should eql $data[:str][$lang][:plugin_title]
      end
   #
-     it "IT_003: should match to the localized 'All Supported Plugins' " do
-  #        plugin_dialog_get(:tab_all_supported_plugins).text.should eql @data_str[$lang][:plugin_tab_all_supported_plugins]
-           @tab_all_supported_plugins = plugin_locator(:tab_all_supported_plugins).text
-           @tab_all_supported_plugins.should eql $data[:str][$lang][:plugin_tab_all_supported_plugins]
+      it "IT_002: should match to the localized '3rd Party Plugins' " do
+           @tab_3rd_party_supported_plugins = plugin_locator(:tab_3rd_party_plugins).text
+           @tab_3rd_party_supported_plugins.should eql $data[:str][$lang][:plugin_tab_3rd_party_plugins]
+      end
+  #
+     it "IT_003: should match to the localized 'PhoneGap Plugins' " do
+           @tab_PGB_supported_plugins = plugin_locator(:tab_PGB_plugins).text
+           @tab_PGB_supported_plugins.should eql $data[:str][$lang][:plugin_tab_PGB_plugins]
       end
   #
      it "IT_004: should match to the localized 'Your Plugins' " do
