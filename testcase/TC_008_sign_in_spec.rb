@@ -30,6 +30,7 @@ describe "TC_008: Sign in" do
         @base_url = base_url
         @driver =driver
         @driver.manage.window.maximize
+        @driver.manage.timeouts.implicit_wait = 30
     end
 
     after(:each) do  # Take screenshot in case of failure
