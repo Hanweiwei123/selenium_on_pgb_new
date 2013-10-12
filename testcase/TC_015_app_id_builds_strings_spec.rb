@@ -24,6 +24,7 @@ describe "TC_015: App Details #Builds" do
     #@base_url = base_url
     @base_url = "https://build.phonegap.com"
     @driver = driver
+    @driver.manage.timeouts.implicit_wait = 30
     @download_dir = Dir.home + "/Downloads"
     @driver.manage.window.maximize
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
