@@ -22,6 +22,7 @@ describe "TC_014: Edit 'private code hosting' at Edit account page" do
     @base_url = base_url
     @driver = driver
     @driver.manage.window.maximize
+    @driver.manage.timeouts.implicit_wait = 30
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
     @edit_account_page = EditAccountPage.new(
         :driver => @driver,
