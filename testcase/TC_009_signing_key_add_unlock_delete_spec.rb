@@ -23,6 +23,7 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
         @base_url = base_url
         @driver = driver # have to start a new instance each time to clean the cache.
         @driver.manage.window.maximize
+        @driver.manage.timeouts.implicit_wait = 30
         @driver.execute_script("window.resizeTo(screen.width,screen.height)")
 
         @edit_account_page = EditAccountPage.new(
