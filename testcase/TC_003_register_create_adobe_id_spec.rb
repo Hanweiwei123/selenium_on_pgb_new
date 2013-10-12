@@ -21,11 +21,12 @@ describe "TC_003: Register -> create an Adobe ID with provided email" do
         @name_screenshot = "TC_003_IT_"
         @base_url = base_url
         @driver = driver
+        @driver.manage.timeouts.implicit_wait = 30
 
         @time = Time.now
         @str_name = @time.year.to_s + @time.month.to_s + @time.day.to_s + @time.hour.to_s + @time.min.to_s
 
-        @register_page = RegisterPage.new :driver => @driver
+        @register_page = RegisterPage.new :driver => @driver , :base_url => @base_url
         @register_page.choose_your_plan('free_plan')
         @register_page.choose_how_to_sign_in('register_adobeid')
         @driver.switch_to.frame(0)
