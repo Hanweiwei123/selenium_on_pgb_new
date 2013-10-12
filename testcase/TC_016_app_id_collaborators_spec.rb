@@ -92,6 +92,7 @@ describe "TC_016: App Details #Collaborators" do
       sleep 5
       @app_collaborators_page.add_a_collaborator(@valid_email, $data[:str][$lang][:role_tester])
       sleep 3
+      @driver.navigate.refresh ; sleep 5
       @driver.current_url.should =~ /.*collaborators/
 
       number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
@@ -104,7 +105,7 @@ describe "TC_016: App Details #Collaborators" do
 
       @app_collaborators_page.edit_change_role(@valid_email,$data[:str][$lang][:role_tester])
       sleep 5
-
+      @driver.navigate.refresh ; sleep 5
       @driver.current_url.should =~ /.*collaborators/
 
       number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
@@ -117,8 +118,8 @@ describe "TC_016: App Details #Collaborators" do
 
       @app_collaborators_page.delete_collaborator(@valid_email,$data[:str][$lang][:role_developer])
       sleep 5
-
-      @driver.current_url.should =~ /\S+\d\/collaborators/
+      @driver.navigate.refresh ; sleep 5
+      @driver.current_url.should =~ /.*collaborators/
 
       number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
       number_of_collaborators.should eql 0
