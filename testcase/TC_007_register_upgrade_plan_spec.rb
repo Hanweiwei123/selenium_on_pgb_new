@@ -26,6 +26,7 @@ describe "TC_007: Register -> upgrade plan (Free -> Paid)" do
         @name_screenshot = "TC_007_IT_"
         @base_url = base_url
         @driver = driver
+        @driver.manage.timeouts.implicit_wait = 30
         @new_app_page = NewAppPage.new(
                     :base_url => @base_url,
                     :driver => @driver,
