@@ -24,6 +24,7 @@ describe "TC_016: App Details #Collaborators" do
     @base_url = base_url
     @driver = driver
     @driver.manage.window.maximize
+    @driver.manage.timeouts.implicit_wait = 30
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
 
     @new_app_page = NewAppPage.new :driver => @driver,
