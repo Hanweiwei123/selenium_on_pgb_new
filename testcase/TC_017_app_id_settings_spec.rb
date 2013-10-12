@@ -25,6 +25,7 @@ describe "TC_017: App Details #Collaborators" do
     @base_url = base_url
     @driver = driver
     @driver.manage.window.maximize
+    @driver.manage.timeouts.implicit_wait = 30
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
 
     @new_app_page = NewAppPage.new :driver => @driver,
@@ -161,6 +162,7 @@ describe "TC_017: App Details #Collaborators" do
 
       settings(:danger_zone_delete_app_btn).click
       @driver.switch_to.alert.accept; sleep 10
+      @driver.navigate.refresh; sleep 5
       @driver.current_url.should =~ /.*apps$/
     end
 
