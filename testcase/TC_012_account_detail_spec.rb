@@ -20,7 +20,7 @@ describe "TC_012: 'Account details' page" do
     @base_url = "https://buildstage.phonegap.com"
     @driver = driver
     @driver.manage.window.maximize
-
+    @driver.manage.timeouts.implicit_wait = 30
     @edit_account_page = EditAccountPage.new(
         :driver => @driver,
         :base_url => @base_url,
