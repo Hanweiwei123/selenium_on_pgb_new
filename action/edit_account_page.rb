@@ -362,7 +362,7 @@ class EditAccountPage
 
     def delete_my_account(id, password)
         @sign_in_page.make_sure_sign_in
-        go_to_page :edit_account
+        go_to_page :edit_account , @base_url
         @driver.execute_script("document.getElementById('delete-account').style['display'] = 'block'")
         puts "+ after executing script"
         sleep 5
