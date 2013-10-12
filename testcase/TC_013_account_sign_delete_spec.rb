@@ -50,11 +50,11 @@ describe "TC_013: User sign in/out and account delete" do
 
       @sign_in_page.sign_in_with_adobe_id
       @driver.current_url.should eql @base_url + $data[:url][:sign_in_successfully]
-      sign_out
+      
     end
 
     it "IT_002: should sign out successfully" do 
-      
+      sign_out
       @driver.current_url.should eql @base_url+"/"
       account_notice.text.should eql $data[:str][$lang][:user_signout_notice]
     end
