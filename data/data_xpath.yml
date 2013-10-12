@@ -380,8 +380,8 @@
     :header_notifications: //*[@id="notifications-detail"]/div/section
     :link_here_header_notifications: //*[@id="notifications-detail"]/div/section/a
     :title: //*[@id="page-content"]/div/h1
-    :tab_all_supported_plugins: //section[@id="plugin-edit-controls"]/nav/a[1]
-    :tab_PGB_supported_plugins: //section[@id="plugin-edit-controls"]/nav/a[@class="core"]
+    :tab_3rd_party_plugins: //section[@id="plugin-edit-controls"]/nav/a[1]
+    :tab_PGB_plugins: //section[@id="plugin-edit-controls"]/nav/a[@class="core"]
     :tab_your_plugins: //section[@id="plugin-edit-controls"]/nav/a[@class="your"]
     :link_sign_in_tab_your_plugins: //*[@id="plugin-your"]/fieldset/a
     :you_have_no_plugins: //*[@id="plugin-your"]/fieldset/p
