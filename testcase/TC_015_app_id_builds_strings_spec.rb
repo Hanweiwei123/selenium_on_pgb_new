@@ -93,7 +93,7 @@ describe "TC_015: App Details #Builds" do
         end
         builds(:ios_rebuild).text.should  eql $data[:str][$lang][:builds_rebuild]
         builds(:ios_label).text.should    eql $data[:str][$lang][:builds_label]
-        builds(:ios_options).attribute('label').should  eql $data[:str][$lang][:builds_options]
+        builds(:ios_options_firefox).attribute('label').should  eql $data[:str][$lang][:builds_options]
         builds(:ios_no_key).text.should   eql $data[:str][$lang][:builds_no_key]
         builds(:ios_new_key).text.should  eql $data[:str][$lang][:builds_new_key]
         puts "+ <result> IT_002:PASS"
@@ -118,7 +118,7 @@ describe "TC_015: App Details #Builds" do
         } 
         builds(:android_rebuild).text.should  eql $data[:str][$lang][:builds_rebuild]
         builds(:android_label).text.should    eql $data[:str][$lang][:builds_label]
-        builds(:android_options).attribute('label').should  eql $data[:str][$lang][:builds_options]
+        builds(:android_options_firefox).attribute('label').should  eql $data[:str][$lang][:builds_options]
         builds(:android_no_key).text.should   eql $data[:str][$lang][:builds_no_key]
         builds(:android_new_key).text.should  eql $data[:str][$lang][:builds_new_key]
         puts "+ <result> IT_003:PASS"
@@ -163,7 +163,7 @@ describe "TC_015: App Details #Builds" do
         }
         builds(:blackberry_rebuild).text.should  eql $data[:str][$lang][:builds_rebuild]
         builds(:blackberry_label).text.should    eql $data[:str][$lang][:builds_label]
-        builds(:blackberry_options).attribute('label').should  eql $data[:str][$lang][:builds_options]
+        builds(:blackberry_options_firefox).attribute('label').should  eql $data[:str][$lang][:builds_options]
         builds(:blackberry_no_key).text.should   eql $data[:str][$lang][:builds_no_key]
         builds(:blackberry_new_key).text.should  eql $data[:str][$lang][:builds_new_key]
         puts "+ <result> IT_005:PASS"
