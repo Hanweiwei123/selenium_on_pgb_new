@@ -25,6 +25,7 @@ describe "TC_013: User sign in/out and account delete" do
     @base_url = base_url
     @driver = driver
     @driver.manage.window.maximize
+    @driver.manage.timeouts.implicit_wait = 30
     @sign_in_page = SignInPage.new(
         :driver => @driver,
         :base_url => @base_url,
