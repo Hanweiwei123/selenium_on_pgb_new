@@ -23,8 +23,9 @@ describe "TC_004: Register as free plan with Adobe ID" do
         @name_screenshot = "TC_004_IT_"
         @base_url = base_url
         @driver = driver
+        @driver.manage.timeouts.implicit_wait = 30
 
-        @register_page = RegisterPage.new :driver => @driver
+        @register_page = RegisterPage.new :driver => @driver , :base_url => @base_url
         @register_page.choose_your_plan('free_plan')
         @register_page.choose_how_to_sign_in('register_adobeid')
         @driver.switch_to.frame(0)
