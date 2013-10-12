@@ -31,6 +31,7 @@ describe "TC_011: Plugins" do
     @base_url = base_url # "https://buildstage.phonegap.com"
     @driver =driver
     @driver.manage.window.maximize
+    @driver.manage.timeouts.implicit_wait = 30
     @sign_in_page = SignInPage.new(
         :driver => @driver,
         :base_url => @base_url,
