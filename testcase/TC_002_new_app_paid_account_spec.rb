@@ -29,11 +29,8 @@ describe "TC_002: New apps with paid account" do
     end
 
     after(:all) do
-        begin 
-            webhelper_delete_all_apps $data[:user][$lang][:adobe_id_paid_001][:id], $data[:user][$lang][:adobe_id_paid_001][:password]
-        ensure
-            @driver.quit
-        end
+        webhelper_delete_all_apps $data[:user][$lang][:adobe_id_paid_001][:id], $data[:user][$lang][:adobe_id_paid_001][:password]
+        @driver.quit
     end
 
     after(:each) do  # Take screenshot in case of failure
