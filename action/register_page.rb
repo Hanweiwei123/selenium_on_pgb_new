@@ -14,6 +14,11 @@ class RegisterPage
 
       @driver = options.delete(:driver)
       @driver.manage.window.maximize
+      if not options.has_key?(:base_url)
+        @base_url = $base_url
+      else
+        @base_url = options.delete(:base_url)
+      end
       puts "+ <action> RegisterPage#initialize "
     end
 
@@ -85,7 +90,7 @@ class RegisterPage
     end
 
     def make_sure_plans_page
-      go_to_page :register_page unless @driver.current_url =~ /.*\/plans$/
+      go_to_page :register_page,@base_url unless @driver.current_url =~ /.*\/plans$/
       puts "+ <action>/RegisterPage#make_sure_plans_page"
     end
 end
