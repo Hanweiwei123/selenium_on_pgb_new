@@ -49,13 +49,13 @@ describe "TC_013: User sign in/out and account delete" do
     it "IT_001: should sign-in successfully" do
 
       @sign_in_page.sign_in_with_adobe_id
-      @driver.current_url.should =~ /http:\/\/loc.build.phonegap.com\/apps/
+      @driver.current_url.should eql @base_url + $data[:url][:sign_in_successfully]
       sign_out
     end
 
     it "IT_002: should sign out successfully" do 
       
-      @driver.current_url.should =~ /http:\/\/loc.build.phonegap.com\//
+      @driver.current_url.should eql @base_url+"/"
       account_notice.text.should eql $data[:str][$lang][:user_signout_notice]
     end
   end
@@ -81,7 +81,7 @@ describe "TC_013: User sign in/out and account delete" do
           :user => {:id => $data[:user][$lang][:adobe_id_free_001][:id], :password => $data[:user][$lang][:adobe_id_free_001][:password]} )
       @edit_account_page.make_sure_account_details_tab
       @edit_account_page.delete_my_account( $data[:user][$lang][:adobe_id_free_001][:id],  $data[:user][$lang][:adobe_id_free_001][:password])
-      @driver.current_url.should =~ /http:\/\/loc.build.phonegap.com\//
+      @driver.current_url.should eql @base_url+"/"
       account_notice.text.should eql $data[:str][$lang][:account_deleted_notice]
     end
   end
