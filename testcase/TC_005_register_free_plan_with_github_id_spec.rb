@@ -26,7 +26,8 @@ describe "TC_005: Register an free plan account with Github ID" do
 
     before(:each) do 
         @driver = driver
-		@driver.manage.window.maximize
+	@driver.manage.window.maximize
+	@driver.manage.timeouts.implicit_wait = 30
         @driver.get path_format_locale("/plans/free", @base_url)
         register_locator(:github_btn).click; sleep 10
     end
