@@ -268,10 +268,10 @@
     :reset_btn: //*[@id="add-collaborator"]/footer/button[1]
     :submit_btn: //*[@id="add-collaborator"]/footer/button[2]
     :collaborators_block: //*[@id="app-collaborators"]/div/ul
-    :first_collaborator_edit: /html/body/section/div/article/div[2]/div[2]/div/ul/li/div/a
-    :first_collaborator_role: /html/body/section/div/article/div[2]/div[2]/div/ul/li/h3/small
-    :first_collaborator_delete: /html/body/section/div/article/div[2]/div[2]/div/ul/li/div/a[2]
-    :first_collaborator_confirm: /html/body/section/div/article/div[2]/div[2]/div/ul/li/form/button[2]
+    :first_collaborator_edit: //div[@id="app-collaborators"]/div/ul/li/div/a
+    :first_collaborator_role: //div[@id="app-collaborators"]/div/ul/li/h3/small
+    :first_collaborator_delete: //div[@id="app-collaborators"]/div/ul/li/div/a[2]
+    :first_collaborator_delete_confirm: //div[@id="app-collaborators"]/div/ul/li/form/button[2]
 :app_settings_page:
     :tab: //section[@id="app-detail-controls"]/nav/a[@class="icon settings"]
     :basic_title: //*[@id='app-settings']/div/form/header/h1
