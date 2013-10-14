@@ -73,7 +73,7 @@ describe "TC_003: Register -> create an Adobe ID with provided email" do
 
     it "IT_003: Got an error message with invalid First Name" do 
         user = @user_info.clone
-        user[:first_name] = "ſЊџЛ^&*!@##@яѨ҉ҝҾ"
+        user[:first_name] = "ſЊџЛ^&*!@##/@яѨ҉ҝҾ"
         
         warnings = @register_page.enter_register_information(user)
         sleep 5
@@ -82,7 +82,7 @@ describe "TC_003: Register -> create an Adobe ID with provided email" do
 
     it "IT_004: Got an error message with invalid Last Name" do 
         user = @user_info.clone
-        user[:last_name] = "ſЊџЛ^&*!@##@яѨ҉ҝҾ"
+        user[:last_name] = "ſЊџЛ^&*!@##/@яѨ҉ҝҾ"
         
         warnings = @register_page.enter_register_information(user)
         sleep 5
