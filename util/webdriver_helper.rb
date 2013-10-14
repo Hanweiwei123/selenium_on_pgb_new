@@ -22,17 +22,12 @@ module WebdriverHelper
       return field
     end
 
-    def highlight(element, ancestors=0)
+    def highlight(element)
+        
         @driver.execute_script("hlt = function(c) { c.style.border='solid 1px rgb(255, 16, 16)'; }; return hlt(arguments[0]);", element)
-        parents = ""
-        red = 255
-
-        ancestors.times do
-            parents << ".parentNode"
-            red -= (12*8 / ancestors)
-            @driver.execute_script("hlt = function(c) { c#{parents}.style.border='solid 1px rgb(#{red}, 0, 0)'; }; return hlt(arguments[0]);", element)
-        end
         sleep 1
+        @driver.execute_script("hlt = function(c) { c.style.border='solid 1px rgb(208, 208, 208)'; }; return hlt(arguments[0]);", element)
+
     end
 
     # detect operating system (win or mac only right now)
