@@ -7,7 +7,7 @@ module EditAccountLocator
 
 # --- Account Details Tab
 	def ea_account_details(arg)
-		@driver.find_element(:xpath => $data[:xpath][:edit_account_page][:acntdetails][arg])
+		highlight_and_return @driver.find_element(:xpath => $data[:xpath][:edit_account_page][:acntdetails][arg])
 	end
 
 
