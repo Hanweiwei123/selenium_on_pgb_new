@@ -16,7 +16,7 @@ module RegisterLocator
     end
   end
 
-	def register_locator(arg)
-		@driver.find_element(:xpath => $data[:xpath][:register_page][arg])
-	end
+  def register_locator(arg)
+    highlight_and_return @driver.find_element(:xpath => $data[:xpath][:register_page][arg])
+  end
 end
