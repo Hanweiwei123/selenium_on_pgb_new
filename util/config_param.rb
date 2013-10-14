@@ -7,9 +7,8 @@ require 'selenium-webdriver'
 module ConfigParam
     
     def base_url
-        base_url = "http://loc.build.phonegap.com" 
-        puts "+ <data>/base_env.rb base_url = #{base_url}"
-        return base_url
+        puts "+ <data>/base_env.rb base_url = #{$base_url}"
+        return $base_url
     end
 
     def driver()     
@@ -39,6 +38,8 @@ module ConfigParam
     def init
       $config = {}
       $config[:base_url] = "http://loc.build.phonegap.com"
+      #$config[:base_url] = "https://buildstage.phonegap.com"
+      #$config[:base_url] = "https://build.phonegap.com"
       $config[:lang] = ENV['PGBLANG'].to_sym
 
       $lang = $config[:lang]
