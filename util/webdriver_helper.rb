@@ -23,11 +23,9 @@ module WebdriverHelper
     end
 
     def highlight(element)
-        
-        @driver.execute_script("hlt = function(c) { c.style.border='solid 1px rgb(255, 16, 16)'; }; return hlt(arguments[0]);", element)
+        @driver.execute_script("arguments[0].style.border = '2px solid red'", element)
         sleep 1
-        @driver.execute_script("hlt = function(c) { c.style.border='solid 1px rgb(208, 208, 208)'; }; return hlt(arguments[0]);", element)
-
+        @driver.execute_script("arguments[0].style.border = '1px solid silver'", element)
     end
 
     # detect operating system (win or mac only right now)
