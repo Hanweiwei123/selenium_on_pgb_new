@@ -192,10 +192,10 @@
     :tab: //*[@id="app-detail-controls"]/nav/a[1]
     :ios_label:     //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/div
     :ios_action:    //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/a
-    :ios_options_firefox:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup
+    :ios_options_firefox:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[option[@value='no_key']]
     :ios_options:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select
-    :ios_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[1]
-    :ios_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[2]
+    :ios_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[option[@value='no_key']]/option[1]
+    :ios_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[option[@value='no_key']]/option[2]
     :ios_unlocked_options: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[@class="unlocked"]
     :ios_unlocked_first_key: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[@class="unlocked"]/option[1]
     :ios_locked_options: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[@class="locked"]
@@ -217,10 +217,10 @@
     :ios_unlock_submit_btn: //form[@class='key_unlock']/footer/button[2]
     :android_label:     //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/div
     :android_action:    //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/a
-    :android_options_firefox:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup
+    :android_options_firefox:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[option[@value='no_key']]
     :android_options:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select
-    :android_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup/option[1]
-    :android_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup/option[2]
+    :android_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[option[@value='no_key']]/option[1]
+    :android_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[option[@value='no_key']]/option[2]
     :android_unlocked_options: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]
     :android_unlocked_first_key: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]/option[1]
     :android_locked_options: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[@class="locked"]
@@ -250,10 +250,10 @@
     :symbian_msg:   //*[@id="symbian_msg"]
     :blackberry_label:      //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/div
     :blackberry_action:     //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/a
-    :blackberry_options_firefox:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup
+    :blackberry_options_firefox:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[option[@value='no_key']]
     :blackberry_options:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select
-    :blackberry_no_key:     //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup/option[1]
-    :blackberry_new_key:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup/option[2]
+    :blackberry_no_key:     //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[option[@value='no_key']]/option[1]
+    :blackberry_new_key:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[option[@value='no_key']]/option[2]
     :blackberry_unlocked_options: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]
     :blackberry_unlocked_first_key: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]/option[1]
     :blackberry_locked_options: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[@class="locked"]
