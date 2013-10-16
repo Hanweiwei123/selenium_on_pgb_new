@@ -337,7 +337,12 @@ class EditAccountPage
         puts "+ <action><edit_account_page> --- delete_2nd_BLACKBERRY_signing_key DONE"
     end
 
-
+    def get_status_signing_key(title ,platform)
+      make_sure_signing_keys_tab
+      ele=highlight_and_return @driver.find_element(:xpath => "//fieldset[@id='person-keys']/table[contains(@data-platform,'#{platform}')]/tbody/tr[td[contains(text(),'#{title}')]]/td[3]/a")
+      return ele.attribute("title")
+      #  //fieldset[@id='person-keys']/table[contains(@data-platform,'ios')]/tbody/tr[td[contains(text(),'dd')]]/td[3]/a
+    end
 
 # --- 
     def make_sure_account_details_tab
