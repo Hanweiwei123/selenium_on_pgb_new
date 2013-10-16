@@ -22,8 +22,7 @@ describe "TC_001: New app(s) with free account" do
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_001_IT_"
-    #@base_url = base_url
-    @base_url = "https://buildstage.phonegap.com"
+    @base_url = base_url
     puts "+ <TC_001> before all outer --- end"
   end
 
@@ -180,6 +179,7 @@ describe "TC_001: New app(s) with free account" do
   context "--- with Adobe ID - free account - connected github" do
     before(:all) do
       puts "+ <TC_001> context 2 before all inside --- begin"
+      @base_url = "https://buildstage.phonegap.com"
       @driver = driver
       @driver.manage.window.maximize
       @new_app_page = NewAppPage.new(
