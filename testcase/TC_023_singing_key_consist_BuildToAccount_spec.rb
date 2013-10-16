@@ -39,7 +39,7 @@ describe "TC_015: App Details #Builds" do
                                         :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
     @edit_account_page = EditAccountPage.new :driver => @driver,
                                              :base_url => @base_url,
-                                             :user => {:id => $data[:user][$lang][:adobe_id_free_001][:id], :password => $data[:user][$lang][:adobe_id_free_001][:password]}
+                                             :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password => $data[:user][$lang][:adobe_id_free_002][:password]}
 
     @new_app_page.new_app_with_zip;  sleep 5
     @app_id = @new_app_page.first_app_id
