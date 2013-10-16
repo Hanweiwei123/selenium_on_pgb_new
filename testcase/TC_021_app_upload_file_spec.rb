@@ -92,7 +92,7 @@ describe 'My behaviour' do
     end
 
     it "IT_004:Those checkboxes should work well" do
-      settings(:tab).click; sleep 5
+      settings(:tab).click unless @driver.current_url =~ /.*settings.*/; sleep 5
       "true".should eql settings(:basic_settings_enable_debugging).attribute('checked').to_s
       "true".should eql settings(:basic_settings_enable_hydration).attribute('checked').to_s
     end
@@ -121,7 +121,7 @@ describe 'My behaviour' do
   context "app Settings part upload update code" do
 
     before(:each) do
-      settings(:tab).click; sleep 5
+      settings(:tab).click unless @driver.current_url =~ /.*settings.*/; sleep 5
     end
 
     it "IT_007:check error msg localized when new app with a invalid filetype" do
