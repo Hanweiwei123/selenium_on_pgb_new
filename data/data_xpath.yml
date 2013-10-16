@@ -196,6 +196,10 @@
     :ios_options:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select
     :ios_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[1]
     :ios_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup/option[2]
+    :ios_unlocked_options: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[@class="unlocked"]
+    :ios_unlocked_first_key: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[@class="unlocked"]/option[1]
+    :ios_locked_options: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[@class="locked"]
+    :ios_locked_first_key: //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/div/select/optgroup[@class="locked"]/option[1]
     :ios_rebuild:   //*[@id="app-builds"]/div[2]/div[1]/article[1]/div[1]/span/a
     :ios_msg:       //*[@id="ios_msg"]
     :ios_msg_link:  //*[@id="ios_msg"]/a
@@ -217,6 +221,10 @@
     :android_options:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select
     :android_no_key:    //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup/option[1]
     :android_new_key:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup/option[2]
+    :android_unlocked_options: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]
+    :android_unlocked_first_key: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]/option[1]
+    :android_locked_options: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[@class="locked"]
+    :android_locked_first_key: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/div/select/optgroup[@class="locked"]/option[1]
     :android_rebuild:   //*[@id="app-builds"]/div[2]/div[1]/article[2]/div[1]/span/a
     :android_msg:       //*[@id="android_msg"]
     :android_dropdown_select: //*[@id="app-builds"]/div[2]/div[1]/article[2]/div/div/select
@@ -246,6 +254,10 @@
     :blackberry_options:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select
     :blackberry_no_key:     //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup/option[1]
     :blackberry_new_key:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup/option[2]
+    :blackberry_unlocked_options: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]
+    :blackberry_unlocked_first_key: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[@class="unlocked"]/option[1]
+    :blackberry_locked_options: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[@class="locked"]
+    :blackberry_locked_first_key: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/div/select/optgroup[@class="locked"]/option[1]
     :blackberry_rebuild:    //*[@id="app-builds"]/div[2]/div[2]/article[2]/div[1]/span/a
     :blackberry_msg:        //*[@id="blackberry_msg"]
     :blackberry_dropdown_select: //*[@id="app-builds"]/div[2]/div[2]/article[2]/div/div/select
