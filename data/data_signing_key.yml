@@ -2,8 +2,8 @@
     :valid: "xxxVALIDxxx"
     :invalid: "xxxINVALIDxxx"
 :ios:
-    :name_valid: "xxx_VALID_IOS_KEY_xxx"
-    :name_invalid: "xxx_INVALID_IOS_KEY_xxx"
+    :name_valid: "VALID_IOS_KEY_ϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你儀絵印"
+    :name_invalid: "INVALID_IOS_KEY_ϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你儀絵印"
     :cert_password: "Global1"
     :valid:
         :cert: ../../assets/signing_key/ios/LichuanIQEKey.p12
@@ -12,8 +12,8 @@
         :cert: 
         :profile: 
 :android: 
-    :name_valid: "xxx_VALID_ANDROID_KEY_xxx"
-    :name_invalid: "xxx_INVALID_ANDROID_KEY_xxx"
+    :name_valid: "VALID_ANDROID_KEY_ϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你儀絵印"
+    :name_invalid: "INVALID_ANDROID_KEY_ϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你儀絵印"
     :Ailas: "android.keystore"
     :cert_password: "1234abcd"
     :keystore_password: "1234abcd"
@@ -22,8 +22,8 @@
     :invalid:
         :keystore: 
 :blackberry: 
-    :name_valid: "xxx_VALID_BLACKBERRY_KEY_xxx"
-    :name_invalid: "xxx_INVALID_BLACKBERRY_KEY_xxx"
+    :name_valid: "VALID_BLACKBERRY_KEY_ϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你儀絵印"
+    :name_invalid: "INVALID_BLACKBERRY_KEY_ϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你儀絵印"
     :key_password: "1234abcd"
     :valid:
         :db: ../../assets/signing_key/blackberry/sigtool.db
