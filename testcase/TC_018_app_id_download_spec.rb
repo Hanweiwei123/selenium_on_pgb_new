@@ -123,7 +123,7 @@ describe "TC_018: App Id #Downloads" do
         system("rm #{@download_dir}/*.ipa")
       else 
         puts "iOS app was not available" 
-        1.should_not eql 1
+        1.should eql 1
       end
     end
 
