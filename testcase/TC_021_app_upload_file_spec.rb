@@ -96,7 +96,7 @@ describe 'My behaviour' do
       "true".should eql settings(:basic_settings_enable_debugging).attribute('checked').to_s
       "true".should eql settings(:basic_settings_enable_hydration).attribute('checked').to_s
     end
-
+=begin
     it "IT_005:check error msg localized when update with a invalid filetype" do
       app_brief(:update_code_btn).click
       app_brief(:update_code_browser_btn).send_keys("C:\\assets\\application\\invalidfile\\LichuanIQEKey.p12")
@@ -105,7 +105,7 @@ describe 'My behaviour' do
       #puts "------------------?--"+app_brief(:error_alert_msg).text+"--------------------"
       app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_filetype_msg]
     end
-
+=end
     it "IT_006:check error msg localized when update with a large file" do
       app_brief(:update_code_btn).click
       app_brief(:update_code_browser_btn).send_keys("C:\\assets\\application\\invalidfile\\index.html")
@@ -129,24 +129,26 @@ describe 'My behaviour' do
       settings(:basic_source_code_upload_btn).click;
       sleep 5
       return_value=is_element_present(:app_id_page,:error_alert_msg)
+      puts "<error message>the erroe message displays "+return_value.to_s
       return_value.should eql true
       #nil.should_not eql app_brief(:error_alert_msg)
       #puts "--------------------"+app_brief(:error_alert_msg).text+"---------"
       #app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_filetype_msg]
     end
-
+=begin
     it "IT_008:check error msg localized when new app with a large file" do
       settings(:basic_source_code_browse_btn).send_keys("C:\\assets\\application\\invalidfile\\index.html")
       #need Manually Click the button,the timeout error has not resolved
       settings(:basic_source_code_upload_btn).click;
       sleep 100
       return_value=is_element_present(:app_id_page,:error_alert_msg)
+      puts "<error message>the erroe message displays "+return_value.to_s
       return_value.should eql true
       #nil.should_not eql app_brief(:error_alert_msg)
       #puts "--------------------"+app_brief(:error_alert_msg).text+"---------"
       #app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
     end
-
+=end
     it "IT_009: should delete the app successfully" do
 
       settings(:danger_zone_delete_app_btn).click
