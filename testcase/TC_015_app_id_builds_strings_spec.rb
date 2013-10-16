@@ -88,7 +88,11 @@ describe "TC_015: App Details #Builds" do
         puts "+ iOS action: " + text
         if (text ==$data[:str][$lang][:builds_action_error])
           builds(:ios_action).click
-          builds(:ios_msg).text.should eql $data[:str][$lang][:error_msg_ios_build_without_signing_key]
+          if is_element_present(:app_builds_page,:ios_msg)
+            builds(:ios_msg).text.should eql $data[:str][$lang][:error_msg_ios_build_without_signing_key]
+          else
+            puts "+<error> the error message should be display."
+          end
           builds(:ios_action).click
         end
         builds(:ios_rebuild).text.should  eql $data[:str][$lang][:builds_rebuild]
