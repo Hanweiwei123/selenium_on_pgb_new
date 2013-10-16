@@ -66,14 +66,39 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
       @edit_account_page.get_status_of_1st_ios_signing_key.should eql $data[:str][$lang][:apps_signing_key_unlocked]
     end
 
-    it "IT_003: the new-added Android signing_key should be locked after adding successfully" do
+    it "IT_003: the 2 new-added iOS signing_key should be locked after adding successfully " do
+      @edit_account_page.add_ios_signing_key "invalid"
+      @edit_account_page.get_status_of_2nd_ios_signing_key.should eql $data[:str][$lang][:apps_signing_key_locked]
+    end
+
+    it "IT_004: the new-added Android signing_key should be locked after adding successfully" do
       @edit_account_page.add_android_signing_key "valid"
       @edit_account_page.get_status_of_1st_android_signing_key.should eql $data[:str][$lang][:apps_signing_key_locked]
     end
 
-    it "IT_004: the new-added BlackBerry signing_key should be locked after adding successfully" do
+    it "IT_005: the above Adroid signing_key was unlocked after unlocking it" do
+      @edit_account_page.to_unlock_1st_android_signing_key
+      @edit_account_page.get_status_of_1st_android_signing_key.should eql $data[:str][$lang][:apps_signing_key_unlocked]
+    end
+
+    it "IT_006: the 2 new-added Android signing_key should be locked after adding successfully" do
+      @edit_account_page.add_android_signing_key "invalid"
+      @edit_account_page.get_status_of_2nd_android_signing_key.should eql $data[:str][$lang][:apps_signing_key_locked]
+    end
+
+    it "IT_007: the new-added BlackBerry signing_key should be locked after adding successfully" do
       @edit_account_page.add_blackberry_signing_key "valid"
       @edit_account_page.get_status_of_1st_blackberry_signing_key.should eql $data[:str][$lang][:apps_signing_key_locked]
+    end
+
+    it "IT_008: the above BlackBerry signing_key was unlocked after unlocking it" do
+      @edit_account_page.to_unlock_1st_blackberry_signing_key
+      @edit_account_page.get_status_of_1st_blackberry_signing_key.should eql $data[:str][$lang][:apps_signing_key_unlocked]
+    end
+
+    it "IT_009: the 2 new-added BlackBerry signing_key should be locked after adding successfully" do
+      @edit_account_page.add_blackberry_signing_key "invalid"
+      @edit_account_page.get_status_of_2nd_blackberry_signing_key.should eql $data[:str][$lang][:apps_signing_key_locked]
     end
 
   end
@@ -91,7 +116,7 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
       puts "+<current_url> is #{@current_url}";
     end
 
-    it "IT_005: the unlocked iOS signing Key should be display" do
+    it "IT_010: the iOS signing Key should be display" do
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:ios_action).text do
           @driver.navigate.refresh
@@ -100,11 +125,13 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
         end
         break
       }
-      builds(:ios_options_firefox).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_unlocked]
-      builds(:ios_no_key).text.should eql $data[:signing_key][:ios][:name_valid]
+      builds(:ios_unlocked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_unlocked]
+      builds(:ios_unlocked_first_key).text.should eql $data[:signing_key][:ios][:name_valid]
+      builds(:ios_locked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
+      builds(:ios_locked_first_key).text.should eql $data[:signing_key][:ios][:name_invalid]
     end
 
-    it "IT_006: the locked Android Key should be display" do
+    it "IT_011: the Android Key should be display" do
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
           @driver.navigate.refresh
@@ -113,11 +140,13 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
         end
         break
       }
-      builds(:android_options_firefox).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
-      builds(:android_no_key).text.should eql $data[:signing_key][:android][:name_valid]
+      builds(:android_unlocked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_unlocked]
+      builds(:android_unlocked_first_key).text.should eql $data[:signing_key][:android][:name_valid]
+      builds(:android_locked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
+      builds(:android_locked_first_key).text.should eql $data[:signing_key][:android][:name_invalid]
     end
 
-    it "IT_007: the locked BlackBerry Key should be display" do
+    it "IT_012: the BlackBerry Key should be display" do
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do
           sleep 5
@@ -125,8 +154,10 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
         end
         break
       }
-      builds(:blackberry_options_firefox).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
-      builds(:blackberry_no_key).text.should eql $data[:signing_key][:blackberry][:name_valid]
+      builds(:blackberry_unlocked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_unlocked]
+      builds(:blackberry_unlocked_first_key).text.should eql $data[:signing_key][:blackberry][:name_valid]
+      builds(:blackberry_locked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
+      builds(:blackberry_locked_first_key).text.should eql $data[:signing_key][:blackberry][:name_invalid]
     end
 
   end
