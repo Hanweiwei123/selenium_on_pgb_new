@@ -258,7 +258,7 @@ class EditAccountPage
         puts "+ <action><edit_account_page> add_BlackBerry_signing_key of #{type}  -- begin"
         make_sure_signing_keys_tab
         ea_signing_keys(:blackberry_add_key_btn).click
-        ea_signing_keys(:blackberry_title_input).send_keys $data[:signing_key][:blackberry][:name_valid]
+        ea_signing_keys(:blackberry_title_input).send_keys blackberry_title
         if(os == "win")
             ea_signing_keys(:blackberry_choose_csk_btn).send_keys("C:\\assets\\signing_key\\blackberry\\sigtool.csk")
             ea_signing_keys(:blackberry_choose_db_btn).send_keys("C:\\assets\\signing_key\\blackberry\\sigtool.db")
