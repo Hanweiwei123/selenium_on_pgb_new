@@ -6,12 +6,15 @@ require_relative "../util/config_param"
 require_relative "../util/webdriver_helper"
 require_relative '../util/dialog_locator/edit_account_locator'
 require_relative '../util/dialog_locator/header_footer_locator'
+require_relative '../util/dialog_locator/sign_in_github_locator'
 
 class EditAccountPage
-    include EditAccountLocator
+    
     include ConfigParam
     include WebdriverHelper
     include HeaderFooterLocator
+    include EditAccountLocator
+    include SignInGithubLocator
 
     attr_reader :user, :base_url
 
@@ -35,9 +38,13 @@ class EditAccountPage
     end
 
     def enter_github_account_and_sign_in_with(id, password)
-        fill_in ea_account_details(:github_login_username_input), :with => id
-        fill_in ea_account_details(:github_login_password_input), :with => password
-        ea_account_details(:github_login_submit_btn).click; sleep 10
+        fill_in sign_in_github_locator(:username_or_email), :with => id
+        fill_in sign_in_github_locator(:password), :with => password
+        sign_in_github_locator(:sign_in_btn).click; sleep 5
+        #xpath was same but the below has use highlight_and_return
+        #fill_in ea_account_details(:github_login_username_input), :with => id
+        #fill_in ea_account_details(:github_login_password_input), :with => password
+        #ea_account_details(:github_login_submit_btn).click; sleep 10
     end
 
     def add_ios_signing_key valideOne_or_invalidOne = "valid"
