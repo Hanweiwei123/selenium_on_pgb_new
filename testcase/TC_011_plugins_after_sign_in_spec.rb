@@ -81,7 +81,7 @@ describe "TC_011: Plugins" do
           plugin_locator(:checkbox_accept_license).click
           plugin_locator(:btn_submit).click # will submit the plugin
           sleep 20
-          @driver.current_url.should =~ /http:\/\/loc.build.phonegap.com\/plugins\/\d+/
+          @driver.current_url.should =~ /\/plugins\/\d+/
           @plugin_submit_successfully_msg = plugin_locator(:header_notifications).text
           @plugin_submit_successfully_msg.should eql $data[:str][$lang][:plugin_submit_successfully_msg]
         end
@@ -99,7 +99,7 @@ describe "TC_011: Plugins" do
           plugin_locator(:checkbox_accept_license).click
           plugin_locator(:btn_submit).click # will submit the plugin
           sleep 10
-          @driver.current_url.should =~ /http:\/\/loc.build.phonegap.com\/plugins#add/
+          @driver.current_url.should eql @base_url+"\/plugins#add"
           @plugin_submit_duplicated_msg = plugin_locator(:header_notifications).text
           @plugin_submit_duplicated_msg.should eql $data[:str][$lang][:plugin_submit_duplicated_msg]
         end
