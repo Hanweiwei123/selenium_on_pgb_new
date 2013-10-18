@@ -83,9 +83,13 @@ describe "TC_016: App Details #Collaborators" do
       @app_collaborators_page.add_a_collaborator(@invalid_email, $data[:str][$lang][:role_tester])
       
       @driver.current_url.should =~ /.*collaborators/
-
-      number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
-      number_of_collaborators.should eql 0
+      if is_element_present(:app_collaborators_page,:collaborators_block)
+        number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
+        number_of_collaborators.should eql 0
+      else
+        puts "+<error> element not display."
+        1.should_not eql 1
+      end
     end
 
     it "IT_002: should be one role_tester in the list" do
@@ -94,9 +98,13 @@ describe "TC_016: App Details #Collaborators" do
       sleep 3
       @driver.navigate.refresh ; sleep 5
       @driver.current_url.should =~ /.*collaborators/
-
-      number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
-      number_of_collaborators.should eql 1
+      if is_element_present(:app_collaborators_page,:collaborators_block)
+        number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
+        number_of_collaborators.should eql 1
+      else
+        puts "+<error> element not display."
+        1.should_not eql 1
+      end
 
       collaborators(:first_collaborator_role).text.should eql $data[:str][$lang][:role_tester]
     end
@@ -107,9 +115,13 @@ describe "TC_016: App Details #Collaborators" do
       sleep 5
       @driver.navigate.refresh ; sleep 5
       @driver.current_url.should =~ /.*collaborators/
-
-      number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
-      number_of_collaborators.should eql 1
+      if is_element_present(:app_collaborators_page,:collaborators_block)
+        number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
+        number_of_collaborators.should eql 1
+      else
+        puts "+<error> element not display."
+        1.should_not eql 1
+      end
 
       collaborators(:first_collaborator_role).text.should eql $data[:str][$lang][:role_developer]
     end
@@ -120,9 +132,13 @@ describe "TC_016: App Details #Collaborators" do
       sleep 5
       @driver.navigate.refresh ; sleep 5
       @driver.current_url.should =~ /.*collaborators/
-
-      number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
-      number_of_collaborators.should eql 0
+      if is_element_present(:app_collaborators_page,:collaborators_block)
+        number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
+        number_of_collaborators.should eql 0
+      else
+        puts "+<error> element not display."
+        1.should_not eql 1
+      end
     end
 
   end
