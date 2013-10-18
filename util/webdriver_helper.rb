@@ -177,6 +177,22 @@ module WebdriverHelper
         return  false
       end
     end
+    
+    def download_with_different_browser
+      case ENV['PGBBROWSER'].to_sym
+        when :firefox
+          win = RAutomation::Window.new(:title => /Opening/i)
+          if win.exist?
+            win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
+          else
+            puts "+ <error> Can not catch the dialog!!!"
+          end
+        when :chrome
+          puts "+ <message> noting should be done."
+        else
+          puts "+ <message> Unsupported Browser!!!"
+      end
+    end
 
     # To count the each test case's 'it' block order.
     # Ultimately it is used to name the screenshot when failure happens 
