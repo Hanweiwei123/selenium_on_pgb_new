@@ -18,13 +18,14 @@ describe "TC_018: App Id #Downloads" do
   include NewAppLocator
   include AppIdLocator
 
-  before(:all) do 
+  before(:all) do
     # sign in -> new app
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_018_IT_"
-    #@base_url = base_url
-    @base_url = "https://build.phonegap.com"
+    @base_url = base_url
+    #@base_url = "https://buildstage.phonegap.com"
+    #@base_url = "https://build.phonegap.com"
     @driver = driver
     @available_downloads = []
     @unavailable_downloads = []
@@ -35,23 +36,23 @@ describe "TC_018: App Id #Downloads" do
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
 
     @new_app_page = NewAppPage.new :driver => @driver,
-                                   :base_url =>@base_url ,
-                                   :user => {:id => $data[:user][$lang][:adobe_id_free_003_build][:id], :password => $data[:user][$lang][:adobe_id_free_003_build][:password] }
+                                   :base_url => @base_url,
+                                   #:user => {:id => $data[:user][$lang][:adobe_id_free_003_build][:id], :password => $data[:user][$lang][:adobe_id_free_003_build][:password] }
                                    #:user => {:id => "shuai.yan@dilatoit.com", :password => "yanshuai110"}
-                                   #:user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
+                                   :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password => $data[:user][$lang][:adobe_id_free_002][:password]}
     @new_app_page.new_app_with_zip
     sleep 15
-    @app_id = @new_app_page.first_app_id; 
+    @app_id = @new_app_page.first_app_id;
   end
 
   after(:all) do
-      #webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
-      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_003_build][:id], $data[:user][$lang][:adobe_id_free_003_build][:password]
-      #webhelper_delete_all_apps "shuai.yan@dilatoit.com", "yanshuai110"
-      @driver.quit
+    webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
+    #webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_003_build][:id], $data[:user][$lang][:adobe_id_free_003_build][:password]
+    #webhelper_delete_all_apps "shuai.yan@dilatoit.com", "yanshuai110"
+    @driver.quit
   end
 
-  after(:each) do  # Take screenshot in case of failure
+  after(:each) do # Take screenshot in case of failure
     @name_screenshot += @order_of_it.inc.to_s
     if example.exception != nil
       take_screenshot_with_name @name_screenshot
@@ -62,7 +63,7 @@ describe "TC_018: App Id #Downloads" do
     #it "should create an app successfully" do
     before(:all) do
       # @driver.navigate.refresh;  sleep 10
-      new_app_locator(:ready_to_build_btn).click;  sleep 10
+      new_app_locator(:ready_to_build_btn).click; sleep 10
       # @driver.navigate.refresh;  sleep 5
       @driver.get @driver.current_url + "\/#{@app_id}\/builds"
       sleep 5
@@ -71,7 +72,7 @@ describe "TC_018: App Id #Downloads" do
       $data[:platform].each do |platform|
         begin
           timeout(60) {
-            while $data[:str][$lang][:builds_action_pending] == builds(:"#{platform}_action").text do 
+            while $data[:str][$lang][:builds_action_pending] == builds(:"#{platform}_action").text do
               @driver.navigate.refresh
               sleep 5
               puts "+ action: " + builds(:winphone_action).text
@@ -83,155 +84,95 @@ describe "TC_018: App Id #Downloads" do
             end
             break
           }
-        rescue Exception => ex 
+        rescue Exception => ex
           @pending_buildings << platform
         end
       end
 
-      puts "--- TC_018 Available download app were: ---" 
-      @available_downloads.each {|ptf| p ptf } 
+      puts "--- TC_018 Available download app were: ---"
+      @available_downloads.each { |ptf| p ptf }
       puts "-----------------------------------------------"
-      puts "--- TC_018 Not available download app were: ---" 
-      @unavailable_downloads.each {|ptf| p ptf } 
+      puts "--- TC_018 Not available download app were: ---"
+      @unavailable_downloads.each { |ptf| p ptf }
       puts "-----------------------------------------------"
-      puts "--- TC_018 Pending building app were: ---" 
-      @pending_buildings.each {|ptf| p ptf } 
+      puts "--- TC_018 Pending building app were: ---"
+      @pending_buildings.each { |ptf| p ptf }
       puts "-----------------------------------------------"
 
     end
 
-    it "The page should direct to 'install' page" do 
+    it "The page should direct to 'install' page" do
 
       app_brief(:install_btn).click; sleep 5
       @driver.current_url.should =~ /.*install$/
     end
 
-    it "IT_001: should download the >>iOS<< app successfully" do 
-
-      if @available_downloads.include?("ios")
-        install_btn('ios').click;  sleep 10
-
-        win = RAutomation::Window.new(:title => /Opening/i)
-        if win.exist? 
-          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
-        else 
-          puts "Can not catch the dialog!!!"
-        end
-
-        sleep 10
-        Dir["#{@download_dir}/*.ipa"].count.should > 0
-        system("rm #{@download_dir}/*.ipa")
-      else 
-        puts "iOS app was not available" 
-        1.should eql 1
-      end
+    it "IT_001: should not download the >>iOS<< app successfully" do
+      true.should eql @unavailable_downloads.include?("ios")
     end
 
-    it "ITC_002: should download the >>Android<< app successfully " do 
+    it "ITC_002: should download the >>Android<< app successfully " do
 
       if @available_downloads.include?('android')
-        install_btn('android').click;  sleep 10
-
-        
-        win = RAutomation::Window.new(:title => /Opening/i)
-        if win.exist? 
-          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
-        else 
-          puts "Can not catch the dialog!!!"
-        end
-
+        install_btn('android').click; sleep 10
+        download_with_different_browser
         sleep 10
         Dir["#{@download_dir}/*.apk"].count.should > 0
         system("rm #{@download_dir}/*.apk")
-      else 
-        puts "Android app was not available" 
-        1.should_not eql 1
+      else
+        puts "+ <result> Android app was not available"
       end
     end
 
-    it "ITC_003: should download the >>BlackBerry<< app successfully" do 
+    it "ITC_003: should download the >>BlackBerry<< app successfully" do
 
-      if @available_downloads.include?('blackberry') 
-        install_btn('blackberry').click;  sleep 10
-
-        
-        win = RAutomation::Window.new(:title => /Opening/i)
-        if win.exist? 
-          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
-        else 
-          puts "Can not catch the dialog!!!"
-        end
-
+      if @available_downloads.include?('blackberry')
+        install_btn('blackberry').click; sleep 10
+        download_with_different_browser
         sleep 10
         Dir["#{@download_dir}/*.jad"].count.should > 0
         system("rm #{@download_dir}/*.jad")
       else
-        puts "BlackBerry app was not available" 
-        1.should_not eql 1
+        puts "+ <result> BlackBerry app was not available"
       end
     end
 
-    it "IT_004: Should download the >>Winphone<< app successfully" do 
-      
+    it "IT_004: Should download the >>Winphone<< app successfully" do
+
       if @available_downloads.include?('winphone')
-        install_btn('winphone').click;  sleep 10
-
-        win = RAutomation::Window.new(:title => /Opening/i)
-        if win.exist? 
-          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
-        else 
-          puts "Can not catch the dialog!!!"
-        end
-
+        install_btn('winphone').click; sleep 10
+        download_with_different_browser
         sleep 10
         Dir["#{@download_dir}/*.xap"].count.should > 0
         system("rm #{@download_dir}/*.xap")
-      else 
-        puts "WinPhone app was not available" 
-        1.should_not eql 1
+      else
+        puts "+ <result> WinPhone app was not available"
       end
     end
 
-    it "IT_005: should download the >>WebOS<< app successfully" do 
+    it "IT_005: should download the >>WebOS<< app successfully" do
 
       if @available_downloads.include?('webos')
-        install_btn('webos').click;  sleep 10
-
-        win = RAutomation::Window.new(:title => /Opening/i)
-        if win.exist? 
-          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
-        else 
-          puts "Can not catch the dialog!!!"
-        end
-
-
+        install_btn('webos').click; sleep 10
+        download_with_different_browser
         sleep 10
-        Dir["#{@download_dir}/*.ipk"].count.should > 0
-        system("rm #{@download_dir}/*.ipk")
-      else 
-        puts "WebOS app was not available" 
-        1.should_not eql 1
+        Dir["#{@download_dir}/*.ipk*"].count.should > 0
+        system("rm #{@download_dir}/*.ipk*")
+      else
+        puts "+ <result> WebOS app was not available"
       end
     end
 
-    it "IT_006: should download the >>Symbian<< app successfully " do 
+    it "IT_006: should download the >>Symbian<< app successfully " do
 
       if @available_downloads.include?('symbian')
-        install_btn('symbian').click;  sleep 10
-
-        win = RAutomation::Window.new(:title => /Opening/i)
-        if win.exist? 
-          win.activate; sleep 2; win.send_keys :tab ; sleep 2; win.send_keys :tab ; win.send_keys :enter
-        else 
-          puts "Can not catch the dialog!!!"
-        end
-
+        install_btn('symbian').click; sleep 10
+        download_with_different_browser
         sleep 10
         Dir["#{@download_dir}/*.wgz"].count.should > 0
         system("rm #{@download_dir}/*.wgz")
-      else 
-        puts "Symbian app was not available" 
-        1.should_not eql 1
+      else
+        puts "+ <result> Symbian app was not available"
       end
     end
 
