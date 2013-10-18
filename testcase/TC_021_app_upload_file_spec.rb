@@ -96,23 +96,29 @@ describe 'My behaviour' do
       "true".should eql settings(:basic_settings_enable_debugging).attribute('checked').to_s
       "true".should eql settings(:basic_settings_enable_hydration).attribute('checked').to_s
     end
-=begin
+
     it "IT_005:check error msg localized when update with a invalid filetype" do
       app_brief(:update_code_btn).click
       app_brief(:update_code_browser_btn).send_keys("C:\\assets\\application\\invalidfile\\LichuanIQEKey.p12")
       app_brief(:update_code_upload_btn).click;
       sleep 5
-      #puts "------------------?--"+app_brief(:error_alert_msg).text+"--------------------"
+      #puts "+<error_alert_msg> is "+app_brief(:error_alert_msg).text
       app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_filetype_msg]
     end
-=end
+
     it "IT_006:check error msg localized when update with a large file" do
       app_brief(:update_code_btn).click
       app_brief(:update_code_browser_btn).send_keys("C:\\assets\\application\\invalidfile\\index.html")
       #need Manually Click the button,the timeout error has not resolved
-      app_brief(:update_code_upload_btn).click
+      begin
+        app_brief(:update_code_upload_btn).send_keys (:enter)
+        #app_brief(:update_code_upload_btn).click
+      rescue Exception => ex
+        puts "+ <Exception> the timeout error when click submit button to upload a large file"
+      end
+      
       sleep 100
-      #puts "------------------?--"+app_brief(:error_alert_msg).text+"--------------------"
+      #puts "+<error_alert_msg> is "+app_brief(:error_alert_msg).text
       app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
     end
 
@@ -158,7 +164,7 @@ describe 'My behaviour' do
     it "IT_009: should delete the app successfully" do
 
       settings(:danger_zone_delete_app_btn).click
-      @driver.switch_to.alert.accept; sleep 20
+      @driver.switch_to.alert.accept; sleep 10
       @driver.navigate.refresh; sleep 5
       @driver.current_url.should =~ /.*apps$/
     end
@@ -168,6 +174,7 @@ describe 'My behaviour' do
   context "private zip app head part upload update code" do
 
     before (:all) do
+      @driver.get @base_url +"\/apps"
       @new_app_page.new_app_with_zip("zip");  sleep 10
       @app_id=@new_app_page.first_app_id
       new_app_locator(:ready_to_build_btn).click
