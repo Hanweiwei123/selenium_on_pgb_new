@@ -37,8 +37,8 @@ module ConfigParam
     # They are used everywhere later.  
     def init
       $config = {}
-      $config[:base_url] = "http://loc.build.phonegap.com"
-      #$config[:base_url] = "https://buildstage.phonegap.com"
+      #$config[:base_url] = "http://loc.build.phonegap.com"
+      $config[:base_url] = "https://buildstage.phonegap.com"
       #$config[:base_url] = "https://build.phonegap.com"
       $config[:lang] = ENV['PGBLANG'].to_sym
 
