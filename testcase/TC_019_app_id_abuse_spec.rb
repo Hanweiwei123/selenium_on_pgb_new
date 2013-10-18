@@ -20,8 +20,8 @@ describe "TC_019: App Id #Abuse " do
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_019_IT_"
-    #@base_url = base_url
-    @base_url = "https://build.phonegap.com"
+    @base_url = base_url
+    #@base_url = "https://build.phonegap.com"
     @driver = driver
     @driver.manage.window.maximize
     @driver.manage.timeouts.implicit_wait = 30
@@ -29,7 +29,7 @@ describe "TC_019: App Id #Abuse " do
     @new_app_page = NewAppPage.new(
         :driver => @driver,
         :base_url => @base_url,
-        :user => {:id => $data[:user][$lang][:adobe_id_free_003_build][:id], :password => $data[:user][$lang][:adobe_id_free_003_build][:password]})
+        :user => {:id => $data[:user][$lang][:adobe_id_free_001][:id], :password => $data[:user][$lang][:adobe_id_free_001][:password]})
     @new_app_page.new_public_app_with_repo; sleep 5
     @driver.navigate.refresh; sleep 5
     @app_id = @new_app_page.first_app_id;
@@ -42,7 +42,7 @@ describe "TC_019: App Id #Abuse " do
   after(:all) do
     puts "+ <TC_019> after all outer --- begin"
     begin
-      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_003_build][:id], $data[:user][$lang][:adobe_id_free_003_build][:password]
+      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_001][:id], $data[:user][$lang][:adobe_id_free_001][:password]
     ensure
       @driver.quit
     end
@@ -132,9 +132,9 @@ describe "TC_019: App Id #Abuse " do
 
     it "IT_015: check report button"do
       puts "+<check> email_address_default_value is " + abuse(:email_address_input).attribute("value")
-      abuse(:email_address_input).attribute("value").should eql $data[:user][$lang][:adobe_id_free_003_build][:id]
+      abuse(:email_address_input).attribute("value").should eql $data[:user][$lang][:adobe_id_free_001][:id]
       abuse(:email_address_input).clear
-      abuse(:email_address_input).send_keys($data[:user][$lang][:adobe_id_free_003_build][:id])
+      abuse(:email_address_input).send_keys($data[:user][$lang][:adobe_id_free_001][:id])
       abuse(:name_input).clear
       abuse(:name_input).send_keys "name"
       abuse(:why_Defamation_input).click;
