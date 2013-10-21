@@ -271,6 +271,15 @@
     :blackberry_unlock_password_input: //*[@id="key_password"]
     :blackberry_unlock_cancel_btn: //form[@class='key_unlock']/footer/button[1]
     :balckberry_unlock_submit_btn: //form[@class='key_unlock']/footer/button[2]
+:app_plugins_page:
+    :tab: //section[@id="app-detail-controls"]/nav/a[@class="icon plugins"]
+    :no_plugins_label: //div[@id='app-plugins']/div/form/header/h1
+    :third_party_plugins_label: //div[@id='app-plugins']/div/form/header/h1
+    :third_party_plugins_name: //div[@id='app-plugins']/div/form/fieldset/table/tbody/tr/td/a
+    :third_party_plugins_version: //div[@id='app-plugins']/div/form/fieldset/table/tbody/tr/td[2]
+    :phonegap_plugins_plugins_label: //div[@id='app-plugins']/div/form[2]/header/h1
+    :phonegap_plugins_plugins_name: //div[@id='app-plugins']/div/form[2]/fieldset/table/tbody/tr/td/a
+    :phonegap_plugins_version: //div[@id='app-plugins']/div/form[2]/fieldset/table/tbody/tr/td[2]
 :app_collaborators_page:
     :tab: //section[@id="app-detail-controls"]/nav/a[@class="icon collaborators"]
     :add_collaborator_btn: //*[@id="app-collaborators"]/div/a
