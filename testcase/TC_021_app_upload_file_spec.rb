@@ -11,7 +11,7 @@ require_relative "../util/dialog_locator/new_app_locator"
 require_relative "../util/dialog_locator/app_id_locator"
 
 #This TC description
-describe 'My behaviour' do
+describe 'TC_021: app update code' do
 
   include ConfigParam
   include WebdriverHelper
