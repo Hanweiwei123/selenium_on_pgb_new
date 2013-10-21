@@ -145,7 +145,8 @@ class NewAppPage
     # Create an public app by submitting a github repo address. 
     # Steps are : 
     #       'open-source' tab -> "paste .git repo"  
-    def new_public_app_with_repo
+    def new_public_app_with_repo ( type="repo")
+        puts "+<repo_type> is #{type.upcase}"
         puts "+ <action> New public app with github repo --- begin"
         make_sure_apps_page unless @driver.current_url =~ /.*apps.*/
         # Selenium::WebDriver::Wait.new(:timeout => 120).until { new_app_btn }
@@ -155,7 +156,13 @@ class NewAppPage
         end
         new_app_locator(:opensource_repo_tab).click
         new_app_locator(:paste_git_repo_input).clear
-        new_app_locator(:paste_git_repo_input).send_keys $data[:app][:new_app][:by_repo] + "\n"
+        if type.upcase=="REPO"
+          new_app_locator(:paste_git_repo_input).send_keys $data[:app][:new_app][:by_repo] + "\n"
+        elsif type.upcase=="PLUGIN_REPO"
+          new_app_locator(:paste_git_repo_input).send_keys $data[:app][:new_app][:by_with_plugin_repo1] + "\n"
+        else
+          raise "Not supported repo."
+        end
         sleep 10
         puts "+ <action> New public app with github repo --- end"
     end
