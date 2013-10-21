@@ -13,7 +13,7 @@ require_relative "../util/webdriver_helper"
 require_relative "../util/dialog_locator/new_app_locator"
 require_relative "../util/dialog_locator/app_id_locator"
 
-describe "TC_015: App Details #Builds" do
+describe "TC_023: singing_key_consist_BuildToAccount" do
   include ConfigParam
   include WebdriverHelper
   include NewAppLocator
