@@ -3,6 +3,12 @@
     :by_zip_demo: .\/anotherあ你äōҾӲ.zip
     :by_html: ../assets/application/index.html
     :by_repo: "https://github.com/YanShuai-Dilato/EmptyProj.git"
+    :third_party_plugins_name: "com.phonegap.plugins.barcodescanner"
+    :third_party_plugins_version: "1.1.0"
+    :phonegap_plugins_plugins_name: "org.apache.cordova.camera"
+    :phonegap_plugins_version: "0.2.3"
+    :by_with_plugin_repo1: "https://github.com/phonegp-007/pgb-example-camera.git"
+    :by_with_plugin_repo2: "https://github.com/phonegp-007/phonegap-start.git"
 :expected_app_by_zip: 
     :title: "PG Build App"
     :description: "no description"
