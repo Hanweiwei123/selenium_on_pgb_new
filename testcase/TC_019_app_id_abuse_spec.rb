@@ -16,7 +16,7 @@ describe "TC_019: App Id #Abuse " do
   include AppIdLocator
 
   before(:all) do
-    puts "+ <TC_001> before all outer --- begin"
+    puts "+ <TC_019> before all outer --- begin"
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_019_IT_"
