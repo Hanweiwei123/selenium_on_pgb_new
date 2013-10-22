@@ -166,7 +166,7 @@
     :builds_no_key: "Aucune clé sélectionnée"
     :builds_new_key: "ajouter une clé..."
     :app_id_plugins_tab: "Modules externes"
-    :app_id_plugins_no: "Chargement de la liste des modules externes..."
+    :app_id_plugins_no: "Cette application n’a aucun module externe."
     :app_id_plugins_3rd_party: "Modules externes tiers installés"
     :app_id_plugins_phonegap: "Modules externes PhoneGap installés"
     :app_id_update_code_invalid_filetype_msg: "Impossible de créer l’application : type de fichier incorrect"
