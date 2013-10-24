@@ -94,7 +94,7 @@ describe "TC_002: New apps with paid account" do
         app_count_after = @new_app_page.number_of_existing_apps
         app_count_after.should eql app_count_before - 2
     end
-    
+=begin  
     it "IT_004: if the number of apps is greater than 25, check the message localized" do
       puts "IT_" + @order_of_it.to_s
       sleep 5
@@ -117,5 +117,5 @@ describe "TC_002: New apps with paid account" do
       #puts new_app_locator(:app_num_msg).text
       new_app_locator(:app_num_msg).text.should eql $data[:str][$lang][:create_app_mun_error_msg]
     end
-
+=end
 end
