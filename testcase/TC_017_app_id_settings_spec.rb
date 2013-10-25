@@ -2,7 +2,6 @@
 
 require 'rubygems'
 require 'rspec'
-require 'fakeweb'
 
 require_relative "../action/new_app_page"
 require_relative "../action/app_collaborators_page"
