@@ -1,4 +1,5 @@
----
+#encoding: utf-8
+
 :header:
     :main_nav_link_logo: //*[@id="logo"]
     :main_nav_link_apps: //*[@id="main-nav"]/a[2]
