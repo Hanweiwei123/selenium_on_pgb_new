@@ -66,6 +66,18 @@ describe "TC_014: Edit 'private code hosting' at Edit account page" do
       ea_private_ch(:person_username_text).attribute('value').should eql user_name
       ea_private_ch(:person_ssh_key_text).text.should eql user_ssh_key
     end
+    
+    it "IT_002: should clean the username and ssh_key successfully" do
+
+      @edit_account_page.make_sure_private_codehosting_tab
+      ea_private_ch(:person_username_text).clear
+      ea_private_ch(:person_ssh_key_text).clear
+      ea_private_ch(:save_btn).click
+      sleep 5
+      @driver.navigate.refresh ; sleep 5
+      @driver.current_url.should eql @base_url+ $data[:url][:sign_in_successfully]
+    end
+    
   end
 
 end
