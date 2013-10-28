@@ -161,30 +161,31 @@ describe 'TC_021: app update code' do
       #app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
     end
 =end
-    it "IT_009: should delete the app successfully" do
+    # it "IT_009: should delete the app successfully" do
 
-      settings(:danger_zone_delete_app_btn).click
-      @driver.switch_to.alert.accept; sleep 10
-      @driver.navigate.refresh; sleep 5
-      @driver.current_url.should =~ /.*apps$/
-    end
+    #   settings(:danger_zone_delete_app_btn).click
+    #   @driver.switch_to.alert.accept; sleep 10
+    #   @driver.navigate.refresh; sleep 5
+    #   @driver.current_url.should =~ /.*apps$/
+    # end
 
   end
 
   context "private zip app head part upload update code" do
 
-    before (:all) do
-      @driver.get @base_url +"\/apps"
-      @new_app_page.new_app_with_zip("zip");  sleep 10
-      @app_id=@new_app_page.first_app_id
-      new_app_locator(:ready_to_build_btn).click
-      sleep 10
-      @driver.get @driver.current_url + "\/#{@app_id}\/builds" ;sleep 5
-      @current_url = @driver.current_url
-      puts "+<current_url> is #{@current_url}";
-    end
+    # before (:all) do
+    #   @driver.get @base_url +"\/apps"
+    #   @new_app_page.new_app_with_zip("zip");  sleep 10
+    #   @app_id=@new_app_page.first_app_id
+    #   new_app_locator(:ready_to_build_btn).click
+    #   sleep 10
+    #   @driver.get @driver.current_url + "\/#{@app_id}\/builds" ;sleep 5
+    #   @current_url = @driver.current_url
+    #   puts "+<current_url> is #{@current_url}";
+    # end
 
     it "IT_010:check code has been updated" do
+      @driver.navigate.refresh; sleep 5
       app_brief(:update_code_btn).click
       os = win_or_mac
       if os == 'mac'
