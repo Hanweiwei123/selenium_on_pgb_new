@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 :en_US:
     :not_found_in_database: "Invalid email or password."
     :PGB_email_not_found: "1 error: Email not found"
