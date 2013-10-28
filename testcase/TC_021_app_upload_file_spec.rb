@@ -184,7 +184,7 @@ describe 'TC_021: app update code' do
     #   puts "+<current_url> is #{@current_url}";
     # end
 
-    it "IT_010:check code has been updated" do
+    it "IT_009:check code has been updated" do
       @driver.navigate.refresh; sleep 5
       app_brief(:update_code_btn).click
       os = win_or_mac
