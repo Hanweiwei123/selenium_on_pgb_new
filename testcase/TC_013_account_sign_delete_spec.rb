@@ -29,7 +29,7 @@ describe "TC_013: User sign in/out and account delete" do
     @sign_in_page = SignInPage.new(
         :driver => @driver,
         :base_url => @base_url,
-        :user => {:id => $data[:user][$lang][:adobe_id_free_001][:id], :password => $data[:user][$lang][:adobe_id_free_001][:password]} )
+        :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password => $data[:user][$lang][:adobe_id_free_002][:password]} )
   end
 
   after(:all) do 
@@ -67,8 +67,8 @@ describe "TC_013: User sign in/out and account delete" do
       go_to_page :free_plan
       register_locator(:adobe_id_btn).click
       @driver.switch_to.frame(0)
-      fill_in register_locator(:adobe_id_frame_adobe_id_input),:with => $data[:user][$lang][:adobe_id_free_001][:id]
-      fill_in register_locator(:adobe_id_frame_password_input),:with => $data[:user][$lang][:adobe_id_free_001][:password]
+      fill_in register_locator(:adobe_id_frame_adobe_id_input),:with => $data[:user][$lang][:adobe_id_free_002][:id]
+      fill_in register_locator(:adobe_id_frame_password_input),:with => $data[:user][$lang][:adobe_id_free_002][:password]
       register_locator(:adobe_id_frame_sign_in_btn).click
       sleep 10
     end
@@ -78,9 +78,9 @@ describe "TC_013: User sign in/out and account delete" do
       @edit_account_page = EditAccountPage.new(
           :driver => @driver,
           :base_url => @base_url,
-          :user => {:id => $data[:user][$lang][:adobe_id_free_001][:id], :password => $data[:user][$lang][:adobe_id_free_001][:password]} )
+          :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password => $data[:user][$lang][:adobe_id_free_002][:password]} )
       @edit_account_page.make_sure_account_details_tab
-      @edit_account_page.delete_my_account( $data[:user][$lang][:adobe_id_free_001][:id],  $data[:user][$lang][:adobe_id_free_001][:password])
+      @edit_account_page.delete_my_account( $data[:user][$lang][:adobe_id_free_002][:id],  $data[:user][$lang][:adobe_id_free_002][:password])
       @driver.current_url.should eql @base_url+"/"
       account_notice.text.should eql $data[:str][$lang][:account_deleted_notice]
     end
