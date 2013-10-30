@@ -203,7 +203,7 @@ describe "TC_015: App Details #Builds" do
     end
 
     it "IT_009: the >>webos<< app should be downloaded successfully" do
-      if $data[:str][$lang][:builds_action_pending] != builds(:winphone_action).text
+      if $data[:str][$lang][:builds_action_pending] != builds(:webos_action).text
         builds(:webos_action).click; sleep 10
         download_with_different_browser
         sleep 10
@@ -217,7 +217,7 @@ describe "TC_015: App Details #Builds" do
 
     it "IT_010: the >>symbian<< app should be downloaded successfully" do
 
-      if $data[:str][$lang][:builds_action_pending] != builds(:winphone_action).text
+      if $data[:str][$lang][:builds_action_pending] != builds(:symbian_action).text
         builds(:symbian_action).click; sleep 10
         download_with_different_browser
         sleep 10
