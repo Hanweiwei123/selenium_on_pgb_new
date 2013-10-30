@@ -74,6 +74,7 @@ describe "TC_024: app id plugins" do
     end
 
     it "IT_002: check app with plugins" do
+      @app_id_plugin.should_not eql @app_id_no_plugin
       @driver.get "#{@base_url}\/apps\/#{@app_id_plugin}\/plugins" ;sleep 5
       @current_url = @driver.current_url
       puts "+<current_url> is #{@current_url}"
