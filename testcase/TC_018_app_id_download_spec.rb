@@ -71,11 +71,11 @@ describe "TC_018: App Id #Downloads" do
 
       $data[:platform].each do |platform|
         begin
-          timeout(60) {
+          timeout(120) {
             while $data[:str][$lang][:builds_action_pending] == builds(:"#{platform}_action").text do
               @driver.navigate.refresh
               sleep 5
-              puts "+ action: " + builds(:winphone_action).text
+              puts "+ action: " + builds(:"#{platform}_action").text
             end
             if builds(:"#{platform}_action").text != $data[:str][$lang][:builds_action_error]
               @available_downloads << platform
