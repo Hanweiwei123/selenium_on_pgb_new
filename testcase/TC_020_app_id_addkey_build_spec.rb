@@ -22,8 +22,8 @@ describe "TC_020: App Details #Builds add key and rebuild" do
     init
     @order_of_it = WebdriverHelper::Counter.new
     @name_screenshot = "TC_020_IT_"
-    #@base_url = base_url
-    @base_url = "https://build.phonegap.com"
+    @base_url = base_url
+    # @base_url = "https://build.phonegap.com"
     @driver = driver
     @download_dir = Dir.home + "/Downloads"
     @driver.manage.window.maximize
@@ -32,12 +32,12 @@ describe "TC_020: App Details #Builds add key and rebuild" do
 
     @new_app_page = NewAppPage.new :driver => @driver,
                                    :base_url =>@base_url ,
-                                   :user => { :id => "shuai.yan@dilatoit.com", :password => "yanshuai110" }
-                                   #:user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
+                                   #:user => { :id => $data[:user][$lang][:adobe_id_free_003_build][:id], :password =>  $data[:user][$lang][:adobe_id_free_003_build][:password]
+                                   :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
     @app_build_page = AppBuildsPage.new :driver => @driver,
                                    :base_url =>@base_url ,
-                                   :user => { :id => "shuai.yan@dilatoit.com", :password => "yanshuai110" }
-                                   #:user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
+                                   #:user => { :id => $data[:user][$lang][:adobe_id_free_003_build][:id], :password =>  $data[:user][$lang][:adobe_id_free_003_build][:password]  }
+                                   :user => {:id => $data[:user][$lang][:adobe_id_free_002][:id], :password =>  $data[:user][$lang][:adobe_id_free_002][:password] }
     @new_app_page.new_app_with_zip;  sleep 5
     @app_id = @new_app_page.first_app_id
     new_app_locator(:ready_to_build_btn).click
@@ -51,8 +51,8 @@ describe "TC_020: App Details #Builds add key and rebuild" do
     begin
       #webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
       #webhelper_delete_all_signing_keys $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
-      webhelper_delete_all_apps "shuai.yan@dilatoit.com", "yanshuai110"
-      webhelper_delete_all_signing_keys "shuai.yan@dilatoit.com", "yanshuai110"
+      webhelper_delete_all_apps $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
+      webhelper_delete_all_signing_keys $data[:user][$lang][:adobe_id_free_002][:id], $data[:user][$lang][:adobe_id_free_002][:password]
     ensure
       @driver.quit
     end
@@ -76,6 +76,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
         end
       }
       @app_build_page.android_add_signing_key "invalid"
+      sleep 10
       builds(:android_rebuild).click;  sleep 10
       error_msg = @app_build_page.android_get_error_msg_of_the_signing_key
       error_msg.should eql $data[:str][$lang][:error_msg_android_build_with_locked_signing_key]
@@ -90,6 +91,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
         end
       }
       @app_build_page.blackberry_add_signing_key "invalid"
+      sleep 10
       builds(:blackberry_rebuild).click;  sleep 10
       error_msg = @app_build_page.blackberry_get_error_msg_of_the_signing_key
       error_msg.should eql $data[:str][$lang][:error_msg_blackberry_build_with_locked_signing_key]
@@ -104,6 +106,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
         end
       }
       @app_build_page.ios_add_signing_key "invalid"
+      sleep 10
       builds(:ios_rebuild).click;  sleep 10
       error_msg = @app_build_page.ios_get_error_msg_of_the_signing_key
       error_msg.should eql $data[:str][$lang][:error_msg_ios_build_with_locked_signing_key]
@@ -115,21 +118,21 @@ describe "TC_020: App Details #Builds add key and rebuild" do
 
      it "IT_004: iOS error message should be localized" do
        @app_build_page.to_unlock_ios_signing_key "invalid"
-       builds(:ios_rebuild).click;  sleep 10
+       builds(:ios_rebuild).click;  sleep 20
        error_msg = @app_build_page.ios_get_error_msg_of_the_signing_key
        error_msg.should eql $data[:str][$lang][:error_msg_ios_build_with_unlocked_signing_key_with_invalid_psd]
      end
 
      it "IT_005: Android error message should be localized" do
        @app_build_page.to_unlock_android_signing_key "invalid"
-       builds(:android_rebuild).click;  sleep 10
+       builds(:android_rebuild).click;  sleep 20
        error_msg = @app_build_page.android_get_error_msg_of_the_signing_key
        error_msg.should eql $data[:str][$lang][:error_msg_android_build_with_unlocked_signing_key_with_invalid_psd]
      end
 
      it "IT_006: BlackBerry error message should be localized" do
        @app_build_page.to_unlock_blackberry_signing_key "invalid"
-       builds(:blackberry_rebuild).click;  sleep 10
+       builds(:blackberry_rebuild).click;  sleep 20
        error_msg = @app_build_page.blackberry_get_error_msg_of_the_signing_key
        error_msg.should eql $data[:str][$lang][:error_msg_blackberry_build_with_unlocked_signing_key_with_invalid_psd]
      end
@@ -140,8 +143,9 @@ describe "TC_020: App Details #Builds add key and rebuild" do
 
      it "IT_007: should download the >>iOS<< app successfully" do
        @app_build_page.ios_add_signing_key
+       sleep 10
        @app_build_page.to_unlock_ios_signing_key
-       builds(:ios_rebuild).click;  sleep 10
+       builds(:ios_rebuild).click;  sleep 20
        timeout(120) {
          while $data[:str][$lang][:builds_action_pending] == builds(:ios_action).text do
            @driver.navigate.refresh
@@ -169,8 +173,9 @@ describe "TC_020: App Details #Builds add key and rebuild" do
 
      it "IT_008: should download the >>Android<< app successfully" do
        @app_build_page.android_add_signing_key
+       sleep 10
        @app_build_page.to_unlock_android_signing_key
-       builds(:android_rebuild).click;  sleep 10
+       builds(:android_rebuild).click;  sleep 20
        timeout(60) {
          while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
            @driver.navigate.refresh
@@ -198,8 +203,9 @@ describe "TC_020: App Details #Builds add key and rebuild" do
 
      it "IT_009: should download the >>BlackBerry<< app successfully" do
        @app_build_page.blackberry_add_signing_key
+       sleep 10
        @app_build_page.to_unlock_blackberry_signing_key
-       builds(:blackberry_rebuild).click;  sleep 10
+       builds(:blackberry_rebuild).click;  sleep 20
        timeout(120) {
          while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do
            @driver.navigate.refresh
