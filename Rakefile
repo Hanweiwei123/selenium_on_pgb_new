@@ -13,9 +13,7 @@ def init_folders
     browser = ENV['PGBBROWSER']
     lang = ENV['PGBLANG']
     name_subdir = "#{lang}_#{browser}" 
-
     initialize_params name_subdir
-
     name_subdir
 end
 
@@ -24,17 +22,19 @@ if defined? RSpec
 
     RSpec::Core::RakeTask.new(:TC, :order) do |t, args| 
         raise "Please specify the testcase number to run, like TC[001], or TC[all] to run all testcases ! " unless args.order
-
+        time = Time.now
+        str_time = time.year.to_s + time.month.to_s + time.day.to_s + time.hour.to_s + time.min.to_s
+        
         if "ALL" == args.order.upcase
             name_subdir = init_folders 
             puts "------ Running all testcases ------" 
             t.pattern = "./testcase/*_spec.rb"
-            t.rspec_opts = "--format d >> ./auto_results/#{name_subdir}/all_result.txt "
+            t.rspec_opts = "--format d >> ./auto_results/#{name_subdir}/all_result_#{str_time}.txt "
         elsif TESTCASE_FILES.find { |e| e.include?("#{args.order}") }  
             name_subdir = init_folders  
             puts "TC[#{args.order}] is now running ..."
             t.pattern = "./testcase/TC_#{args.order}*.rb"
-            t.rspec_opts = "--format d > ./auto_results/#{name_subdir}/TC_#{args.order}_result.txt "
+            t.rspec_opts = "--format d > ./auto_results/#{name_subdir}/TC_#{args.order}_result_#{str_time}.txt "
         else
             raise "Please specify the testcase number to run, like TC[001], or TC[all] to run all testcases ! "
         end
