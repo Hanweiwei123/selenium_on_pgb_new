@@ -74,8 +74,10 @@ describe "TC_023: singing_key_consist_BuildToAccount" do
         end
       }
       @app_build_page.ios_add_signing_key "valid"
+      sleep 10
       @app_build_page.to_unlock_ios_signing_key "valid"
       @app_build_page.ios_add_signing_key "invalid"
+      sleep 10
       builds(:ios_unlocked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_unlocked]
       builds(:ios_unlocked_first_key).text.should eql $data[:signing_key][:ios][:name_valid]
       builds(:ios_locked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
@@ -91,8 +93,10 @@ describe "TC_023: singing_key_consist_BuildToAccount" do
         end
       }
       @app_build_page.android_add_signing_key "valid"
+      sleep 10
       @app_build_page.to_unlock_android_signing_key "valid"
       @app_build_page.android_add_signing_key "invalid"
+      sleep 10
       builds(:android_unlocked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_unlocked]
       builds(:android_unlocked_first_key).text.should eql $data[:signing_key][:android][:name_valid]
       builds(:android_locked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
@@ -108,8 +112,10 @@ describe "TC_023: singing_key_consist_BuildToAccount" do
         end
       }
       @app_build_page.blackberry_add_signing_key "valid"
+      sleep 10
       @app_build_page.to_unlock_blackberry_signing_key "valid"
       @app_build_page.blackberry_add_signing_key "invalid"
+      sleep 10
       builds(:blackberry_unlocked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_unlocked]
       builds(:blackberry_unlocked_first_key).text.should eql $data[:signing_key][:blackberry][:name_valid]
       builds(:blackberry_locked_options).attribute('label').should  eql $data[:str][$lang][:apps_signing_key_locked]
