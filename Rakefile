@@ -22,8 +22,7 @@ if defined? RSpec
 
     RSpec::Core::RakeTask.new(:TC, :order) do |t, args| 
         raise "Please specify the testcase number to run, like TC[001], or TC[all] to run all testcases ! " unless args.order
-        time = Time.now
-        str_time = time.year.to_s + time.month.to_s + time.day.to_s + time.hour.to_s + time.min.to_s
+        str_time = Time.now.strftime("%Y%m%d%H%M").to_s
         
         if "ALL" == args.order.upcase
             name_subdir = init_folders 
