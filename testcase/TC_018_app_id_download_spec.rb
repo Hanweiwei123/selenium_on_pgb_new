@@ -127,6 +127,10 @@ describe "TC_018: App Id #Downloads" do
     it "ITC_003: should download the >>BlackBerry<< app successfully" do
 
       if @available_downloads.include?('blackberry')
+        if :chrome == ENV['PGBBROWSER'].to_sym
+          @driver.get @base_url + "\/apps\/#{@app_id}\/builds"; sleep 5
+          @driver.get @base_url + "\/apps\/#{@app_id}\/install"; sleep 5
+        end
         install_btn('blackberry').click; sleep 10
         download_with_different_browser
         sleep 10
@@ -140,6 +144,10 @@ describe "TC_018: App Id #Downloads" do
     it "IT_004: Should download the >>Winphone<< app successfully" do
 
       if @available_downloads.include?('winphone')
+        if :chrome == ENV['PGBBROWSER'].to_sym
+          @driver.get @base_url + "\/apps\/#{@app_id}\/builds"; sleep 5
+          @driver.get @base_url + "\/apps\/#{@app_id}\/install"; sleep 5
+        end
         install_btn('winphone').click; sleep 10
         download_with_different_browser
         sleep 10
@@ -153,6 +161,10 @@ describe "TC_018: App Id #Downloads" do
     it "IT_005: should download the >>WebOS<< app successfully" do
 
       if @available_downloads.include?('webos')
+        if :chrome == ENV['PGBBROWSER'].to_sym
+          @driver.get @base_url + "\/apps\/#{@app_id}\/builds"; sleep 5
+          @driver.get @base_url + "\/apps\/#{@app_id}\/install"; sleep 5
+        end
         install_btn('webos').click; sleep 10
         download_with_different_browser
         sleep 10
@@ -166,6 +178,10 @@ describe "TC_018: App Id #Downloads" do
     it "IT_006: should download the >>Symbian<< app successfully " do
 
       if @available_downloads.include?('symbian')
+        if :chrome == ENV['PGBBROWSER'].to_sym
+          @driver.get @base_url + "\/apps\/#{@app_id}\/builds"; sleep 5
+          @driver.get @base_url + "\/apps\/#{@app_id}\/install"; sleep 5
+        end
         install_btn('symbian').click; sleep 10
         download_with_different_browser
         sleep 10
