@@ -160,6 +160,8 @@ class NewAppPage
           new_app_locator(:paste_git_repo_input).send_keys $data[:app][:new_app][:by_repo] + "\n"
         elsif type.upcase=="PLUGIN_REPO"
           new_app_locator(:paste_git_repo_input).send_keys $data[:app][:new_app][:by_with_plugin_repo1] + "\n"
+        elsif type.upcase=="LARGE_REPO"
+          new_app_locator(:paste_git_repo_input).send_keys $data[:app][:new_app][:by_with_large_repo] + "\n"
         else
           raise "Not supported repo."
         end
