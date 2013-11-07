@@ -147,6 +147,12 @@ https://www.dropbox.com/s/fd9cvodechaj26l/selenium_Logical_view_Draft.png
     TC_017_app_id_settings_spec.rb
     TC_018_app_id_download_spec.rb
     TC_019_app_id_abuse_spec.rb
+    TC_020_app_id_addkey_build_spec.rb
+    TC_021_app_upload_file_spec.rb
+    TC_022_singing_key_consist_AccountToBuild_spec.rb
+    TC_023_singing_key_consist_BuildToAccount_spec.rb
+    TC_024_app_id_plugins_spec.rb
+    
 
 
 
