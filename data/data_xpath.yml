@@ -100,6 +100,9 @@
     :BillingAddressTwo: //*[@id='BillingAddressTwo']
     :BillingPhone: //*[@id='BillingPhone']
 :new_app_page:
+    :error_alert_msg: //aside[@id='notifications-detail']/div/section[@class='alert']
+    :notice_alert_msg: //aside[@id='notifications-detail']/div/section[@class='notice']
+    :alert_msg_of_largefile: //*[@id='new-app']/form/div[@class='alert']
     :app_num_msg : //section[@id='page-content']/div/div/section
     :first_app_id: //*[@id='apps-list']/article/section[@class='app-details']/div/dl/dd
     :new_app_btn: //*[@id='new-app-btn']
