@@ -1,8 +1,8 @@
 #encoding: utf-8
 
 :new_app: 
-    :by_zip:  ../assets/application/anotherあ你äōҾӲ.zip
-    :by_zip_demo: .\/anotherあ你äōҾӲ.zip
+    :by_zip:  ../assets/application/anotherあ你äōҾӲ.zip
+    :by_zip_demo: .\/anotherあ你äōҾӲ.zip
     :by_html: ../assets/application/index.html
     :by_repo: "https://github.com/YanShuai-Dilato/EmptyProj.git"
     :third_party_plugins_name: "com.phonegap.plugins.barcodescanner"
@@ -11,6 +11,7 @@
     :phonegap_plugins_version: "0.2.3"
     :by_with_plugin_repo1: "https://github.com/phonegp-007/pgb-example-camera.git"
     :by_with_plugin_repo2: "https://github.com/phonegp-007/phonegap-start.git"
+    :by_with_large_repo: "https://github.com/phonegp-007/phonegap_plugin_test.git"
 :expected_app_by_zip: 
     :title: "PG Build App"
     :description: "no description"
@@ -22,7 +23,7 @@
     :version: "99.99"
     :source: "https://github.com/YanShuai-Dilato/EmptyProj.git"
 :app_detail:
-    :title: "!>[~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉ҝҾӲӼͲϟϺ͵ͺͼ;΄Όήϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你"
+    :title: "!>[~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉ҝҾӲӼͲϟϺ͵ͺͼ;΄Όήϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼあ你"
     :desc: Description~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉
     :icon: ../assets/application/亜印gっをげwにwpw声wんw儀栄wペイ儀絵印rgるう.jpg
     :package: "pkgéè儀絵印んずぐ"
