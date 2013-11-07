@@ -53,13 +53,13 @@ describe 'TC_021: app update code' do
     it "IT_001:check error msg localized when new app with a invalid filetype" do
       @new_app_page.new_app_with_zip("invalid_filetype");
       sleep 5
-      app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_filetype_msg]
+      new_app_locator(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_filetype_msg]
     end
 
     it "IT_002:check error msg localized when new app with a large file" do
       @new_app_page.new_app_with_zip("invalid_large_file");
-      sleep 100
-      app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
+      sleep 5
+      new_app_locator(:alert_msg_of_largefile).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
     end
 
   end
@@ -111,13 +111,13 @@ describe 'TC_021: app update code' do
       app_brief(:update_code_browser_btn).send_keys("C:\\assets\\application\\invalidfile\\index.html")
       #need Manually Click the button,the timeout error has not resolved
       begin
-        app_brief(:update_code_upload_btn).send_keys (:enter)
-        #app_brief(:update_code_upload_btn).click
+        #app_brief(:update_code_upload_btn).send_keys (:enter)
+        app_brief(:update_code_upload_btn).click
       rescue Exception => ex
         puts "+ <Exception> the timeout error when click submit button to upload a large file"
       end
       
-      sleep 100
+      sleep 500
       #puts "+<error_alert_msg> is "+app_brief(:error_alert_msg).text
       app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
     end
@@ -199,6 +199,24 @@ describe 'TC_021: app update code' do
       app_brief(:title).text.should include "test"
     end
 
+  end
+  
+  context "private zip app head part upload update code" do
+
+    before (:all) do
+      settings(:tab).click unless @driver.current_url =~ /.*settings.*/; sleep 5
+      settings(:danger_zone_delete_app_btn).click
+      @driver.switch_to.alert.accept; sleep 10
+      @driver.navigate.refresh; sleep 5
+      @driver.current_url.should =~ /.*apps$/
+    end
+
+    it "IT_010:check error msg localized when new app with a large repo" do
+      @new_app_page.new_public_app_with_repo("large_repo");
+      sleep 5
+      new_app_locator(:alert_msg_of_largefile).text.should eql $data[:str][$lang][:new_app_with_invalid_large_file_msg]
+    end
+    
   end
 
 end
