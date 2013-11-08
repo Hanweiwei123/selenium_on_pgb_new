@@ -105,7 +105,7 @@ describe 'TC_021: app update code' do
       #puts "+<error_alert_msg> is "+app_brief(:error_alert_msg).text
       app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_filetype_msg]
     end
-
+=begin
     it "IT_006:check error msg localized when update with a large file" do
       app_brief(:update_code_btn).click
       app_brief(:update_code_browser_btn).send_keys("C:\\assets\\application\\invalidfile\\index.html")
@@ -121,7 +121,7 @@ describe 'TC_021: app update code' do
       #puts "+<error_alert_msg> is "+app_brief(:error_alert_msg).text
       app_brief(:error_alert_msg).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
     end
-
+=end
   end
 
   context "app Settings part upload update code" do
