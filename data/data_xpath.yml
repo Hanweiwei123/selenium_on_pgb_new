@@ -244,7 +244,18 @@
     :android_unlock_keystore_pwd_input: //*[@id="key_keystore_pw"]
     :android_unlock_cancel_btn: //form[@class='key_unlock']/footer/button[1]
     :android_unlock_submit_btn: //form[@class='key_unlock']/footer/button[2]
+    :winphone_label:    //div[@id="app-builds"]/div[2]/div[2]/article/div/div/div
     :winphone_action:   //*[@id="app-builds"]/div[2]/div[2]/article[1]/div[1]/a
+    :winphone_options_firefox:   //*[@id="app-builds"]/div[2]/div[2]/article/div/div/select/optgroup[option[@value='no_key']]
+    :winphone_options:   //*[@id="app-builds"]/div[2]/div[2]/article/div/div/select
+    :winphone_no_key:    //*[@id="app-builds"]/div[2]/div[2]/article/div/div/select/optgroup[option[@value='no_key']]/option[1]
+    :winphone_new_key:   //*[@id="app-builds"]/div[2]/div[2]/article/div/div/select/optgroup[option[@value='no_key']]/option[2]
+    :winphone_pubid_label:  //*[@id="app-builds"]/div[2]/div[2]/article/div/div/select/optgroup[@class='unlocked']
+    :winphone_1st_pubid:  //*[@id="app-builds"]/div[2]/div[2]/article/div/div/select/optgroup[@class='unlocked']/option[1]
+    :winphone_title_input: //*[@id="key_title"]
+    :winphone_pubid_input: //*[@id="key_publisher_id"]
+    :winphone_cancel_btn: //*[@id="key_new"]/footer/button[1]
+    :winphone_submit_btn: //*[@id="key_new"]/footer/button[2]
     :winphone_rebuild:  //*[@id="app-builds"]/div[2]/div[2]/article[1]/div[1]/span/a
     :winphone_msg:  //*[@id="winphone_msg"]
     :webos_action:      //*[@id="app-builds"]/div[2]/div[3]/article[1]/div[1]/a
@@ -396,6 +407,17 @@
         :blackberry_2nd_cancel_btn: /html/body/div/form/footer/button[1]
         :blackberry_2nd_submit_btn: /html/body/div/form/footer/button[2]
         :blackberry_2nd_delete_btn: //*[@id="person-keys"]/table[3]/tbody/tr[2]/td[3]/a
+        :winphone_add_key_btn: //fieldset[@id="person-keys"]/table[4]/tfoot/tr/td/a
+        :winphone_title_label: //form[@id="key_new"]/fieldset/dl/dt/label
+        :winphone_title_input: //input[@id="key_title"]
+        :winphone_pubid_label: //form[@id="key_new"]/fieldset/dl[2]/dt/label
+        :winphone_pubid_input: //input[@id="key_publisher_id"]
+        :winphone_cancel_btn: //form[@id="key_new"]/footer/button[1]
+        :winphone_submit_btn: //form[@id="key_new"]/footer/button[2]
+        :winphone_1st_title_label: //fieldset[@id="person-keys"]/table[4]/tbody/tr/td
+        :winphone_1st_delete_btn: //fieldset[@id="person-keys"]/table[4]/tbody/tr/td[2]/a
+        :winphone_2st_title_label: //fieldset[@id="person-keys"]/table[4]/tbody/tr[2]/td
+        :winphone_2st_delete_btn: //fieldset[@id="person-keys"]/table[4]/tbody/tr[2]/td[2]/a
 :app_brief_detail:
     :app_title: /html/body/section/div/div/section[3]/article/section/div/h1
     :app_description: /html/body/section/div/div/section[3]/article/section/div[2]
@@ -415,6 +437,7 @@
     :link_sign_in_tab_submit_plugin: //*[@id="plugin-your"]/fieldset/a
     :please_sign_in_your: //*[@id="plugin-your"]/fieldset
     :please_sign_in_add: //*[@id="plugin-add"]/fieldset
+    :plugin_max_repo_size_label: //div[@id="plugin-add"]/fieldset/ol/li[4]
     :plugin_git_repository_url: //*[@id="plugin_git_url"]
     :plugin_git_repository_url_msg: //*[@id="plugin-add"]/fieldset/form/dl[1]/dd/div/span
     :optional_tag_or_branch: //*[@id="plugin-add"]/fieldset/form/dl[2]/dd/input
