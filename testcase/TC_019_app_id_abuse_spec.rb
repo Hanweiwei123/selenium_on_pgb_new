@@ -34,7 +34,7 @@ describe "TC_019: App Id #Abuse " do
     @driver.navigate.refresh; sleep 5
     @app_id = @new_app_page.first_app_id;
     puts "+ <first_app_id> is #{@app_id}"
-    new_app_locator(:ready_to_build_btn).click; sleep 5
+    new_app_locator(:ready_to_build_btn).click; sleep 10
     new_app_locator(:public_page_btn).click; sleep 3
     puts "+ <TC_019> before all outer --- end"
   end
