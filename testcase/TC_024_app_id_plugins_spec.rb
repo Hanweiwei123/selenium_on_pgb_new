@@ -37,8 +37,6 @@ describe "TC_024: app id plugins" do
     new_app_locator(:ready_to_build_btn).click; sleep 5
     @driver.navigate.refresh ; sleep 5
     @new_app_page.new_public_app_with_repo ("plugin_repo"); sleep 10
-    #
-    @driver.navigate.refresh ; sleep 5
     @app_id_plugin = @new_app_page.first_app_id
     new_app_locator(:ready_to_build_btn).click; sleep 5
     @driver.navigate.refresh ; sleep 5
