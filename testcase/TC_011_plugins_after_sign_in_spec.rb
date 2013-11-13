@@ -65,6 +65,8 @@ describe "TC_011: Plugins" do
       plugin_locator(:plugin_git_repository_url).send_keys($data[:plugin][:invalid_plugin][:url])
       plugin_locator(:optional_tag_or_branch).attribute("placeholder").should eql "master"
       plugin_locator(:btn_submit_plugin).click
+      plugin_locator(:btn_terms_cancle_plugin).click
+      plugin_locator(:btn_submit_plugin).click
       plugin_locator(:checkbox_accept_license).click
       plugin_locator(:btn_submit).click
       sleep 10
