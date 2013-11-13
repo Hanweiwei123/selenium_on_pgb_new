@@ -204,6 +204,10 @@ describe "TC_015: App Details #Builds" do
 
     it "IT_009: the >>webos<< app should be downloaded successfully" do
       if $data[:str][$lang][:builds_action_pending] != builds(:webos_action).text
+        if :chrome == ENV['PGBBROWSER'].to_sym
+          @driver.get @base_url + "\/apps\/"; sleep 5
+          @driver.get @base_url + "\/apps\/#{@app_id}\/install"; sleep 5
+        end
         builds(:webos_action).click; sleep 10
         download_with_different_browser
         sleep 10
@@ -218,6 +222,10 @@ describe "TC_015: App Details #Builds" do
     it "IT_010: the >>symbian<< app should be downloaded successfully" do
 
       if $data[:str][$lang][:builds_action_pending] != builds(:symbian_action).text
+        if :chrome == ENV['PGBBROWSER'].to_sym
+          @driver.get @base_url + "\/apps\/"; sleep 5
+          @driver.get @base_url + "\/apps\/#{@app_id}\/install"; sleep 5
+        end
         builds(:symbian_action).click; sleep 10
         download_with_different_browser
         sleep 10
