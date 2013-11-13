@@ -441,6 +441,7 @@
     :plugin_git_repository_url: //*[@id="plugin_git_url"]
     :plugin_git_repository_url_msg: //*[@id="plugin-add"]/fieldset/form/dl[1]/dd/div/span
     :optional_tag_or_branch: //*[@id="plugin-add"]/fieldset/form/dl[2]/dd/input
+    :btn_terms_cancle_plugin: //footer[button[@id="terms-submit-plugin"]]/button[1]
     :btn_submit_plugin: //*[@id="submit-plugin-btn"]
     :checkbox_accept_license: //*[@id="checkbox-accept-license"]
     :btn_reset: //*[@id="terms-form"]/footer/button[1]
