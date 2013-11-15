@@ -28,7 +28,7 @@ module HeaderFooterLocator
       :english => "en_US",
       :french => "fr_FR",
       :japanese => "ja_JP",
-      :chinese => "zh_CN"
+      #:chinese => "zh_CN"
   }
 
   def change_language_to(lang)
