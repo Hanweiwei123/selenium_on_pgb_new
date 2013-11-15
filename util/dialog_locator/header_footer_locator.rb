@@ -11,17 +11,17 @@ module HeaderFooterLocator
   end
 
   def sign_out
-    header_get(:account_navlink_edit).click
-    header_get(:account_navlink_sign_out).click
+    header(:account_navlink_edit).click
+    header(:account_navlink_sign_out).click
   end
 
   def account_notice
-    header_get(:account_notice)
+    header(:account_notice)
   end
 
   def go_to_page_edit_account
-    header_get(:account_navlink_edit).click
-    header_get(:account_navlink_edit_account).click
+    header(:account_navlink_edit).click
+    header(:account_navlink_edit_account).click
   end
 
   LANGS = {
