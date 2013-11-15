@@ -1,9 +1,13 @@
 #encoding: utf-8
 
 module HeaderFooterLocator
+  
+  def header(arg)
+    highlight_and_return @driver.find_element(:xpath => $data[:xpath][:header][arg])
+  end
 
-  define_method :header_get do |xpth|
-    @driver.find_element(:xpath => $data[:xpath][:header][xpth]) 
+  def footer(arg)
+    highlight_and_return @driver.find_element(:xpath => $data[:xpath][:footer][arg])
   end
 
   def sign_out
