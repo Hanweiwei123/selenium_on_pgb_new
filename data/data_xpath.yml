@@ -15,9 +15,16 @@
     :account_navlink_register: //*[@id="account-nav"]/a[2]
     :account_notice: /html/body/p
 :footer:
+    :nav_language: //*[@id="footer-navigation"]/h2[1]
     :nav_select_locale: //*[@id="select-locale"]
+    :navigation: //*[@id="footer-navigation"]/h2[2]
     :nav_apps: //*[@id="footer-navigation"]/nav/a[1]
     :nav_plugins: //*[@id="footer-navigation"]/nav/a[2]
+    :nav_docs: //*[@id="footer-navigation"]/nav/a[3]
+    :nav_blog: //*[@id="footer-navigation"]/nav/a[4]
+    :nav_help: //*[@id="footer-navigation"]/nav/a[5]
+    :nav_account: //*[@id="footer-navigation"]/nav/a[6]
+    :nav_sign_out: //*[@id="footer-navigation"]/nav/a[7]
 :sign_in_page: 
     :id_textinput: //*[@id='person_email']
     :password_textinput: //*[@id='person_password']
