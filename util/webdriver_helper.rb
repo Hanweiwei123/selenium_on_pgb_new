@@ -144,6 +144,10 @@ module WebdriverHelper
             " oldObj.parentNode.replaceChild(newObject,oldObj); "
         )
     end
+    
+    def go_to_apps_home_page
+      @driver.get @base_url+"\/apps?locale=" + $lang.to_s
+    end
 
     def go_to_page(page, url = "") 
       urls = $data[:url]  
