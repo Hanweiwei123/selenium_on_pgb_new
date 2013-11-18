@@ -32,7 +32,7 @@ describe "TC_010: plugins_before_sign_in" do
     @driver.manage.window.maximize
     @driver.manage.timeouts.implicit_wait = 30
     @driver.get path_format_locale("",@base_url)
-    header_get(:main_nav_link_plugins).click
+    header(:main_nav_link_plugins).click
   end
 
   after(:each) do  # Take screenshot in case of failure
