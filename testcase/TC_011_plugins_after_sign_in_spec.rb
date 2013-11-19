@@ -35,7 +35,7 @@ describe "TC_011: Plugins" do
     @sign_in_page.sign_in_with_adobe_id
     sleep 5
     @driver.current_url.should == @base_url + $data[:url][:sign_in_successfully]
-    header_get(:main_nav_link_plugins).click
+    header(:main_nav_link_plugins).click
   end
 
   after(:each) do # Take screenshot in case of failure
@@ -90,7 +90,7 @@ describe "TC_011: Plugins" do
     it "IT_004: should match to localized msg 'duplicated'" do
       #  @driver.get path_format_locale("/plugins","")
       # @driver.get "@base_url.to_s + /plugins"
-      header_get(:main_nav_link_plugins).click
+      header(:main_nav_link_plugins).click
       plugin_locator(:tab_submit_plugin).click
       plugin_locator(:plugin_git_repository_url).clear
       plugin_locator(:plugin_git_repository_url).send_keys($data[:plugin][:new_plugin][:url])
