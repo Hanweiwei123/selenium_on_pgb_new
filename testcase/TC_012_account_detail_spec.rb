@@ -52,7 +52,7 @@ describe "TC_012: 'Account details' page" do
     it "IT_002: should link Github account successfully" do 
       
       ea_account_details(:connect_a_github_id_btn).click; sleep 10
-      @edit_account_page.enter_github_account_and_sign_in_with( $data[:user][$lang][:adobe_id_free_002][:id],  $data[:user][$lang][:adobe_id_free_002][:password] )
+      @edit_account_page.enter_github_account_and_sign_in_with( $data[:user][$lang][:adobe_id_free_final_step][:id],  $data[:user][$lang][:adobe_id_free_final_step][:password] )
       sleep 5
       @driver.current_url.should =~ /https:\/\/buildstage.phonegap.com\/people\/edit/
       ea_account_details(:notification).text.should eql $data[:str][$lang][:edit_account_connect_github_account_successfully]
