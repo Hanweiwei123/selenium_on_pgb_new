@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-:global_str: "!>[~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉ҝҾӲӼͲϟϺ͵ͺͼ;΄Όήϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼ中国漢語日本ひらがなカタカナ한국어조선말"
+:global_str: "!>[~12AFdz¡¼«¶ÇÐäÿ×÷ĊęĮĿōŘťſЊџЛяѨ҉ҝҾӲӼͲϟϺ͵ͺͼ;΄Όήϋϗϯϲϳ϶ϸϼϾἇἿώ῀ῼ中国漢語日本ひらがなカタカナ한국어조선말"
 
 :en_US: &id001 
     :adobe_id_free_001:
@@ -19,11 +19,11 @@
         :id: "pgbtesting.005@gmail.com"
         :password: "pgbtesting001"
     :adobe_id_free_final_step: 
-        :id: "dil45216+test_free_finalstep@adobetest.com"
-        :password: "abcd1234"
+        :id: "dil42666+test_free_finalstep@adobetest.com"
+        :password: "3edc$RFV"
     :github_id_only:
-        :id: "dil45216+test_free_003@adobetest.com"
-        :password: "abcd1234"
+        :id: "dil42666+test_free_003@adobetest.com"
+        :password: "3edc$RFV"
     :github_id_disconnected_github:
         :id: "pgbtesting.005@gmail.com"
         :password: "pgbtesting001"
