@@ -1,10 +1,10 @@
 #encoding: utf-8
 
 :new_plugin:
-    :url: "https://github.com/phonegp-007/phonegap-facebook-plugin.git"
+    :url: "https://github.com/Hanweiwei123/phonegap-facebook-plugin.git"
     :branch: "version1"
 :dup_plugin:
-    :url: "https://github.com/phonegp-007/phonegap-facebook-plugin.git"
+    :url: "https://github.com/Hanweiwei123/phonegap-facebook-plugin.git"
     :branch: "version1"
 :invalid_plugin:
     :url: "xxxxx"
