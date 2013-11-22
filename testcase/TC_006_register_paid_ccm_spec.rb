@@ -48,7 +48,7 @@ describe "TC_006: Register paid CCM account" do
         end
     end
 
-    it "IT_001: It could create two private apps when using the paid ccm account: dil40562+stagedeannual@adobetest.com" do 
+    it "IT_001: It could create two private apps when using the paid ccm account: dil40562+teamfra1128@adobetest.com" do 
         sleep 5
         fill_in register_locator(:adobe_id_frame_adobe_id_input), :with => $data[:user][$lang][:ccm_acnt_002][:id]
         fill_in register_locator(:adobe_id_frame_password_input), :with => $data[:user][$lang][:ccm_acnt_002][:password]
