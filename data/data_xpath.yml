@@ -453,3 +453,4 @@
     :checkbox_accept_license: //*[@id="checkbox-accept-license"]
     :btn_reset: //*[@id="terms-form"]/footer/button[1]
     :btn_submit: //*[@id="terms-submit-plugin"]
+    :plugin_id_abuse_btn: //footer[@id="app-footer"]/div/a
