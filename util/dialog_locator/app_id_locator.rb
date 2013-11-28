@@ -29,7 +29,7 @@ module AppIdLocator
   def install_btn(platform)
     platforms = ['ios', 'android', 'webos', 'blackberry', 'symbian', 'winphone']
     raise "Not support platform: #{platform}" unless platforms.include?(platform)
-    app = @driver.find_element(:xpath, "//div[@class=\"packages clearfix\"]/div[@class=\"platform ui-block #{platform}\"]/a")
+    app = @driver.find_element(:xpath, "//div[@class='packages clearfix']/div[@class='platform ui-block #{platform}']/a")
     app
   end
  
