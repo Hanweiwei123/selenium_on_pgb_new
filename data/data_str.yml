@@ -243,7 +243,7 @@
     :app_id_abuse_why_Other_label: "Autre"
     :app_id_abuse_description_label: "Veuillez décrire le problème dont vous souhaitez nous faire part."
     :app_id_abuse_copyright_violation_label: "Pour signaler une violation des droits d’auteur, reportez-vous à la section 17 des Conditions d’utilisation."
-    :app_id_abuse_report_success_title: "unlocalized"
+    :app_id_abuse_report_success_title: "Merci d’avoir envoyé un rapport d’infraction. Il sera étudié par un employé d’Adobe. Vous serez contacté s’il manque des informations."
 :ja_JP:
     :apps_title: "アプリケーション"
     :home_title: "ホーム"
@@ -365,5 +365,5 @@
     :app_id_abuse_why_Other_label: "その他"
     :app_id_abuse_description_label: "問題について説明してください。"
     :app_id_abuse_copyright_violation_label: "著作権の侵害を報告するには、利用条件の第 17 条を参照してください。"
-    :app_id_abuse_report_success_title: "unlocalized"
+    :app_id_abuse_report_success_title: "不正をご報告いただきありがとうございます。アドビの担当者が確認します。追加の情報が必要な場合は連絡させていただく場合があります。"
     :no_meaning_just_placeholder: "xxx"
