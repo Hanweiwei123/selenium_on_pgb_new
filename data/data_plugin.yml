@@ -7,4 +7,30 @@
     :url: "https://github.com/Hanweiwei123/phonegap-facebook-plugin.git"
     :branch: "version1"
 :invalid_plugin:
-    :url: "xxxxx"
+    :invaild_version:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error1.git"
+        :branch: "master"
+    :no_version:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error2.git"
+        :branch: "master"
+    :invaild_attribute:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error3.git"
+        :branch: "master"
+    :no_plugin:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error4.git"
+        :branch: "master"
+    :no_platform:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error5.git"
+        :branch: "master"
+    :no_id:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error6.git"
+        :branch: "master"
+    :no_description:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error7.git"
+        :branch: "master"
+    :malformed:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error8.git"
+        :branch: "master"
+    :no_name:
+        :url: "https://github.com/Hanweiwei123/pgb-plugin-error9.git"
+        :branch: "master"
