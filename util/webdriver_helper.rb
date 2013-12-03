@@ -23,9 +23,13 @@ module WebdriverHelper
     end
 
     def highlight(element)
+      begin
         @driver.execute_script("arguments[0].style.border = '2px solid red'", element)
         sleep 1
         @driver.execute_script("arguments[0].style.border = '1px solid silver'", element)
+      rescue Exception => ex
+        puts " +<Exception> highlight element error"
+      end
     end
 
     # detect operating system (win or mac only right now)
