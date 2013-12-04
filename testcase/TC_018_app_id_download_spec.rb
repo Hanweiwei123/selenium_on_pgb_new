@@ -73,8 +73,7 @@ describe "TC_018: App Id #Downloads" do
         begin
           timeout(120) {
             while $data[:str][$lang][:builds_action_pending] == builds(:"#{platform}_action").text do
-              @driver.navigate.refresh
-              sleep 5
+              @driver.navigate.refresh; sleep 10
               puts "+ action: " + builds(:"#{platform}_action").text
             end
             if builds(:"#{platform}_action").text != $data[:str][$lang][:builds_action_error]
