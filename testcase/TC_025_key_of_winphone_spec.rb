@@ -31,7 +31,7 @@ describe "TC_025: app id plugins" do
     @name_screenshot = "TC_025_IT_"
     @base_url = base_url
     @driver = driver
-    @driver.manage.timeouts.implicit_wait = 30
+    @driver.manage.timeouts.implicit_wait = 100
     @driver.manage.window.maximize
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
 
@@ -69,7 +69,7 @@ describe "TC_025: app id plugins" do
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:winphone_action).text do
           @driver.navigate.refresh
-          sleep 5
+          sleep 10
           puts "+ action: " + builds(:winphone_action).text
         end
         break
@@ -95,7 +95,7 @@ describe "TC_025: app id plugins" do
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:winphone_action).text do
           @driver.navigate.refresh
-          sleep 5
+          sleep 10
           puts "+ action: " + builds(:winphone_action).text
         end
         break
@@ -116,8 +116,7 @@ describe "TC_025: app id plugins" do
       @driver.switch_to.alert.accept;sleep 5
       @driver.navigate.refresh; sleep 5
       ea_signing_keys(:signing_keys_tab).click
-      winphone_key_count = @driver.find_element(:xpath => "//*[@id='person-keys']/table[4]/tbody").find_elements(:tag_name => "tr").count
-      winphone_key_count.should eql 0
+      is_element_present_by(:xpath,"//*[@id='person-keys']/table[4]/tbody/tr").should eql false
     end
 
     it "IT_005: the new-added WindowsPhone signing_key should be locked after adding successfully" do
@@ -134,7 +133,7 @@ describe "TC_025: app id plugins" do
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:winphone_action).text do
           @driver.navigate.refresh
-          sleep 5
+          sleep 10
           puts "+ action: " + builds(:winphone_action).text
         end
         break
@@ -151,8 +150,7 @@ describe "TC_025: app id plugins" do
       @driver.switch_to.alert.accept;sleep 5
       @driver.navigate.refresh; sleep 5
       ea_signing_keys(:signing_keys_tab).click
-      winphone_key_count = @driver.find_element(:xpath => "//*[@id='person-keys']/table[4]/tbody").find_elements(:tag_name => "tr").count
-      winphone_key_count.should eql 0
+      is_element_present_by(:xpath,"//*[@id='person-keys']/table[4]/tbody/tr").should eql false
     end
 
   end
