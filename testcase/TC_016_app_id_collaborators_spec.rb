@@ -83,13 +83,7 @@ describe "TC_016: App Details #Collaborators" do
       @app_collaborators_page.add_a_collaborator(@invalid_email, $data[:str][$lang][:role_tester])
       
       @driver.current_url.should =~ /.*collaborators/
-      if is_element_present(:app_collaborators_page,:collaborators_block)
-        number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
-        number_of_collaborators.should eql 0
-      else
-        puts "+<error> element not display."
-        1.should_not eql 1
-      end
+      is_element_present_by(:xpath,"//div[@id='app-collaborators']/div/ul/li").should eql false
     end
 
     it "IT_002: should be one role_tester in the list" do
@@ -132,13 +126,7 @@ describe "TC_016: App Details #Collaborators" do
       sleep 5
       @driver.navigate.refresh ; sleep 5
       @driver.current_url.should =~ /.*collaborators/
-      if is_element_present(:app_collaborators_page,:collaborators_block)
-        number_of_collaborators = collaborators(:collaborators_block).find_elements(:tag_name => 'li').count
-        number_of_collaborators.should eql 0
-      else
-        puts "+<error> element not display."
-        1.should_not eql 1
-      end
+      is_element_present_by(:xpath,"//div[@id='app-collaborators']/div/ul/li").should eql false
     end
 
   end
