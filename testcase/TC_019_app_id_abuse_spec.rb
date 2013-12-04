@@ -36,6 +36,7 @@ describe "TC_019: App Id #Abuse " do
     puts "+ <first_app_id> is #{@app_id}"
     new_app_locator(:ready_to_build_btn).click; sleep 10
     new_app_locator(:public_page_btn).click; sleep 3
+    @driver.current_url.should include "share"
     puts "+ <TC_019> before all outer --- end"
   end
 
