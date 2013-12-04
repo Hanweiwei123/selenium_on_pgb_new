@@ -76,8 +76,7 @@ describe "TC_015: App Details #Builds" do
 
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:ios_action).text do
-          @driver.navigate.refresh
-          sleep 5
+          @driver.navigate.refresh; sleep 10
           puts "+ action: " + builds(:ios_action).text
         end
         break
@@ -106,8 +105,7 @@ describe "TC_015: App Details #Builds" do
 
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
-          @driver.navigate.refresh
-          sleep 5
+          @driver.navigate.refresh; sleep 10
           puts "+ action: " + builds(:android_action).text
         end
         break
@@ -125,8 +123,7 @@ describe "TC_015: App Details #Builds" do
 
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:winphone_action).text do
-          @driver.navigate.refresh
-          sleep 5
+          @driver.navigate.refresh; sleep 10
           puts "+ action: " + builds(:winphone_action).text
         end
         break
@@ -140,8 +137,7 @@ describe "TC_015: App Details #Builds" do
 
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do
-          @driver.navigate.refresh
-          sleep 5
+          @driver.navigate.refresh; sleep 10
           puts "+ action: " + builds(:blackberry_action).text
         end
         break
@@ -159,8 +155,7 @@ describe "TC_015: App Details #Builds" do
 
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:webos_action).text do
-          @driver.navigate.refresh
-          sleep 5
+          @driver.navigate.refresh; sleep 10
           puts "+ action: " + builds(:webos_action).text
         end
         break
@@ -174,8 +169,7 @@ describe "TC_015: App Details #Builds" do
 
       timeout(120) {
         while $data[:str][$lang][:builds_action_pending] == builds(:symbian_action).text do
-          @driver.navigate.refresh
-          sleep 5
+          @driver.navigate.refresh; sleep 10
           puts "+ action: " + builds(:symbian_action).text
         end
         break
