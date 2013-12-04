@@ -61,9 +61,10 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
 
         it "IT_003: the number of iOS signing_keys should be 0 after deleting the one added above " do
            @edit_account_page.delete_1st_ios_signing_key
-           sleep 10
-           ios_key_count = @driver.find_element(:xpath => "//*[@id='person-keys']/table[1]/tbody").find_elements(:tag_name => "tr").count
-           ios_key_count.should eql 0
+           sleep 5
+           @driver.navigate.refresh; sleep 5
+           ea_signing_keys(:signing_keys_tab).click
+           is_element_present_by(:xpath,"//*[@id='person-keys']/table[1]/tbody/tr").should eql false
         end
         
         it "IT_004: the new-added Android signing_key should be locked after adding successfully" do
@@ -78,9 +79,10 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
         
         it "IT_006: the number of Android signing-key should be 0 after deleting the one added above" do
            @edit_account_page.delete_1st_android_signing_key
-           sleep 10
-           android_key_count = @driver.find_element(:xpath => "//*[@id='person-keys']/table[2]/tbody").find_elements(:tag_name => "tr").count
-           android_key_count.should eql 0
+           sleep 5
+           @driver.navigate.refresh; sleep 5
+           ea_signing_keys(:signing_keys_tab).click
+           is_element_present_by(:xpath,"//*[@id='person-keys']/table[2]/tbody/tr").should eql false
         end
         
         it "IT_007: the new-added BlackBerry signing_key should be locked after adding successfully" do
@@ -95,9 +97,10 @@ describe "TC_009: signing_key_add_and_unlock_rspec" do
         
         it "IT_009: the number of BlackBerry signing-key should be 0 after deleting the one added above" do
            @edit_account_page.delete_1st_blackberry_signing_key
-           sleep 10
-           blackberry_key_count = @driver.find_element(:xpath => "//*[@id='person-keys']/table[3]/tbody").find_elements(:tag_name => "tr").count
-           blackberry_key_count.should eql 0
+           sleep 5
+           @driver.navigate.refresh; sleep 5
+           ea_signing_keys(:signing_keys_tab).click
+           is_element_present_by(:xpath,"//*[@id='person-keys']/table[3]/tbody/tr").should eql false
         end
 
     end
