@@ -186,6 +186,18 @@ module WebdriverHelper
       end
     end
     
+    def is_element_present_by (mode,value)
+      begin
+        @driver.manage.timeouts.implicit_wait = 8
+        @driver.find_element(mode => value)
+        @driver.manage.timeouts.implicit_wait = 30
+        return  true
+      rescue Exception => ex
+        puts "Exception: Unable to locate element"
+        return  false
+      end
+    end
+    
     def download_with_different_browser
       case ENV['PGBBROWSER'].to_sym
         when :firefox
