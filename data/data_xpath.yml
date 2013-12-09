@@ -361,7 +361,7 @@
         :person_ssh_key_text: //*[@id="person_ssh_key"]
         :save_btn: //*[@id="person-code"]/form/footer/input
     :sks:
-        :signing_keys_tab: //*[@id="people-edit-controls"]/nav/a[3]
+        :signing_keys_tab: //*[@id="people-edit-controls"]/nav/a[contains(@class,'keys')]
         :ios_add_key_btn: //*[@id="person-keys"]/table[1]/tfoot/tr/td/a
         :ios_title_input: //*[@id="key_title"]
         :ios_choose_cert_file_btn:  //*[@id="key_cert_file"]
