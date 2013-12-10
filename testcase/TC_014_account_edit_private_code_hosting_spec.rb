@@ -1,3 +1,4 @@
+=begin
 #encoding: utf-8
 
 require 'rubygems'
@@ -81,3 +82,4 @@ describe "TC_014: Edit 'private code hosting' at Edit account page" do
   end
 
 end
+=end
