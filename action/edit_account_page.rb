@@ -346,7 +346,7 @@ class EditAccountPage
 
     def get_status_of_signing_key(title ,platform)
       make_sure_signing_keys_tab
-      ele=highlight_and_return @driver.find_element(:xpath => "//fieldset[@id='person-keys']/table[contains(@data-platform,'#{platform}')]/tbody/tr[td[contains(text(),'#{title}')]]/td[3]/a")
+      ele=highlight_and_return @driver.find_element(:xpath => "//fieldset[@id='person-keys']/table[contains(@data-platform,'#{platform}')]/tbody/tr[td[contains(text(),'#{title}')]]/td[@class='status']/a")
       return ele.attribute("title")
       #  //fieldset[@id='person-keys']/table[contains(@data-platform,'ios')]/tbody/tr[td[contains(text(),'dd')]]/td[3]/a
     end
