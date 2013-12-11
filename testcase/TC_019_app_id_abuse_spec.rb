@@ -35,6 +35,14 @@ describe "TC_019: App Id #Abuse " do
     @app_id = @new_app_page.first_app_id;
     puts "+ <first_app_id> is #{@app_id}"
     new_app_locator(:ready_to_build_btn).click; sleep 10
+    until is_element_present(:new_app_page,:clickable_app_title)
+      puts "+ <message> new app has not rebuild successfully"
+      @driver.navigate.refresh; sleep 5
+      if new_app_locator(:ready_to_build_btn).attribute("class") =="ready-btn primary btn"
+        new_app_locator(:ready_to_build_btn).click;sleep 10
+        puts "+ <message> rebuild new app again"
+      end
+    end
     new_app_locator(:public_page_btn).click; sleep 3
     @driver.current_url.should include "share"
     puts "+ <TC_019> before all outer --- end"
