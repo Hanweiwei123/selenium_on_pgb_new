@@ -31,7 +31,7 @@ describe "TC_018: App Id #Downloads" do
     @unavailable_downloads = []
     @pending_buildings = []
     @download_dir = Dir.home + "/Downloads"
-    @driver.manage.timeouts.implicit_wait = 30
+    @driver.manage.timeouts.implicit_wait = 100
     @driver.manage.window.maximize
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
 
