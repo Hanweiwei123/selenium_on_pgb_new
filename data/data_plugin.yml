@@ -1,11 +1,11 @@
 #encoding: utf-8
 
 :new_plugin:
-    :url: "https://github.com/Hanweiwei123/phonegap-facebook-plugin.git"
-    :branch: "version1"
+    :url: "https://github.com/Hanweiwei123/ChildBrowser.git"
+    :branch: "master"
 :dup_plugin:
-    :url: "https://github.com/Hanweiwei123/phonegap-facebook-plugin.git"
-    :branch: "version1"
+    :url: "https://github.com/Hanweiwei123/ChildBrowser.git"
+    :branch: "master"
 :invalid_plugin:
     :invaild_version:
         :url: "https://github.com/Hanweiwei123/pgb-plugin-error1.git"
@@ -33,4 +33,7 @@
         :branch: "master"
     :no_name:
         :url: "https://github.com/Hanweiwei123/pgb-plugin-error9.git"
+        :branch: "master"
+    :compiled_binaries:
+        :url: "https://github.com/Hanweiwei123/phonegap-facebook-plugin.git"
         :branch: "master"
