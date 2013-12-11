@@ -72,14 +72,13 @@ describe "TC_026: Sign in" do
       header(:main_nav_link_plugins).click
       @driver.current_url.should eql @base_url+$data[:url][:plugins]
       go_to_apps_home_page
-      header(:main_nav_link_docs).click
-      @driver.current_url.should eql @base_url+$data[:url][:docs]
+      header(:main_nav_link_docs).attribute("href").should eql $data[:url][:docs]+"("+$lang.to_s[0,2]+")"
       go_to_apps_home_page
       header(:main_nav_link_blog).attribute("href").should eql $data[:url][:blog]
       header(:main_nav_link_faq).click
       @driver.current_url.should eql @base_url+$data[:url][:FAQ]
       go_to_apps_home_page
-      header(:main_nav_link_support).attribute("href").should eql $data[:url][:support]
+      header(:main_nav_link_support).attribute("href").should eql $data[:url][:support]+"("+$lang.to_s[0,2]+")"
     end
   end
 
@@ -104,8 +103,7 @@ describe "TC_026: Sign in" do
       footer(:nav_plugins).click
       @driver.current_url.should eql @base_url+$data[:url][:plugins]
       go_to_apps_home_page
-      footer(:nav_docs).click
-      @driver.current_url.should eql @base_url+$data[:url][:docs]
+      footer(:nav_docs).attribute("href").should eql $data[:url][:docs]+"("+$lang.to_s[0,2]+")"
       go_to_apps_home_page
       footer(:nav_blog).attribute("href").should eql $data[:url][:blog]
       footer(:nav_help).attribute("href").should eql $data[:url][:help]
