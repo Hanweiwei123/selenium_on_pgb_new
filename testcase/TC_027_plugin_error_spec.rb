@@ -145,6 +145,16 @@ describe "TC_027: check string of error plugins" do
       sleep 5
       plugin_locator(:header_notifications).text.should eql $data[:str][$lang][:plugin_no_name_error]
     end
+    
+     it "IT_010: check Compiled binaries are not allowed in user submitted Plugins string Localized" do
+      plugin_locator(:plugin_git_repository_url).clear
+      plugin_locator(:plugin_git_repository_url).send_keys($data[:plugin][:invalid_plugin][:compiled_binaries][:url])
+      plugin_locator(:btn_submit_plugin).click
+      plugin_locator(:checkbox_accept_license).click
+      plugin_locator(:btn_submit).click # will submit the plugin
+      sleep 10
+      plugin_locator(:header_notifications).text.should include $data[:str][$lang][:plugin_compiled_binaries_error]
+    end
   end
 
   context "Trying to submit plugin with free Adobe ID connected Github" do
@@ -165,11 +175,11 @@ describe "TC_027: check string of error plugins" do
       sign_out
     end
 
-    it "IT_010: check no name string Localized" do
+    it "IT_011: check no name string Localized" do
       plugin_locator(:plugin_git_repository_url).attribute('placeholder').to_s.should eql $data[:str][$lang][:PGB_find_existing_repo_or_paste_git_repo]
     end
 
-    it "IT_011: check no name string Localized" do
+    it "IT_012: check no name string Localized" do
       li_count = @driver.find_elements(:xpath => "//div[input[@id='plugin_git_url']]/ul/li").count
       puts "+li count: #{li_count}"
       li_count.should_not eql 0
