@@ -213,6 +213,22 @@ module WebdriverHelper
           puts "+ <message> Unsupported Browser!!!"
       end
     end
+    
+    #description replacing string to args like when check loc string'App is too large. App must be less than {0} MB.'
+    def reorganization_string_resources(array,value)
+      length = array.length-1
+      puts "+ <message> before replacing value is #{value}"
+      if (value.include? "{0}")
+        for i in 0..length do
+          puts "+ <message> replacing: {#{i}} to #{array[i]}"
+          value=value.sub("{#{i}}",array[i])
+        end
+        puts "+ <message> after replacing value is #{value}"
+        return value
+      else
+        puts "+ <exception> string has no args to replace"
+      end
+    end
 
     # To count the each test case's 'it' block order.
     # Ultimately it is used to name the screenshot when failure happens 
