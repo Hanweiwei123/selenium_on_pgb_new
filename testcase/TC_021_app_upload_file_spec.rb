@@ -59,7 +59,8 @@ describe 'TC_021: app update code' do
     it "IT_002:check error msg localized when new app with a large file" do
       @new_app_page.new_app_with_zip("invalid_large_file");
       sleep 5
-      new_app_locator(:alert_msg_of_largefile).text.should eql $data[:str][$lang][:app_id_update_code_invalid_large_file_msg]
+      alert_msg_of_largefile=reorganization_string_resources(["15"],$data[:str][$lang][:app_id_update_code_invalid_large_file_msg])
+      new_app_locator(:alert_msg_of_largefile).text.should eql alert_msg_of_largefile
     end
 
   end
@@ -214,7 +215,8 @@ describe 'TC_021: app update code' do
     it "IT_010:check error msg localized when new app with a large repo" do
       @new_app_page.new_public_app_with_repo("large_repo");
       sleep 5
-      new_app_locator(:alert_msg_of_largefile).text.should eql $data[:str][$lang][:new_app_with_invalid_large_file_msg]
+      alert_msg_of_largefile=reorganization_string_resources(["15"],$data[:str][$lang][:new_app_with_invalid_large_file_msg])
+      new_app_locator(:alert_msg_of_largefile).text.should eql alert_msg_of_largefile
     end
     
   end
