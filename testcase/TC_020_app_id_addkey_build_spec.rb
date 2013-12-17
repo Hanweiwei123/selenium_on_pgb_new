@@ -28,7 +28,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
     @download_dir = Dir.home + "/Downloads"
     @driver.manage.window.maximize
     @driver.execute_script("window.resizeTo(screen.width,screen.height)")
-    @driver.manage.timeouts.implicit_wait = 30
+    @driver.manage.timeouts.implicit_wait = 100
 
     @new_app_page = NewAppPage.new :driver => @driver,
                                    :base_url =>@base_url ,
@@ -71,7 +71,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
       timeout(60) {
         while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
           @driver.navigate.refresh
-          sleep 5
+          sleep 10
           puts "+ action: " + builds(:android_action).text
         end
       }
@@ -86,7 +86,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
       timeout(60) {
         while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do
           @driver.navigate.refresh
-          sleep 5
+          sleep 10
           puts "+ action: " + builds(:blackberry_action).text
         end
       }
@@ -101,7 +101,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
       timeout(60) {
         while $data[:str][$lang][:builds_action_pending] == builds(:ios_action).text do
           @driver.navigate.refresh
-          sleep 5
+          sleep 10
           puts "+ action: " + builds(:ios_action).text
         end
       }
@@ -149,7 +149,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
        timeout(120) {
          while $data[:str][$lang][:builds_action_pending] == builds(:ios_action).text do
            @driver.navigate.refresh
-           sleep 5
+           sleep 10
            puts "+ action: " + builds(:ios_action).text
          end
        }
@@ -179,7 +179,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
        timeout(60) {
          while $data[:str][$lang][:builds_action_pending] == builds(:android_action).text do
            @driver.navigate.refresh
-           sleep 5
+           sleep 10
            puts "+ action: " + builds(:android_action).text
          end
        }
@@ -209,7 +209,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
        timeout(120) {
          while $data[:str][$lang][:builds_action_pending] == builds(:blackberry_action).text do
            @driver.navigate.refresh
-           sleep 5
+           sleep 10
            puts "+ action: " + builds(:blackberry_action).text
          end
        }
