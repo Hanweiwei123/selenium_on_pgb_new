@@ -7,7 +7,7 @@ module AppIdLocator
   end
 
   def builds(arg)
-    highlight_and_return @driver.find_element(:xpath => $data[:xpath][:app_builds_page][arg])
+    @driver.find_element(:xpath => $data[:xpath][:app_builds_page][arg])
   end
   
   def plugins(arg)
