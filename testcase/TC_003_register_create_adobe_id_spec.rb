@@ -100,7 +100,7 @@ describe "TC_003: Register -> create an Adobe ID with provided email" do
 
     it "IT_006: page direct to '/apps' page after successfully new Adobe ID was created with valid appropriate email and password" do 
         @user = @user_info.clone
-        @user[:email_address] ="dil45216+test_" + @str_name + "@adobetest.com"
+        @user[:email_address] ="dil42666+test_" + @str_name + "@adobetest.com"
         @user[:password] = "password"
         @user[:retype_pass] = "password"
 
