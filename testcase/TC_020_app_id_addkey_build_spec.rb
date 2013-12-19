@@ -115,14 +115,14 @@ describe "TC_020: App Details #Builds add key and rebuild" do
   end
 
   context "Build with unlocked-keys by incorrect password and check the error message" do
-
+=begin
      it "IT_004: iOS error message should be localized" do
        @app_build_page.to_unlock_ios_signing_key "invalid"
        builds(:ios_rebuild).click;  sleep 20
        error_msg = @app_build_page.ios_get_error_msg_of_the_signing_key
        error_msg.should eql $data[:str][$lang][:error_msg_ios_build_with_unlocked_signing_key_with_invalid_psd]
      end
-
+=end
      it "IT_005: Android error message should be localized" do
        @app_build_page.to_unlock_android_signing_key "invalid"
        builds(:android_rebuild).click;  sleep 20
@@ -140,7 +140,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
   end
 
   context "Build with unlocked-keys and download" do
-
+=begin
      it "IT_007: should download the >>iOS<< app successfully" do
        @app_build_page.ios_add_signing_key
        sleep 10
@@ -170,7 +170,7 @@ describe "TC_020: App Details #Builds add key and rebuild" do
          1.should_not eql 1
        end
      end
-
+=end
      it "IT_008: should download the >>Android<< app successfully" do
        @app_build_page.android_add_signing_key
        sleep 10
