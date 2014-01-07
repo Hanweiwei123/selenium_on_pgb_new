@@ -74,6 +74,12 @@ describe "TC_005: Register an free plan account with Github ID" do
           sign_in_github_locator(:allow_access_btn).click
           sleep 3
         end
+        register_locator(:github_select_a_country).find_elements(:tag_name => "option").each do |country|
+          if(country.text == "")
+            country.click
+            break
+          end
+        end
         register_locator(:github_accept_the_adobe_terms).click
         register_locator(:github_complete_my_registration).click; sleep 3
         register_locator(:github_warning_message).text.should eql $data[:str][$lang][:PGB_alert_you_must_select_a_country]
