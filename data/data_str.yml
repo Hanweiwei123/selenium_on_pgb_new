@@ -74,7 +74,7 @@
     :plugin_no_description_error: "Plugin.xml has no description element"
     :plugin_malformed_error: "Malformed xml in plugin.xml file"
     :plugin_no_name_error: "Plugin.xml has no name element"
-    :plugin_compiled_binaries_error: "Compiled binaries are not allowed in user submitted Plugins"
+    :plugin_compiled_binaries_error: "Compiled binaries are not allowed in user submitted plugins"
     :edit_account_connect_github_account_successfully: "Your GitHub account has been linked successfully."
     :edit_account_connect_a_github_id: "Connect a GitHub ID"
     :ad_no_token: "no token"
