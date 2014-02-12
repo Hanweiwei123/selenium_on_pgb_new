@@ -152,7 +152,9 @@ https://www.dropbox.com/s/fd9cvodechaj26l/selenium_Logical_view_Draft.png
     TC_022_singing_key_consist_AccountToBuild_spec.rb
     TC_023_singing_key_consist_BuildToAccount_spec.rb
     TC_024_app_id_plugins_spec.rb
-    
+    TC_025_key_of_winphone_spec.rb
+    TC_026_header_footer_spec.rb
+    TC_027_plugin_error_spec.rb
 
 
 
